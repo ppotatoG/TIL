@@ -1,3 +1,6 @@
 [submodule "Arduino"]
 	path = Arduino
 	url = https://github.com/ppotatoG/Arduino.git
+[submodule "bxsliderSample"]
+	path = bxsliderSample
+	url = https://github.com/ppotatoG/bxsliderSample.git
