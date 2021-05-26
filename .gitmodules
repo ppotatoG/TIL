@@ -4,3 +4,6 @@
 [submodule "bxsliderSample"]
 	path = bxsliderSample
 	url = https://github.com/ppotatoG/bxsliderSample.git
+[submodule "bigCursor"]
+	path = bigCursor
+	url = https://github.com/ppotatoG/bigCursor.git
