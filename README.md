@@ -3,8 +3,9 @@
 ### checkbox
 [demo](https://ppotatog.github.io/checkbox)
 
-- box안에서 작동되는 짱 큰 커서 
-- 사용하는 사람이 있을까?
+- input 단일체크 기능
+- 클릭된 this에 color 추가
+- label 대신 checkbox를 사용하는 이유는 뭘까
 <br><br>
 ### bxslider Sample
 
