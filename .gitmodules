@@ -7,3 +7,6 @@
 [submodule "bigCursor"]
 	path = bigCursor
 	url = https://github.com/ppotatoG/bigCursor.git
+[submodule "checkbox"]
+	path = checkbox
+	url = https://github.com/ppotatoG/checkbox.git
