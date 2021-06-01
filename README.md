@@ -1,7 +1,7 @@
 ## Today, I learned
 
 ### checkbox
-[demo](https://ppotatog.github.io/TIL/TIL/checkbox)
+[demo](https://ppotatog.github.io/TIL/checkbox)
 
 - input 단일체크 기능
 - 클릭된 this에 color 추가
