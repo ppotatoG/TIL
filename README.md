@@ -1,5 +1,32 @@
 ## Today, I learned
 
+## How to github submodule
+
+add
+``` 
+git submodule add (repository url)
+```
+
+first push
+``` 
+git push origin master
+
+```
+submodule remove
+
+
+```
+git rm --force --cached bxsliderSample
+```
+```
+.gitmodules 메모장 내에서 삭제시킬 서브모듈 정보 삭제
+```
+```
+git add .
+git commit -m "message"
+git push
+```
+
 ### checkbox
 [demo](https://ppotatog.github.io/TIL/checkbox)
 
