@@ -111,3 +111,7 @@ for(let i = 0; i < 10; i ++){ // 마지막에 한번만 해도 되기 때문에 
 console.log(obj)
 // {0: 4, 1: -1, 2: 2, 3: 2, 4: 1, 5: 4, 6: 4, 7: 2, 8: 4, 9: 4}
 ```
+<br>
+
+#### 윤군의 추천 공부내용
+- [삼항연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
