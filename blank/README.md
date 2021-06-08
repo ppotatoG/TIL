@@ -25,6 +25,7 @@ function solution(){
 }
 solution()
 ```
+<br>
 
 #### 윤군스 도움
 1. 배열을 순회하면서
@@ -43,6 +44,8 @@ for ( const num of arr ) {
 
 }
 ```
+<br>
+
 [예전 객체에 대한 포스팅 참고](https://blog.naver.com/thgus2270/222286112950)
 
 ```
@@ -63,4 +66,48 @@ for ( const num of arr ) {
     console.log(obj)
 
 }
+```
+<br>
+
+출력....?
+```
+const obj = {};
+const arr = [1, 3, 1, 3, 1, 3, 2, 2, 2, 2, 2, 1, 3, 4, 2, 6, 3, 4, 5, 6, 1];
+for ( const num of arr ) {
+    // 6번 반복하는 반복분 (arr.length = 6)
+    
+    if(obj[num] == undefined ){
+        obj[num] = 1;
+    } else {
+        obj[num] += 1
+    }
+
+    console.log('1'+':'+ obj['1'])
+    console.log('2'+':'+ obj['2'])
+
+    console.log(obj)
+
+}
+
+```
+<br>
+
+#### 출력!
+- 중복문 바깥으로 빼면서 속도 개선하기
+```
+const obj = {};
+const arr = [2, 5, 4, 6, 5, 8, 8, 9, 0, 9, 0, 3, 0, 6, 7, 3, 6, 8, 0, 6, 8, 9, 2, 5, 7, 9, 5];
+for ( const num of arr ) { // 6번 반복하는 반복분 (arr.length = 6)
+    
+    if(obj[num] == undefined ){
+        obj[num] = 1;
+    } else {
+        obj[num] += 1
+    }
+}
+for(let i = 0; i < 10; i ++){ // 마지막에 한번만 해도 되기 때문에 바깥으로 뺀 중복문
+    if (obj[i] == undefined) obj[i] = -1
+}
+console.log(obj)
+// {0: 4, 1: -1, 2: 2, 3: 2, 4: 1, 5: 4, 6: 4, 7: 2, 8: 4, 9: 4}
 ```
