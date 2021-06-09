@@ -132,19 +132,55 @@ while(n < 99){
     list[n] =testArr
 
     console.log(list)
+    //list[0] = empty ....
 
 }
 ```
-list[0] = empty ..!
+
 ```
 let list = [testArr]
 
 ```
 list[0] 의 값을 선언해주면 empty로 뜨지 않는다
 
+<br>
+
 #### 
 
 [네이버 해설 및 풀이](https://blog.naver.com/boostcamp_official/222388429782)
+
 [Dictionary](https://velog.io/@inyong_pang/Data-Structure-Dictionary%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC-4bk5vovnvc)
 
+<br>
 
+#### 완성
+
+```
+const obj = {};
+const testArr = Math.floor(Math.random()*100)
+const list = [testArr]
+let n = 0
+
+while( n < 100){ // 랜덤 난수 배열
+    n++
+    const testArr = Math.floor(Math.random()*100)
+    list[n] = testArr
+}
+
+function solution(l){ // function solution()
+    for ( const num of l ) {    
+        if(obj[num] == undefined ){
+            obj[num] = 1;
+        } else {
+            obj[num] += 1
+        }
+    }
+    for(let i = 0; i < 100; i ++){
+        if (obj[i] == undefined) obj[i] = -1
+    }
+
+    console.log(obj)
+}
+
+solution(list)
+```

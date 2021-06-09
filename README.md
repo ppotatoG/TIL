@@ -26,6 +26,7 @@ git add .
 git commit -m "message"
 git push
 ```
+<br>
 
 ### 부스트캠프 자가진단 문제풀이
 
@@ -33,20 +34,32 @@ git push
 
 ```
 const obj = {};
-const arr = [2, 5, 4, 6, 5, 8, 8, 9, 0, 9, 0, 3, 0, 6, 7, 3, 6, 8, 0, 6, 8, 9, 2, 5, 7, 9, 5];
-for ( const num of arr ) { // 6번 반복하는 반복분 (arr.length = 6)
-    
-    if(obj[num] == undefined ){
-        obj[num] = 1;
-    } else {
-        obj[num] += 1
+const testArr = Math.floor(Math.random()*100)
+const list = [testArr]
+let n = 0
+
+while( n < 100){ // 랜덤 난수 배열
+    n++
+    const testArr = Math.floor(Math.random()*100)
+    list[n] = testArr
+}
+
+function solution(l){ // function solution()
+    for ( const num of l ) {    
+        if(obj[num] == undefined ){
+            obj[num] = 1;
+        } else {
+            obj[num] += 1
+        }
     }
+    for(let i = 0; i < 100; i ++){
+        if (obj[i] == undefined) obj[i] = -1
+    }
+
+    console.log(obj)
 }
-for(let i = 0; i < 10; i ++){ // 마지막에 한번만 해도 되기 때문에 바깥으로 뺀 중복문
-    if (obj[i] == undefined) obj[i] = -1
-}
-console.log(obj)
-// {0: 4, 1: -1, 2: 2, 3: 2, 4: 1, 5: 4, 6: 4, 7: 2, 8: 4, 9: 4}
+
+solution(list)
 ```
 - 배열과 객체
 
