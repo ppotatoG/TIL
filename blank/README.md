@@ -115,3 +115,36 @@ console.log(obj)
 
 #### 윤군의 추천 공부내용
 - [삼항연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+
+
+#### empty?
+```
+let testArr = Math.floor(Math.random()*100)
+
+let n = 0
+let list = []
+
+while(n < 99){
+    n++
+
+    let testArr = Math.floor(Math.random()*100)
+
+    list[n] =testArr
+
+    console.log(list)
+
+}
+```
+list[0] = empty ..!
+```
+let list = [testArr]
+
+```
+list[0] 의 값을 선언해주면 empty로 뜨지 않는다
+
+#### 
+
+[네이버 해설 및 풀이](https://blog.naver.com/boostcamp_official/222388429782)
+[Dictionary](https://velog.io/@inyong_pang/Data-Structure-Dictionary%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC-4bk5vovnvc)
+
+
