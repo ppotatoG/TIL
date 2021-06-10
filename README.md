@@ -28,35 +28,33 @@ git push
 ```
 <br>
 
+### programmers
+
+[github](https://github.com/ppotatoG/TIL/tree/master/programmers)
+
+언제 해보지 하다가 네이버 자가진단 문제로 자존감을 얻어 시작
+```
+var solution=(_,$)=>_.find(_=>!$[_]--,$.map(_=>$[_]=($[_]|0)+1))
+```
+
+이 답안은 정말 존경스럽다,,,
+
+<br>
+
 ### 부스트캠프 자가진단 문제풀이
 
 [자가진단 네이버 블로그](https://blog.naver.com/boostcamp_official/221978031932)
 
 ```
-const obj = {};
-const testArr = Math.floor(Math.random()*100)
-const list = [testArr]
-let n = 0
-
-while( n < 100){ // 랜덤 난수 배열
-    n++
-    const testArr = Math.floor(Math.random()*100)
-    list[n] = testArr
-}
-
-function solution(l){ // function solution()
-    for ( const num of l ) {    
-        if(obj[num] == undefined ){
-            obj[num] = 1;
-        } else {
-            obj[num] += 1
-        }
+function solution(list){
+    for ( const num of list ) {    
+        if(obj[num] == undefined ) obj[num] = 1;
+        else obj[num] += 1
     }
     for(let i = 0; i < 100; i ++){
         if (obj[i] == undefined) obj[i] = -1
     }
-
-    console.log(obj)
+    retrun obj
 }
 
 solution(list)
