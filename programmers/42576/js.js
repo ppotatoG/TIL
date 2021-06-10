@@ -1,13 +1,14 @@
+let participant = ["marina", "josipa", "nikola", "vinko", "filipa"]
+let completion = ["josipa", "filipa", "marina", "nikola"]
+
 function solution(participant, completion) {
-    var answer = '';
-    return answer;
+    participant.filter(x => !completion.includes(x))
+
+    var answer = participant.filter(x => !completion.includes(x))
+
+    // return answer
+    console.log(answer)
 }
 
-let participant = ['aaa', 'bbb', 'ccc', 'ddd', 'wekj', 'pdvxnz', 'qwdqw', 'zdfnjr', 'kiki']
-let completion = ['aaa', 'bbb', 'ccc', 'ddd', 'wekj', 'pdvxnz', 'zdfnjr', 'kiki']
+solution(participant, completion)
 
-for(let i = 0; i < participant.length; i++){
-
-    if(participant[i] !== completion[i]) console.log(i)
-
-}

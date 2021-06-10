@@ -16,3 +16,35 @@ for(let i = 0; i < participant.length; i++){
 }
 ```
 이렇게 되면, 배열의 값이 아닌 순서로 비교하게 되어 안된다
+
+[참고 글](https://soft91.tistory.com/84)
+
+```
+let participant = ['aaa', 'bbb', 'ccc', 'ddd', 'wekj', 'pdvxnz', 'zdfnjr', 'kiki']
+let completion = ['zdfnjr', 'kiki', 'ccc', 'aaa', 'ddd', 'wekj', 'bbb', 'pdvxnz']
+
+console.log(JSON.stringify(participant) === JSON.stringify(completion)) //false
+
+let participant = ['aaa', 'bbb', 'ccc', 'ddd', 'wekj', 'pdvxnz', 'zdfnjr', 'kiki']
+let completion = ['aaa', 'bbb', 'ccc', 'ddd', 'wekj', 'pdvxnz', 'zdfnjr', 'kiki']
+
+console.log(JSON.stringify(participant) === JSON.stringify(completion)) //true
+```
+
+```
+function solution(participant, completion) {
+    participant.filter(x => !completion.includes(x))
+
+    var answer = participant.filter(x => !completion.includes(x))
+
+    return answer
+}
+
+solution(participant, completion)
+```
+정답이 아니라는게 놀랍다
+
+[내가 처음 원했던 방법과 유사한 글](https://miiingo.tistory.com/338)
+
+정답이 아닌 이유는 반환되는 값이 달라서 인 것 같다
+프로그래머스에 나와있는 retrun 값은 "leo", 내 콘솔에 찍히는 값은 ["vinko"]
