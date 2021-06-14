@@ -1,21 +1,12 @@
 function sum(a, b) {
     let answer = 0
 
-    let num01 = a
-    let num02 = b
-
-    if (num01 == num02) answer = num01
+    if (a == b) answer = a
     else {
-        if(num01 > num02) {
-            num01 = b
-            num02 = a
-        }
-        for(let i = num01 ; i <= num02; i ++){
-            answer += i
-        }
+        if(a > b) for(let i = b ; i <= a; i ++) answer += i 
+        for(let i = a ; i <= b; i ++) answer += i
     }
     
-    // return answer;
     console.log(answer)
 }
 sum(1, 10)

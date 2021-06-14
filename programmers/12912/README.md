@@ -7,6 +7,20 @@
 - a와 b는 -10,000,000 이상 10,000,000 이하인 정수입니다.
 - a와 b의 대소관계는 정해져있지 않습니다.
 
+### 제출한 정답
+```
+function sum(a, b) {
+    let answer = 0
+    
+    if (a == b) answer = a
+    else {
+        if(a > b) for(let i = b ; i <= a; i ++) answer += i 
+        for(let i = a ; i <= b; i ++) answer += i
+    }
+    
+    return answer;
+}
+```
 
 1. a, b를 받아서 배열로 추가
 2. 순서대로 정렬
@@ -112,9 +126,15 @@ function sum(a, b) {
 }
 sum(1, 10)
 ```
+<br>
+
 - Q. 왜 자꾸 배열을 쓰냐?
 - A. 배열 없이 어떻게 모든 수를 구하지?
 
+<br>
+num01, num02 가 들어간 이유는 a, b의 값을 바꾸려고...
+
+내가 쓰면서도 이게 최선인가 싶었다....(쭈글쭈글)
 ```
 function sum(a, b) {
     let answer = 0
@@ -139,4 +159,26 @@ function sum(a, b) {
 sum(1, 10) // 55
 sum(10, 1) // 55
 sum(3, 3) // 3
+```
+<br>
+
+윤군님이 힌트를 주다 못해 답을 알려주셨다
+
+여태 했던것 중에 가장 간단스..
+```
+function sum(a, b) {
+    let answer = 0
+    
+    function sum(a, b){
+        for(let i = a ; i <= b; i ++) answer += i
+    }
+    if(a == b) answer = a
+    else if ( a > b) sum(b, a)
+    else sum(a, b)
+    
+    console.log(answer)
+}
+sum(1, 10)
+sum(10, 1)
+sum(3, 3)
 ```
