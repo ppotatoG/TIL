@@ -1,29 +1,19 @@
 function solution(a, b){
 
     let answer = 0
-    let sortArr = []
-    sortArr.push(a, b)
+    let Arr = []
+    Arr.push(a, b)
 
-    if(a > b){
-        sortArr.sort(function(a, b){
-            if(a < b) return -1
-            else if(a = b) return 0
-            else return 1
-        })
-        for(let i = sortArr[0] ; i < sortArr[1]; i ++){
-            answer = sortArr.reduce((a, b) => (a + b))
+    if (a == b) answer = a
+    else {
+        for(let i = Arr[0] ; i < Arr[1]; i ++){
+            answer = Math.abs(Arr.reduce((a, b) => (a + b))) 
             answer += i
         }
     }
-    else if(a < b){
-        for(let i = sortArr[0] ; i < sortArr[1]; i ++){
-            answer = sortArr.reduce((a, b) => (a + b))
-            answer += i
-        }
-    }
-    else if (a == b) answer = a
-
-    return answer;
+    // return answer;
+    console.log(answer)
 
 }
-solution(3, 3)
+solution(3, 5)
+solution(5, 3)

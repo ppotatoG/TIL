@@ -35,6 +35,7 @@ for(let i = sortArr[0] ; i < sortArr[1]; i ++){
 }
 console.log(sum)
 ```
+<br>
 
 답은 맞지만 체점은 안된다
 ```
@@ -67,4 +68,31 @@ function solution(a, b){
 
 }
 solution(3, 3)
+```
+<br>
+
+뭔가 줄여보려고 시도를 했다
+
+하지만 js는 그렇게 쉬운아이가 아니다
+```
+function solution(a, b){
+
+    let answer = 0
+    let Arr = []
+    Arr.push(a, b)
+
+    if (a == b) answer = a
+    else {
+        for(let i = Arr[0] ; i < Arr[1]; i ++){ // a > b 이면 i = 0
+            answer = Math.abs(Arr.reduce((a, b) => (a + b))) 
+            answer += i
+        }
+    }
+    // return answer;
+    console.log(answer)
+
+}
+solution(3, 5)
+solution(5, 3)
+
 ```
