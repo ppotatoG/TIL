@@ -10,6 +10,22 @@
 <br>
 
 ### 제출한 정답
+```
+function solution(a, c) {
+    let answer = []
+    for(let i = 0; i < c.length; i++){
+
+        let b = a.slice(c[i][0] - 1, c[i][1]).sort(function(a, b){
+            if(a > b) return 1
+            else if(a === b) return 0
+            else return -1
+        })
+    
+        answer.push(b[c[i][2] - 1])
+    }
+    return answer
+}
+```
 
 <br>
 
