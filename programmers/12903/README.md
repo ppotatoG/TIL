@@ -11,8 +11,40 @@
 
 ### 제출한 정답
 ```
-```
+function solution(s) {
+    var answer = '';
 
+    answer = s.length%2 == 0 ? s.charAt(s.length/2 - 1) + s.charAt(s.length/2) : s.charAt(s.length/2)
+
+    // console.log(answer)
+    return answer
+}
+```
+<br>
+삼항연산자 사용
+
+```
+function solution(s) {
+    let answer = '';
+    
+    answer = s.length%2 == 0 ? s.charAt(s.length/2 - 1) + s.charAt(s.length/2) : s.charAt(s.length/2)
+
+    return answer;
+}
+```
+<br>
+필요 없는 변수 버리기 (half)
+
+```
+function solution(s) {
+    let answer = '';
+    
+    if(s.length%2 == 0) answer = s.charAt(.length/2 - 1) + s.charAt(s.length/2)
+    else answer = s.charAt(s.length/2)
+
+    return answer;
+}
+```
 
 <br>
 결론적으로 맞는 코드다. 통과도 했다.

@@ -1,15 +1,10 @@
 function solution(s) {
     var answer = '';
 
-    let half = []
-    
-    if(s.length%2 == 0) {
-        half.push(s.length/2 - 1, s.length/2)
-        answer = s.charAt(half[0]) + s.charAt(half[1])
-    } else half.push(s.length/2), answer = s.charAt(half)
+    answer = s.length%2 == 0 ? s.charAt(s.length/2 - 1) + s.charAt(s.length/2) : s.charAt(s.length/2)
 
-    console.log(answer)
-    // return answer;
+    // console.log(answer)
+    return answer
 }
 
 let s1 = "abcde"
