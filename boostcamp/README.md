@@ -145,14 +145,6 @@ list[0] 의 값을 선언해주면 empty로 뜨지 않는다
 
 <br>
 
-#### 
-
-[네이버 해설 및 풀이](https://blog.naver.com/boostcamp_official/222388429782)
-
-[Dictionary](https://velog.io/@inyong_pang/Data-Structure-Dictionary%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC-4bk5vovnvc)
-
-<br>
-
 #### 완성
 
 ```
