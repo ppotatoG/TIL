@@ -27,7 +27,7 @@ solution()
 ```
 <br>
 
-#### 윤군스 도움
+윤군스 도움
 1. 배열을 순회하면서
 2. Obj 객체에
 3. 값이 undefined 면 1 대입
@@ -92,7 +92,7 @@ for ( const num of arr ) {
 ```
 <br>
 
-#### 출력!
+출력!
 - 중복문 바깥으로 빼면서 속도 개선하기
 ```
 const obj = {};
@@ -113,11 +113,11 @@ console.log(obj)
 ```
 <br>
 
-#### 윤군의 추천 공부내용
+윤군의 추천 공부내용
 - [삼항연산자](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
 
 
-#### empty?
+empty?
 ```
 let testArr = Math.floor(Math.random()*100)
 
@@ -145,7 +145,8 @@ list[0] 의 값을 선언해주면 empty로 뜨지 않는다
 
 <br>
 
-#### 완성
+완성
+(완성 아님)
 
 ```
 const obj = {};
@@ -176,3 +177,7 @@ function solution(l){ // function solution()
 
 solution(list)
 ```
+
+객체가 아닌 배열로 return
+
+중복되는 숫자가 없으면 arr = [-1] 
