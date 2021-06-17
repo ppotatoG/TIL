@@ -1,9 +1,41 @@
-const list = [1, 2, 3, 3, 3, 3, 4, 4]
+let test = []
+let list = ['one', 'two', 'three', 'three', 'three', 'three', 'four', 'four']
 
-function solution(arr){ 
+// while( n < 10){ // 랜덤 난수 배열
+//     n++
+//     const testArr = Math.floor(Math.random()*10)
+//     list[n] = testArr
+// }
 
-    let answer = arr.map( num => num*2) // (8) [2, 4, 6, 6, 6, 6, 8, 8]
+function solution(l){ // function solution()
 
-    console.log(answer)
+    let listSet = [new Set(l)]
+
+    let setArr = Array.from(listSet)
+
+    console.log(setArr)
+
+    // listset.forEach(element => {
+    //     console.log(element)
+    // });
+
+
+    // for(let i = 0; i < list.length; i ++){
+    //     if(i == list[i]) {
+    //         console.log('true')
+    //         test.push(list[i])
+
+    //     }else if(l[i] !== list[i]) console.log('dddddddddsadad')
+
+    //     // console.log(l[i], list[i])
+    // }
+
 }
+
 solution(list)
+
+// console.log(list)
+
+// let listSet = [new Set(list)]
+
+// console.log(listSet)

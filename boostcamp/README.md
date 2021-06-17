@@ -181,3 +181,8 @@ solution(list)
 객체가 아닌 배열로 return
 
 중복되는 숫자가 없으면 arr = [-1] 
+
+[공부하다 찾은 글](https://hianna.tistory.com/459)
+
+
+[천천히 읽을 글](https://aljjabaegi.tistory.com/311)
