@@ -186,3 +186,5 @@ solution(list)
 
 
 [천천히 읽을 글](https://aljjabaegi.tistory.com/311)
+
+updateArray ?

@@ -1,26 +1,29 @@
-let answer = []
+let arr = []
 let list = [1, 2, 3, 3, 3, 3, 4, 4]
-let newArr = []
+let answer = [0, 0, 0, 0]
 
 function solution(l){
 
     for(let i = 0; i < l.length; i++){
-        if(l.indexOf(l[i]) == i) answer.push(l[i])
+        if(l.indexOf(l[i]) == i) arr.push(l[i])
     }
-
-    console.log(answer)
 
     for(num in l) {
-        console.log(answer[num])
-        if(answer[0] == list[num] || answer[1] == list[num] || answer[2] == list[num] || answer[3] == list[num]) {
-            console.log('sfdnj'+list[num])
+        if(arr[0] == l[num]) {
+            answer[0] += 1
         }
-
-        // if(answer[0] == list[num]) newArr[0] += 1
-        // else if(answer[1] == list[num]) newArr[1] += 1
-        // else if(answer[2] == list[num]) newArr[2] += 1
-        // else if(answer[3] == list[num]) newArr[3] += 1
+        else if(arr[1] == l[num]) {
+            answer[1] += 1
+        }
+        else if(arr[2] == l[num]) {
+            answer[2] += 1
+        }
+        else if(arr[3] == l[num]) {
+            answer[3] += 1
+        }
     }
+    console.log(answer)
+
 }
 
 solution(list)
