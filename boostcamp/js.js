@@ -1,41 +1,26 @@
-let test = []
-let list = ['one', 'two', 'three', 'three', 'three', 'three', 'four', 'four']
+let answer = []
+let list = [1, 2, 3, 3, 3, 3, 4, 4]
+let newArr = []
 
-// while( n < 10){ // 랜덤 난수 배열
-//     n++
-//     const testArr = Math.floor(Math.random()*10)
-//     list[n] = testArr
-// }
+function solution(l){
 
-function solution(l){ // function solution()
+    for(let i = 0; i < l.length; i++){
+        if(l.indexOf(l[i]) == i) answer.push(l[i])
+    }
 
-    let listSet = [new Set(l)]
+    console.log(answer)
 
-    let setArr = Array.from(listSet)
+    for(num in l) {
+        console.log(answer[num])
+        if(answer[0] == list[num] || answer[1] == list[num] || answer[2] == list[num] || answer[3] == list[num]) {
+            console.log('sfdnj'+list[num])
+        }
 
-    console.log(setArr)
-
-    // listset.forEach(element => {
-    //     console.log(element)
-    // });
-
-
-    // for(let i = 0; i < list.length; i ++){
-    //     if(i == list[i]) {
-    //         console.log('true')
-    //         test.push(list[i])
-
-    //     }else if(l[i] !== list[i]) console.log('dddddddddsadad')
-
-    //     // console.log(l[i], list[i])
-    // }
-
+        // if(answer[0] == list[num]) newArr[0] += 1
+        // else if(answer[1] == list[num]) newArr[1] += 1
+        // else if(answer[2] == list[num]) newArr[2] += 1
+        // else if(answer[3] == list[num]) newArr[3] += 1
+    }
 }
 
 solution(list)
-
-// console.log(list)
-
-// let listSet = [new Set(list)]
-
-// console.log(listSet)
