@@ -148,7 +148,7 @@ list[0] 의 값을 선언해주면 empty로 뜨지 않는다
 완성
 (완성 아님)
 
-```
+```js
 const obj = {};
 const testArr = Math.floor(Math.random()*100)
 const list = [testArr]
