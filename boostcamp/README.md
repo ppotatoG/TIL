@@ -11,6 +11,34 @@
 - 배열 arr의 길이는 1 이상 100 이하의 자연수
 - 배열 arr의 원소는 1 이상 100 이하의 자연수
 
+정답
+
+```js
+function solution(l){
+
+    const arr = [];
+    let answer = [];
+
+    for(let i = 0; i < l.length; i++){
+        if(l.indexOf(l[i]) == i) {
+            arr.push(l[i]);
+            answer.push(0);
+        }
+    }
+
+    arr.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
+
+    for(num in l) {
+        const idx = arr.indexOf(l[num]);
+        answer[idx] += 1;
+    }
+
+    answer = answer.filter((a) => a !== 1);
+
+    return answer;
+}
+```
+
 ```
 arr = [1, 2, 3, 3, 3, 3, 3, 4, 2, 3, 5, 3, 4, 4, 4, 5, 6]
 function solution(){
@@ -187,4 +215,39 @@ solution(list)
 
 [천천히 읽을 글](https://aljjabaegi.tistory.com/311)
 
-updateArray ?
+
+```js
+function solution(l){
+
+    const arr = []; // 요소만 수정 -> const
+    let answer = []; // 재할당 -> let
+
+    for(let i = 0; i < l.length; i++){ 
+        // list 중복제거한 arr 배열 만들기, 
+        //중복 제거 배열 arr.length와 같은 length의 answer 0 추가
+        if(l.indexOf(l[i]) == i) {
+            arr.push(l[i]);
+            answer.push(0);
+        }
+    }
+
+    arr.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
+    // 삼항연산자, arr 정렬
+
+    for(num in l) {
+        const idx = arr.indexOf(l[num]);
+        // 중복제거 index값과 answer의 index값 동일하게 변수 추가
+
+        answer[idx] += 1;
+        // 1 == 1 => += 1,  2 == 2 => += 1, ...
+    }
+
+    answer = answer.filter((a) => a !== 1);
+    // 배열 내에 값이 1인 요소 삭제(중복 값 하나는 삭제)
+
+    if(answer.length == 0) answer = -1
+    // 배열 내 중복요소가 없을 시 -1 return
+
+    console.log(answer);
+}
+```
