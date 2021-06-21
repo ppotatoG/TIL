@@ -26,7 +26,23 @@ git add .
 git commit -m "message"
 git push
 ```
-git bash push 반응 없음
+
+git submodule update
+```
+git submodule update --recursive
+
+git submodule update --remote Arduino/
+
+git add Arduino
+
+...
+
+```
+---
+
+<br>
+
+### git bash push 반응 없음
 
 사용자 연결
 1.  제어판 / 모든 제어판 항목 / 자격 증명 관리자
@@ -34,6 +50,7 @@ git bash push 반응 없음
 3. 인터넷 또는 네트워크 주소 : git:https://github.com
 4. ppotatoG, pw
 5. 후에 bash 내에서 push
+
 <br>
 
 ### programmers
