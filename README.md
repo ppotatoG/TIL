@@ -29,14 +29,17 @@ git push
 
 git submodule update
 ```
-git submodule update --recursive
+git submodule update --remote <file>
 
-git submodule update --remote Arduino/
-
-git add Arduino
+git add <file>
 
 ...
 
+```
+
+git add 내리기
+```
+git reset HEAD <file>...
 ```
 ---
 
