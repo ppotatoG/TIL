@@ -1,10 +1,6 @@
 function solution(arr) {
     let answer = [];
 
-    // for(let i = 0; i < arr.length; i++){
-    //     console.log(arr[i], arr[i += 1])
-    // }
-
     answer.push(
         arr[4] + arr[3],
         arr[4] + arr[2],
@@ -24,12 +20,25 @@ function solution(arr) {
         arr[1] + arr[0]
     )
 
-    console.log(answer)
+    for(let i = arr.length -1 ; i > -1; i--){
+        console.log(i+'번째')
+        // answer.push(
+        //     arr[i] + arr[3],
+        //     arr[i] + arr[2],
+        //     arr[i] + arr[1],
+        //     arr[i] + arr[0]
+        // )
+    }
 
     answer.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
     
     console.log(answer)
 
+    const test = answer.filter((a, b) => {
+        return answer.indexOf(a) === b;
+    });
+
+    console.log(test)
 }
 
 let s1 = [2,1,3,4,1]

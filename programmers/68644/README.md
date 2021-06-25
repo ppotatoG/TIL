@@ -8,13 +8,37 @@
 
 
 ### 제출한 정답
+```js
 ```
-function solution(s) {
-    var answer = '';
 
-    answer = s.length%2 == 0 ? s.charAt(s.length/2 - 1) + s.charAt(s.length/2) : s.charAt(s.length/2)
-
-    // console.log(answer)
-    return answer
-}
+1. 배열의 모든 값을 서로 더하기
+```js
+answer.push(
+    arr[4] + arr[3],
+    arr[4] + arr[2],
+    arr[4] + arr[1],
+    arr[4] + arr[0]
+)
+answer.push(
+    arr[3] + arr[2],
+    arr[3] + arr[1],
+    arr[3] + arr[0]
+)
+answer.push(
+    arr[2] + arr[1],
+    arr[2] + arr[0]
+)
+answer.push(
+    arr[1] + arr[0]
+)
+```
+2. answer 오름차순 정렬
+```js
+answer.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
+```
+3. answer 중복제거
+```js
+const test = answer.filter((a, b) => {
+        return answer.indexOf(a) === b;
+    });
 ```
