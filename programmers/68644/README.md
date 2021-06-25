@@ -9,6 +9,23 @@
 
 ### 제출한 정답
 ```js
+function solution(arr) {
+    const newArr = [];
+    
+    for (let i = 0; i < arr.length -1 ; i++) {
+        for(let j = i + 1; j < arr.length ; j++){
+            newArr.push(
+                arr[i] + arr[j]
+            )
+        }
+    }
+
+    newArr.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
+
+    const answer = newArr.filter((a, b) => newArr.indexOf(a) === b);
+    
+    return answer;
+}
 ```
 
 1. 배열의 모든 값을 서로 더하기
@@ -39,6 +56,6 @@ answer.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
 3. answer 중복제거
 ```js
 const test = answer.filter((a, b) => {
-        return answer.indexOf(a) === b;
-    });
+    return answer.indexOf(a) === b;
+});
 ```

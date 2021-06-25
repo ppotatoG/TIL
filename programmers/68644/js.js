@@ -1,46 +1,23 @@
 function solution(arr) {
-    let answer = [];
-
-    answer.push(
-        arr[4] + arr[3],
-        arr[4] + arr[2],
-        arr[4] + arr[1],
-        arr[4] + arr[0]
-    )
-    answer.push(
-        arr[3] + arr[2],
-        arr[3] + arr[1],
-        arr[3] + arr[0]
-    )
-    answer.push(
-        arr[2] + arr[1],
-        arr[2] + arr[0]
-    )
-    answer.push(
-        arr[1] + arr[0]
-    )
-
-    for(let i = arr.length -1 ; i > -1; i--){
-        console.log(i+'번째')
-        // answer.push(
-        //     arr[i] + arr[3],
-        //     arr[i] + arr[2],
-        //     arr[i] + arr[1],
-        //     arr[i] + arr[0]
-        // )
+    const newArr = [];
+    
+    for (let i = 0; i < arr.length -1 ; i++) {
+        for(let j = i + 1; j < arr.length ; j++){
+            newArr.push(
+                arr[i] + arr[j]
+            )
+        }
     }
 
-    answer.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
-    
-    console.log(answer)
+    newArr.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
 
-    const test = answer.filter((a, b) => {
-        return answer.indexOf(a) === b;
-    });
-
-    console.log(test)
+    const answer = newArr.filter((a, b) => newArr.indexOf(a) === b);
+    // return answer;
+    console.log(answer);
 }
 
 let s1 = [2,1,3,4,1]
+let s2 = [5,0,2,7]
 
 solution(s1)
+solution(s2)
