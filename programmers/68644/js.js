@@ -1,18 +1,14 @@
 function solution(arr) {
-    const newArr = [];
-    
+    const answer = [] ;
+
     for (let i = 0; i < arr.length -1 ; i++) {
         for(let j = i + 1; j < arr.length ; j++){
-            newArr.push(
-                arr[i] + arr[j]
-            )
+            if(arr.indexOf(arr[i]) == i) answer.push(arr[i] + arr[j])
         }
     }
 
-    newArr.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
+    answer.sort((a, b) => a - b)
 
-    const answer = newArr.filter((a, b) => newArr.indexOf(a) === b);
-    // return answer;
     console.log(answer);
 }
 

@@ -10,19 +10,15 @@
 ### 제출한 정답
 ```js
 function solution(arr) {
-    const newArr = [];
-    
+    const answer = [] ;
+
     for (let i = 0; i < arr.length -1 ; i++) {
         for(let j = i + 1; j < arr.length ; j++){
-            newArr.push(
-                arr[i] + arr[j]
-            )
+            if(arr.indexOf(arr[i]) == i) answer.push(arr[i] + arr[j])
         }
     }
 
-    newArr.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
-
-    const answer = newArr.filter((a, b) => newArr.indexOf(a) === b);
+    answer.sort((a, b) => a - b)
     
     return answer;
 }
@@ -58,4 +54,26 @@ answer.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
 const test = answer.filter((a, b) => {
     return answer.indexOf(a) === b;
 });
+```
+
+- for문 내에서 answer.push()
+- sort는 더 짧게
+```js
+function solution(arr) {
+    const newArr = [];
+    
+    for (let i = 0; i < arr.length -1 ; i++) {
+        for(let j = i + 1; j < arr.length ; j++){
+            newArr.push(
+                arr[i] + arr[j]
+            )
+        }
+    }
+
+    newArr.sort((a, b) => a == b ? 0 : a > b ? 1: -1 );
+
+    const answer = newArr.filter((a, b) => newArr.indexOf(a) === b);
+    
+    return answer;
+}
 ```
