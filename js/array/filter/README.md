@@ -11,11 +11,22 @@ b = b.filter((a) => a !== 1) // [2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 ```js
-const answer = [2, 3, 3, 4, 4, 5, 5, 5, 6, 7]
+const arr1 = [2, 3, 3, 4, 4, 5, 5, 5, 6, 7]
 
-const test = answer.filter((a, b) => {
-    return answer.indexOf(a) === b;
+const answer1 = arr1.filter((a, b) => {
+    return arr1.indexOf(a) === b;
 });
 
-console.log(answer) // (6) [2, 3, 4, 5, 6, 7]
+console.log(answer1) // (6) [2, 3, 4, 5, 6, 7]
+```
+
+```js
+const arr2 = [5, 9, 7, 10]
+const divisor = 5
+
+const answer2 = arr2.filter((a) => {
+    return a % divisor == 0
+})
+
+console.log(answer2) // [5, 10]
 ```
