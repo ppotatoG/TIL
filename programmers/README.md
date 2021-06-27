@@ -4,6 +4,14 @@
 
 <br>
 
+## 12910 나누어 떨어지는 숫자 배열
+
+[github](https://github.com/ppotatoG/TIL/tree/master/programmers/12910)
+
+array의 각 element 중 divisor로 나누어 떨어지는 값을 오름차순으로 정렬한 배열 반환
+
+<br>
+
 ## 68644 연습 두 개 뽑아서 더하기
 
 [github](https://github.com/ppotatoG/TIL/tree/master/programmers/68644)
