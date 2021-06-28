@@ -4,6 +4,14 @@
 
 <br>
 
+## 70128 내적
+
+[github](https://github.com/ppotatoG/TIL/tree/master/programmers/70128)
+
+a와 b의 내적을 return
+
+<br>
+
 ## 12910 나누어 떨어지는 숫자 배열
 
 [github](https://github.com/ppotatoG/TIL/tree/master/programmers/12910)
