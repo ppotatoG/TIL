@@ -17,3 +17,10 @@ function solution(a, b) {
     console.log(answer);
 }
 ```
+
+### [reduce](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) 를 이용
+
+[참고 블로그 1](https://velog.io/@ansrjsdn/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Level-1-%EB%82%B4%EC%A0%81-javascript)
+[참고 블로그 2](https://jsikim1.tistory.com/150)
+
+[reduce 정리](https://github.com/ppotatoG/TIL/tree/master/js/array/reduce)
