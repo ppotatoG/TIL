@@ -41,7 +41,6 @@ git add 내리기
 ```
 git reset HEAD <file>...
 ```
----
 
 <br>
 
@@ -56,16 +55,17 @@ git reset HEAD <file>...
 
 <br>
 
-### programmers
+---
 
+## Javascript
+[github](https://github.com/ppotatoG/TIL/tree/master/js)
+
+---
+
+## 알고리즘
+
+### programmers 
 [github](https://github.com/ppotatoG/TIL/tree/master/programmers)
-
-언제 해보지 하다가 네이버 자가진단 문제로 자존감을 얻어 시작
-```
-var solution=(_,$)=>_.find(_=>!$[_]--,$.map(_=>$[_]=($[_]|0)+1))
-```
-
-이 답안은 정말 존경스럽다,,,
 
 <br>
 
@@ -73,22 +73,11 @@ var solution=(_,$)=>_.find(_=>!$[_]--,$.map(_=>$[_]=($[_]|0)+1))
 
 [자가진단 네이버 블로그](https://blog.naver.com/boostcamp_official/221978031932)
 
-```
-function solution(list){
-    for ( const num of list ) {    
-        if(obj[num] == undefined ) obj[num] = 1;
-        else obj[num] += 1
-    }
-    for(let i = 0; i < 100; i ++){
-        if (obj[i] == undefined) obj[i] = -1
-    }
-    retrun obj
-}
+[github](https://github.com/ppotatoG/TIL/tree/master/boostcamp)
 
-solution(list)
-```
-- 배열과 객체
+---
 
+## 재미있는거 !
 
 ### checkbox
 [demo](https://ppotatog.github.io/TIL/checkbox)
@@ -96,20 +85,26 @@ solution(list)
 - input 단일체크 기능
 - 클릭된 this에 color 추가
 - label 대신 checkbox를 사용하는 이유는 뭘까
-<br><br>
+
+<br>
+
 ### bxslider Sample
 
 [demo](https://ppotatog.github.io/TIL/bxsliderSample/)
 - bxslider 라이브러리를 사용한 샘플 페이지
 - 결국 원하는건 만들지 못했다
-<br><br>
+
+<br>
+
 ### bigCursor
 
 [demo](https://ppotatog.github.io/TIL/bigCursor/)
 
 - box안에서 작동되는 짱 큰 커서 
 - 사용하는 사람이 있을까?
-<br><br>
+
+<br>
+
 ### Arduino in web
 
 [example01 demo](https://ppotatog.github.io/TIL/Arduino/example01)
