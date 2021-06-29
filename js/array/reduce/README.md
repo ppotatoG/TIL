@@ -35,3 +35,29 @@ function solution(a, b) {
 reduce에서 `initialValue`값을 제공한 경우, 누산기값은 `initialValue`값
 
 `initialValue`값을 제공한 경우 cur는 0, 아니면 1부터 시작
+
+---
+
+모든 값 더하기
+```js
+let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+let sum = arr1.reduce((a, b) => a + b)
+console.log(sum) // 55
+```
+
+중복값 찾기(이건 잘 모르겟으니 외우기로..!)
+```js
+let arr2 = [4, 3, 2, 5, 3, 1, 2, 4, 5, 3, 1]
+
+let reducer = (acc, cur) => {
+  if (!acc[cur]) acc[cur] = 1;
+  else acc[cur] = acc[cur] + 1;
+
+  return acc; 
+};
+
+let sorting = arr2.reduce(reducer, {});
+
+console.log(sorting); //{1: 2, 2: 2, 3: 3, 4: 2, 5: 2}
+```
