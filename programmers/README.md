@@ -62,6 +62,6 @@ i번째 숫자부터 j번째 숫자까지 자르고 정렬했을 때, k번째에
 
 ## 42576 완주하지 못한 선수 
 
-[github](https://github.com/ppotatoG/TIL/tree/master/programmers/42748)
+[github](https://github.com/ppotatoG/TIL/tree/master/programmers/42576)
 
 배열 participant, completion 중 없는 값 리턴
