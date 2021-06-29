@@ -1,5 +1,17 @@
 # Array
 
+### reduce
+
+`reduce`로 많은것이 가능하다..!
+
+(sort도 가능할 것 같은데..!)
+
+[참고 github](https://github.com/BKJang/do-you-know-vanilla/issues/28)
+
+[내가 정리한 reduce](https://github.com/ppotatoG/TIL/tree/master/js/array/reduce)
+
+---
+
 ### 배열 내에서 중복 제거
 
 <br>
