@@ -7,4 +7,7 @@
 
 ### 제출한 정답
 ```js
+const arr = s.split("");
+const answer =  arr.sort().reverse().join("");
+return answer
 ```

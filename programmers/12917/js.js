@@ -1,10 +1,10 @@
-function solution(string) {
-    let answer = string.split("");
-    answer.sort();
-
+function solution(s) {
+    const arr = s.split("");
+    const answer =  arr.sort().reverse().join("");
+    
     console.log(answer);
 }
 
-let a = "Zbcdefg";
+let string = "fgZbcde";
 
-solution(a)
+solution(string)
