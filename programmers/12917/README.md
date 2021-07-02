@@ -7,7 +7,20 @@
 
 ### 제출한 정답
 ```js
-const arr = s.split("");
-const answer =  arr.sort().reverse().join("");
-return answer
+function solution(s) {
+    var answer = s.split("");
+    answer = answer.sort().reverse().join("");
+    return answer;
+}
+```
+
+return 내에서 저게 어떻게 왜 되는거지 ?
+```js
+function solution(s) {
+  return s
+    .split("")
+    .sort()
+    .reverse()
+    .join("");
+}
 ```

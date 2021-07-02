@@ -1,8 +1,9 @@
 function solution(s) {
-    const arr = s.split("");
-    const answer =  arr.sort().reverse().join("");
+    var answer = s.split("");
+    answer = answer.sort().reverse().join("");
     
-    console.log(answer);
+    console.log(answer)
+    // return answer;
 }
 
 let string = "fgZbcde";
