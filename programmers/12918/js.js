@@ -1,10 +1,9 @@
 function solution(s) {
-    // console.log(isNaN(s.toString()));
+    let result = s.replace(/[^0-9]/g, "");
+    if(s.length === result.length && (s.length == 4 || s.length ==  6)) return true;
+    else return false;
 
-    if(0 < s.length < 9) {
-        if(isNaN(s.toString())) console.log(s, s.length, false); 
-        else if(s.length == 4 || s.length ==  6) console.log(s, s.length, true);
-    }    
+    return s.length === result.length && (s.length == 4 || s.length ==  6) ? true : false 
 }
 
 let s1 = "a234";
