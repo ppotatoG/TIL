@@ -1,9 +1,6 @@
 function solution(s) {
     let result = s.replace(/[^0-9]/g, "");
-    if(s.length === result.length && (s.length == 4 || s.length ==  6)) return true;
-    else return false;
-
-    return s.length === result.length && (s.length == 4 || s.length ==  6) ? true : false 
+    s.length === result.length && (s.length == 4 || s.length ==  6) ? console.log(true) : console.log(false) 
 }
 
 let s1 = "a234";
