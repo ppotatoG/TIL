@@ -54,7 +54,7 @@ let reducer = (acc, cur) => {
   if (!acc[cur]) acc[cur] = 1;
   else acc[cur] = acc[cur] + 1;
 
-  return acc; 
+  return acc; // 돼지꼬리땡야
 };
 
 let sorting = arr2.reduce(reducer, {});
