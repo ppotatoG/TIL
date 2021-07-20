@@ -32,23 +32,23 @@ const el03 = {
     }
 }
 
-function solution(obj){
-    let el = document.createElement(obj.element);
+function solution(el, opt, html){
+    let creaeteEl = document.createElement(el);
 
-    for(key in obj.options){
-        el.setAttribute(key, obj.options[key]);
+    for(key in opt){
+        creaeteEl.setAttribute(key, opt[key]);
     }
 
-    if(el.innerHTML == '' && obj.options.afterCreate !== undefined) {
+    if(creaeteEl.innerHTML == '' && opt.afterCreate !== undefined) {
         return null;
     } else{
-        document.body.appendChild(el);
-        el.innerHTML = obj.html ;
+        document.body.appendChild(creaeteEl);
+        creaeteEl.innerHTML = html ;
     } 
 }
 
-solution(el01)
-solution(el02)
-solution(el03)
+solution(el01.element, el01.options, el01.html)
+solution(el02.element, el02.options, el02.html)
+solution(el03.element, el03.options, el03.html)
 
 // test.textContent='dd'
