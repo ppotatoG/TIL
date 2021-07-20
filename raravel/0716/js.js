@@ -33,22 +33,26 @@ const el03 = {
 }
 
 function solution(el, opt, html){
-    let creaeteEl = document.createElement(el);
+    let createEl = document.createElement(el);
 
     for(key in opt){
-        creaeteEl.setAttribute(key, opt[key]);
+        createEl.setAttribute(key, opt[key]);
     }
 
-    if(creaeteEl.innerHTML == '' && opt.afterCreate !== undefined) {
+    // console.log(html)
+
+    if( html == undefined) {
         return null;
     } else{
-        document.body.appendChild(creaeteEl);
-        creaeteEl.innerHTML = html ;
-    } 
+        createEl.innerHTML = html ;
+        return createEl;
+    }
 }
 
 solution(el01.element, el01.options, el01.html)
 solution(el02.element, el02.options, el02.html)
 solution(el03.element, el03.options, el03.html)
 
-// test.textContent='dd'
+console.log(solution(el01.element, el01.options, el01.html))
+console.log(solution(el02.element, el02.options, el02.html))
+console.log(solution(el03.element, el03.options, el03.html))
