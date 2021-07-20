@@ -41,7 +41,7 @@ function solution(el, opt, html){
 
     // console.log(html)
 
-    if( html == undefined) {
+    if( !html ) {
         return null;
     } else{
         createEl.innerHTML = html ;
