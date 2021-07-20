@@ -4,21 +4,20 @@ const el01 = {
         "id": "btn",
         "name": "btn-name",
         "class": "btn btn-primary",
-        "data": {
-            "idx": 1,
-        },
         "style": "width: 150px; height: 50px;",
         "onclick": (evt) => {
                 console.log(evt.target);
-            }
         }
-    }
+    },
+    html: 'BUTTON'
+}
 const el02 = {
     element: "a",
     options: {
         "href": "https://naver.com",
         "target": "_blank"
-    }
+    },
+    html: '<span style="color: green;">naver link</span>'
 }
 const el03 = {
     element: "input",
@@ -37,11 +36,19 @@ function solution(obj){
     let el = document.createElement(obj.element);
 
     for(key in obj.options){
-        el.setAttribute(key, obj.options[key])
+        el.setAttribute(key, obj.options[key]);
     }
 
-    document.body.appendChild(el)
+    if(el.innerHTML == '' && obj.options.afterCreate !== undefined) {
+        return null;
+    } else{
+        document.body.appendChild(el);
+        el.innerHTML = obj.html ;
+    } 
 }
+
 solution(el01)
 solution(el02)
 solution(el03)
+
+// test.textContent='dd'
