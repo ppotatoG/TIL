@@ -31,6 +31,19 @@ const el03 = {
         }
     }
 }
+const el04 = {
+    element: "p",
+    options: {
+    "class": "text",
+    "style": "color: blue;",
+    "afterCreate": (element) => {
+            element.val = "input value";
+            element.addEventListener('click', console.log);
+            return null;
+        }
+    },
+    html: 'test afterCreate'
+}
 
 function solution(el, opt, html){
     let createEl = document.createElement(el);
@@ -39,11 +52,11 @@ function solution(el, opt, html){
         createEl.setAttribute(key, opt[key]);
     }
 
-    // console.log(html)
-
     if( !html ) {
         return null;
-    } else{
+    } else if (opt.afterCreate) {
+        return createEl;
+     }else{
         createEl.innerHTML = html ;
         return createEl;
     }
@@ -52,7 +65,9 @@ function solution(el, opt, html){
 solution(el01.element, el01.options, el01.html)
 solution(el02.element, el02.options, el02.html)
 solution(el03.element, el03.options, el03.html)
+solution(el04.element, el04.options, el04.html)
 
 console.log(solution(el01.element, el01.options, el01.html))
 console.log(solution(el02.element, el02.options, el02.html))
 console.log(solution(el03.element, el03.options, el03.html))
+console.log(solution(el04.element, el04.options, el04.html))
