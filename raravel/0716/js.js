@@ -6,7 +6,7 @@ const el01 = {
         "class": "btn btn-primary",
         "style": "width: 150px; height: 50px;",
         "onclick": (evt) => {
-                console.log(evt.target);
+                console.log(element);
         }
     },
     html: 'BUTTON'
