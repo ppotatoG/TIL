@@ -74,3 +74,7 @@ $ git reset HEAD <file>...
 3. 인터넷 또는 네트워크 주소 : git:https://github.com
 4. ppotatoG, pw
 5. 후에 bash 내에서 push
+
+### git 되돌리기
+- 뭔가 해보려 했는데, 아직은 너무 어려우니까 로컬에서 삭제 후 clone 받자..!
+(언젠가 멋지게 할 수 있겠지...?)
