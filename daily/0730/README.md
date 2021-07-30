@@ -1,39 +1,42 @@
 # 복습
 
-[12903](https://github.com/ppotatoG/TIL/tree/master/programmers/12903)
+[12912](https://github.com/ppotatoG/TIL/tree/master/programmers/12912)
 
+### 진짜 놀랍게도 풀었던거 빼고 아무것도 기억이 안난다
+
+
+i 앞에 변수 선언을 안해줘서 오류 난걸 뭔지도 모르고 다른걸로 열심히 머리굴림
 ```js
-var answer = '';
+let arr = [];
 
-s.length % 2 == 0? answer = s.substring((s.length / 2 - 1), (s.length / 2 + 1)) : answer = s.substring((s.length / 2 - .5 ), (s.length / 2 + .5))
-
-return answer
-```
-
-
-[charAt](https://github.com/ppotatoG/TIL/tree/master/js/string/charAt)
-[substring](https://github.com/ppotatoG/TIL/tree/master/js/string/substring)
-
-
-substring에서 두번째로 들어오는 매개변수 왜 저런지 잘 모르겠다 무슨 생각으로 저렇게 했을까
-
----
-
-[12910](https://github.com/ppotatoG/TIL/tree/master/programmers/12910)
-
-```js
-let answer = []
-arr.forEach(item => {
-    if(item % divisor == 0) {
-        answer.push(item);
-        answer = answer.sort((a, b) => a - b);
+if(a < b){
+    for(i = a ; i <= b; i++){
+        arr.push(i)
     }
-});
+} else if(a > b){
+    for(i = b ; i <= a; i++){
+        arr.push(i)
+    }
+} else if(a == b) return a;
 
-if(answer.length == 0) answer.push(-1);
+const answer = arr.reduce((a, b) => a + b);
 
 return answer;
 ```
-이거는 심지어 예전보다 퇴화된 대답이다
 
-한달동안 무슨 일이 있었던걸까
+덕분에 Math에 대해 알게됐다 개이득
+```js
+function solution(a, b){
+    const arr = [];
+
+    if(a !== b) {
+        for(let i = Math.min(a, b) ; i <= Math.max(a, b); i++){
+            arr.push(i)
+        }
+    } else return a;
+
+    return arr.reduce((a, b) => a + b)
+}
+```
+
+## 저번보다 잘 풀었다!! 만족해 !!!!
