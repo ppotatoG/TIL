@@ -17,6 +17,8 @@ return answer
 
 substring에서 두번째로 들어오는 매개변수 왜 저런지 잘 모르겠다 무슨 생각으로 저렇게 했을까
 
+---
+
 [12910](https://github.com/ppotatoG/TIL/tree/master/programmers/12910)
 
 ```js
@@ -32,3 +34,6 @@ if(answer.length == 0) answer.push(-1);
 
 return answer;
 ```
+이거는 심지어 예전보다 퇴화된 대답이다
+
+한달동안 무슨 일이 있었던걸까
