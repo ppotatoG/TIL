@@ -81,3 +81,41 @@ $ git reset HEAD <file>...
 ```
 $ git checkout -- <잘못 저장된 파일 이름>
 ```
+
+---
+
+## How to git fork❓
+
+`PR`  "내 작업을 `merge`해줘!" 라고 요청을 보내는것
+
+`merge` 는 작업과 작업을 합치는 것
+
+1. fork
+2. clone
+3. creat branch 
+4. add, commit, push
+5. pull request
+
+---
+
+## Managing branch
+
+### 현재 내가 위치한 branch 확인
+```
+$ git branch -r
+```
+
+### 원격 저장소의 branch 확인
+```
+$ git branch -r
+```
+
+### 브랜치 생성하기
+```
+$ git branch <branch name>
+```
+
+### 생성한 branch로 이동
+```
+$ git checkout <branch name>
+```
