@@ -43,3 +43,29 @@ chks.forEach((chk) => {
     })
 })
 ```
+
+---
+# 복습
+
+[12916](https://github.com/ppotatoG/TIL/tree/master/programmers/12916)
+
+reduce는 개쩐다를 기억해서 썻지만.. 아닌것같다
+컨닝한 기분이라 몹시 찝찝함
+- +3 점으로 통과
+```js
+function solution(string){
+    let array = string.toUpperCase().split('');
+
+    let reducer = (acc, cur) => {
+        if(!acc[cur]) acc[cur] = 1;
+        else acc[cur] = acc[cur] + 1;
+        
+        return acc;
+    }
+
+    let answer = array.reduce(reducer, {})
+
+    if(answer.P == answer.Y) return true;
+    else return false;
+}
+```
