@@ -44,7 +44,6 @@ chks.forEach((chk) => {
 })
 ```
 
----
 # 복습
 
 [12916](https://github.com/ppotatoG/TIL/tree/master/programmers/12916)
@@ -68,4 +67,28 @@ function solution(string){
     if(answer.P == answer.Y) return true;
     else return false;
 }
+```
+
+진짜 놀랍게도 예전 답안과 똑같이 썻다
+
+기억력이 좋은건지, 발전이 없는건지..ㅎ;
+
+[개쩌는답](https://programmers.co.kr/learn/courses/30/lessons/12916/solution_groups?language=javascript)
+```js
+function numPY(s){
+  //함수를 완성하세요
+    return s.toUpperCase().split("P").length === s.toUpperCase().split("Y").length;
+
+    // 'P'를 기준으로 자른 배열, 'Y'를 기준으로 자른 배열 
+    // 각 문자열의 갯수가 같으므로 배열의 길이가 같다
+
+    // return 에 연산자로 들어가있거 굳이 불리언값을 넘겨주지 않아도 됨 
+}
+
+
+// 아래는 테스트로 출력해 보기 위한 코드입니다.
+console.log( numPY("pPoooyY") )
+console.log( numPY("Pyy") )
+
+// 굳이 변수선언 안해도 간편하게 함수 값 확인 가능
 ```
