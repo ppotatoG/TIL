@@ -10,12 +10,10 @@
 // console.log(solution(["marina", "josipa", "nikola", "vinko", "filipa"], ["josipa", "filipa", "marina", "nikola"]))
 
 function solution(a, c){    
-    let arr = [];
     let answer = [];
 
     for(let n = 0; n < c.length; n++){
-        arr = a.slice(c[n][0] - 1, c[n][1]);
-        answer.push(arr.sort((a, b) => a - b)[c[n][2] -1])
+        answer.push(a.slice(c[n][0] - 1, c[n][1]).sort((a, b) => a - b)[c[n][2] -1])
     }
     return answer;
 }

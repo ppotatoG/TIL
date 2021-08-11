@@ -36,3 +36,26 @@ function solution(a, c){
     return answer;
 }
 ```
+<br>
+
+여러가지 정답들이 많지만, 일단 다들 나와 다른? `return` 을 사용하는 것 같다
+
+`return`은 너무 어렵다
+
+<br>
+
+arr 선언 하지않고 answer에 바로 push하기
+
+```js
+function solution(a, c){    
+    let answer = [];
+
+    for(let n = 0; n < c.length; n++){
+        answer.push(a.slice(c[n][0] - 1, c[n][1]).sort((a, b) => a - b)[c[n][2] -1])
+    }
+    return answer;
+}
+```
+내 최선은 딱 이정도인듯;
+
+복습중이니까 괜찮아!
