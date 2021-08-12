@@ -33,3 +33,13 @@ for(let i = 0; i < arr.length; i++){
 }
 ```
 - 중복문사용으로 1번보다 비효율적이지 않을까 ?
+
+---
+
+배열에 추가 또는 삭제하기
+
+- 배열 맨 앞에 추가하기 [`unshift() `](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift)
+- 배열 맨 뒤에 추가하기 [`push()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+
+- 배열 맨 앞 요소를 삭제하기 [`shift() `](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
+- 배열 맨 뒤 요소를 삭제하기 [`pop()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
