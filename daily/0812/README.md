@@ -24,3 +24,22 @@ function solution(a){
 ```
 
 [예전 풀이](https://github.com/ppotatoG/TIL/tree/master/programmers/68644)
+
+---
+[70128](https://programmers.co.kr/learn/courses/30/lessons/70128?language=javascript)
+
+뚝-딱
+```js
+function solution(a, b){
+
+    let arr = [];
+
+    for (let i = 0; i < a.length; i++) {
+        arr.push(a[i] * b[i]);
+    }
+
+    return arr.sort((a, b) => a - b).reduce((a, b) => a + b);
+}
+```
+
+[예전 풀이](https://github.com/ppotatoG/TIL/tree/master/programmers/70128)
