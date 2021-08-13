@@ -49,3 +49,11 @@ function solution(a) {
     return answer;
 }
 ```
+
+#### 프로그래머스에서 찾은 답변
+```js
+function solution(arr)
+{
+    return arr.filter((val,index) => val != arr[index+1]);
+}
+```
