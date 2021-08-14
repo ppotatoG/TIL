@@ -4,6 +4,11 @@
 
 ### 제출한 정답
 ```js
+function solution(arr, num) {
+    return arr.sort((a, b) => {
+        return a[num] == b[num] ? (a > b) - (a < b) : (a[num] > b[num]) - (a[num] < b[num]);
+    });
+}
 ```
 
 오또카지 오또카지 삽질 두시간 하고 [이거](https://github.com/ppotatoG/TIL/tree/master/daily/0814)하고 왔다
@@ -20,3 +25,7 @@ function solution(arr, num) {
     });
 }
 ```
+
+[검색해서 찾은 답](https://kimyang-sun.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%AC%B8%EC%9E%90%EC%97%B4-%EB%82%B4-%EB%A7%88%EC%9D%8C%EB%8C%80%EB%A1%9C-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0-kimyang-sun)
+
+반나절정도 이 문제 풀면서 많이 생각해봤는데.. 모르면 외워야징ㅎ

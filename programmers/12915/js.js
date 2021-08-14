@@ -1,10 +1,6 @@
 function solution(arr, num) {
     return arr.sort((a, b) => {
-        if(a[num] < b[num]) return -1;
-        else if(a[num] > b[num]) return 1;
-        else if(a[num] == b[num]) {
-            a - b;
-        }
+        return a[num] == b[num] ? (a > b) - (a < b) : (a[num] > b[num]) - (a[num] < b[num]);
     });
 }
 
