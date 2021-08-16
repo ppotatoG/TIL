@@ -43,4 +43,19 @@ function solution(p, m ,c){
 
     return Math.sign(answer) == -1 || Math.sign(answer) == 0 ? 10 : answer;
 }
-````
+```
+
+이렇게 하니까 됐다
+```js
+function solution(p, m ,c){
+    let arr = [];
+
+    for(let i = 1; i < c + 1; i++){
+        arr.push(p*i);
+    }
+    
+    return arr.reduce((a, b) => a + b) <= m ? 0 : arr.reduce((a, b) => a + b) - m;
+}
+
+console.log(solution(3, 40, 4))
+```
