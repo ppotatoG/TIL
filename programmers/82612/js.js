@@ -1,11 +1,11 @@
 function solution(p, m ,c){
-    let arr = [];
+    let tmp = 0;
 
     for(let i = 1; i < c + 1; i++){
-        arr.push(p*i);
+        tmp = tmp + p*i;
     }
-    
-    return arr.reduce((a, b) => a + b) <= m ? 0 : arr.reduce((a, b) => a + b) - m;
+
+    return tmp <= m ? 0 : Math.abs(tmp) - m;
 }
 
-console.log(solution(3, 40, 4))
+console.log(solution(3, 20, 4))
