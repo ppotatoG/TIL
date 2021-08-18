@@ -82,6 +82,16 @@ $ git reset HEAD <file>...
 $ git checkout -- <잘못 저장된 파일 이름>
 ```
 
+### git Access Token
+
+1. 우측 상단 Profile > Settings
+2. 좌측 메뉴 Developer settings > Personal access tokens
+3. Generate new token 클릭
+4. Note, Expiration, Select scopes 설정 후 Generate token
+5. 토큰 생성 후 자격증명 pw 부분에 토큰 기입
+
+[참고 블로그](https://firstquarter.tistory.com/299#comment17037168)
+
 ---
 
 ## How to git fork❓
