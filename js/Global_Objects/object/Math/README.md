@@ -11,3 +11,7 @@
 
 [Math.sign(x)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/sign)
 - 어떤 수의 부호를 반환합니다. 이것은 그 수가 양수, 음수 또는 0인지를 나나냅니다.
+
+[Math.sqrt(x)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt)
+-  숫자의 제곱근을 반환합니다.
+
