@@ -36,3 +36,9 @@ console.log(solution(5))
 라고 했다.. 잘 모르겠지만 최대한 해보자
 
 [소수](https://ko.wikipedia.org/wiki/%EC%86%8C%EC%88%98_(%EC%88%98%EB%A1%A0))
+[에라토스테네스의 체](https://ko.wikipedia.org/wiki/%EC%97%90%EB%9D%BC%ED%86%A0%EC%8A%A4%ED%85%8C%EB%84%A4%EC%8A%A4%EC%9D%98_%EC%B2%B4)
+[에라토스테네스의 체 TIL](https://github.com/ppotatoG/TIL/tree/master/daily/0822)
+
+[같은 문제 풀이 포스팅](https://velog.io/@ryong9rrr/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Lv1.-%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0)
+
+이거 풀면서 스트레스 받는건 좋지 못한것 같다
