@@ -52,3 +52,11 @@ function solution(s, n){
     return s.indexOf(" ") > -1 ? answer.join(" ") :  answer.join("")
 }
 ```
+
+코드 실행에서는 다 되는데 제출 후 채점하면 하나도 안맞는다!;
+
+1. charCodeAt() == 0 추가
+2. z - a, Z - A 추가
+3. 정규식 추가
+
+[정규식](http://toyo.dothome.co.kr/?p=153)
