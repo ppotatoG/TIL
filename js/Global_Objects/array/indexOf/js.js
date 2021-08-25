@@ -6,3 +6,7 @@ for(let i = 0; i < list.length; i++){
 }
 console.log(answer)
 
+const fnc = (s) =>{
+    return s.indexOf('love');
+}
+console.log(fnc(['lome,', 'live', 'love', 'lode']))
