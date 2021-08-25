@@ -10,3 +10,13 @@ function solution(s) {
     }
 }
 ```
+
+indexOf(`여기`)에 넣으면 index값을 받는다
+
+리팩토링하면 이렇게
+```js
+function solution(s) {
+    return 	"김서방은 "+s.indexOf("Kim")+"에 있다"
+}
+console.log(solution(["Jane", "Kim"]))
+```
