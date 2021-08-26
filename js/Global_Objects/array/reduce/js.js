@@ -15,3 +15,8 @@ let reducer = (acc, cur) => {
 let sorting = arr2.reduce(reducer, {});
 
 console.log(sorting);
+
+const sumArr = (arr) => {
+  return arr.reduce((a, b) => a + b, 0)
+}
+console.log(sumArr([])); // 0

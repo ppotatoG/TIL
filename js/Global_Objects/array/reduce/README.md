@@ -38,6 +38,15 @@ reduce에서 `initialValue`값을 제공한 경우, 누산기값은 `initialValu
 
 ---
 
+초기값이 없으면 비어있는 배열일 때 에러를 반환한다
+```js
+const sumArr = (arr) => {
+  return arr.reduce((a, b) => a + b, 0)
+}
+console.log(sumArr([])); // 0
+```
+---
+
 모든 값 더하기
 ```js
 let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
