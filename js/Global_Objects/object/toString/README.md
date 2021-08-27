@@ -17,3 +17,10 @@ if(pw[j].toString() === newArr[i].toString()){
     // code
 }
 ```
+
+숫자 3진법으로 변경하기
+```js
+function solution(n) {
+    return n.toString(3); // 1200
+}
+````
