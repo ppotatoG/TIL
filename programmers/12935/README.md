@@ -30,3 +30,5 @@ function solution(num) {
     return num;
 }
 ```
+
+뭘 더 해야할지 잘 몰겟다..
