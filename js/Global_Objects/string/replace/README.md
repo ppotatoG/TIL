@@ -14,3 +14,12 @@ const txtResult = t => t.replace(txtRegex, "");
 console.log(numResult(text)); // 1234567890
 console.log(txtResult(text)); // 안녕? Hi! .
 ```
+
+4자리 이상의 주어진 숫자에서 마지막 4자리를 제외한 모든 숫자를 마스킹
+```js
+function solution(s) {
+    return s.replace(/\d(?=\d{4})/g, '*');
+}
+console.log(solution("01033334444"));
+```
+[stackoverflow](https://stackoverflow.com/questions/27545202/masking-last-4-digits-in-javascript/27545357#27545357)

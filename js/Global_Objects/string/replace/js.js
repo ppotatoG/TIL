@@ -7,3 +7,8 @@ const txtResult = t => t.replace(txtRegex, "");
 
 console.log(numResult(text));
 console.log(txtResult(text));
+
+function solution(s) {
+    return s.replace(/\d(?=\d{4})/g, '*');
+}
+console.log(solution("01033334444"));
