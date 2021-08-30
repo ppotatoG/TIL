@@ -57,3 +57,17 @@ function solution(num) {
 ```js
 Math.min(...num) !== [...num].sort()[0]
 ```
+
+제한사항 내에 중복값은 없다 라는 내용을 기준으로 리팩토링을 해보자면,
+
+중복값이 없기 때문에 굳이 중복문을 돌지 않아도 된다.. 라고 생각한다
+
+```js
+function solution(num) {
+    let min = Math.min(...num); // 가장 작은 값
+
+    num.splice(num.indexOf(min), 1); // min 삭제
+    
+    return num.length == 0? [-1] : num; // 빈배열일 때 -1 return
+}
+```
