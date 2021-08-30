@@ -7,3 +7,7 @@ const txtResult = t => t.replace(txtRegex, "");
 
 console.log(numResult(text));
 console.log(txtResult(text));
+
+console.log("zero4zero".replace('zero', 0));
+console.log("zero4zero".replace(/zero/, 0));
+console.log("zero4zero".replace(/zero/g, 0));

@@ -14,3 +14,9 @@ const txtResult = t => t.replace(txtRegex, "");
 console.log(numResult(text)); // 1234567890
 console.log(txtResult(text)); // 안녕? Hi! .
 ```
+
+```js
+console.log("zero4zero".replace('zero', 0)); // 04zero
+console.log("zero4zero".replace(/zero/, 0)); // 04zero
+console.log("zero4zero".replace(/zero/g, 0)); // 040
+```
