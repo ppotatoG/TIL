@@ -15,13 +15,11 @@ console.log(numResult(text)); // 1234567890
 console.log(txtResult(text)); // 안녕? Hi! .
 ```
 
-<<<<<<< HEAD
 ```js
 console.log("zero4zero".replace('zero', 0)); // 04zero
 console.log("zero4zero".replace(/zero/, 0)); // 04zero
 console.log("zero4zero".replace(/zero/g, 0)); // 040
 ```
-=======
 4자리 이상의 주어진 숫자에서 마지막 4자리를 제외한 모든 숫자를 마스킹
 ```js
 function solution(s) {
@@ -30,4 +28,3 @@ function solution(s) {
 console.log(solution("01033334444"));
 ```
 [stackoverflow](https://stackoverflow.com/questions/27545202/masking-last-4-digits-in-javascript/27545357#27545357)
->>>>>>> aa6845b4e74450b8407216918d2b12aa2d2f8718
