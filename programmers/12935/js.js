@@ -1,5 +1,5 @@
 function solution(num) {
-    let min = [...num].sort()[0];
+    let min = Math.min(...num);
 
     if(num[0] == num[1]) num = [-1];
 
@@ -8,7 +8,7 @@ function solution(num) {
     }
 
     if(num.length == 0) num.push(-1);
-    return num;   
+    return num;
 }
 
 console.log(solution([3,7,1,5, 1, 7, 1]));

@@ -32,3 +32,28 @@ function solution(num) {
 ```
 
 뭘 더 해야할지 잘 몰겟다..
+
+일단은 작은값을 배열복사 후 정렬 말고 Math.max()로 해보자
+
+어.. 이게되네ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
+
+```js
+function solution(num) {
+    let min = Math.min(...num);
+
+    if(num[0] == num[1]) num = [-1];
+
+    for(let i = 0; i < num.length; i++){
+        if(num[i] == min) num.splice(i, 1)
+    }
+
+    if(num.length == 0) num.push(-1);
+    return num;
+}
+```
+
+그럼 아래인건데 뭐가 다른걸까
+
+```js
+Math.min(...num) !== [...num].sort()[0]
+```
