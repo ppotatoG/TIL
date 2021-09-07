@@ -17,10 +17,28 @@ function solution(weights, h2h){
             }
         }
     }
+    const obj = Object.assign({}, [...count]);
 
-    console.log([...count].sort().reverse());
+    const arrToObj = Object.entries(obj).sort((a, b) => {
+        if(a[a.length - 1] > b[b.length - 1]) return -1
+        if(a[a.length - 1] < b[b.length - 1]) return 1
+        if(a[a.length - 1] == b[b.length - 1]) return 0
+    });
 
-    return count;
+    for(let i = 0; i < weights.length; i++){
+        for(let j = 0; j < weights.length; j++){
+            if(
+                (arrToObj[i][1] === arrToObj[j][1]) 
+                && (i !== j) 
+                // && (weights[i - 1] > weights[j - 1])
+            ){
+                console.log(arrToObj[i][1], arrToObj[j][1]);
+                console.log(weights[i - 1], weights[j + 1]);
+            }
+        }
+    }
+
+    return arrToObj;
 }
 
 console.log(solution([50,82,75,120], ["NLWL","WNLL","LWNW","WWLN"]));
