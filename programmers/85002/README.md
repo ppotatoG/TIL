@@ -88,3 +88,48 @@ function solution(weights, h2h){
     return arrObj.map((cur, idx) => cur = Number(arrObj[idx][0]) + 1);
 }
 ```
+
+current값은 헷갈려서 도저히 못쓰겠다
+
+하는 내내 무슨 의미가 있나 싶었지만 혹시 몰라 해봤는데 역시나 실패
+
+어제랑 같은 곳에서 틀렸으니 순서... 방법... 이 틀린거겠지
+
+이정도면 다 틀린게 아닌가... ಡ︷ಡ)
+```js
+function solution(weights, h2h){
+    const arr = [...weights].map((cur, idx) => cur = [idx + 1, cur]);
+
+    arr.map((cur, idx) => {
+        cur[2] = 0;
+        h2h.map((cur2, idx2) =>{
+            if(h2h[idx].slice(idx2, idx2 + 1) === 'W') {
+                cur[2] = cur[2] + 1;
+                weights[idx] < weights[idx2] ? cur[2] = cur[2] + 1 : 0;
+            }
+        })
+    })
+
+    arr.sort((a, b) => {
+        return a[a.length - 1] > b[b.length - 1] ? -1 : 1;
+    });
+
+    // arr[0] 0:선수 번호 1:몸무게 2:승률
+
+    arr.map((cur, idx) => {
+        return weights.map((cur2, idx2) =>{
+            if(
+                (arr[idx][1] > arr[idx2][1]) // 몸무게
+                && (idx !== idx2) // 본인 제외
+                && (arr[idx][2] === arr[idx2][2])
+            ){
+                const tmp = arr[idx];
+                arr[idx] = arr[idx2];
+                arr[idx2] = tmp
+            }
+        })
+    })
+
+    return arr.map((cur, idx) => cur[0]);
+}
+```
