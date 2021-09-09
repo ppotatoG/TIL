@@ -1,38 +1,40 @@
 function solution(weights, h2h){
-    const arr = [...weights].map((cur, idx) => cur = [idx + 1, cur]);
+    
+    const all = weights.map((i) => i = h2h[0].split('').filter((a) => a === 'W' || a === 'L').length); // 게임 전체 판 수
 
-    arr.map((cur, idx) => {
-        cur[2] = 0;
-        h2h.map((cur2, idx2) =>{
-            if(h2h[idx].slice(idx2, idx2 + 1) === 'W') {
-                cur[2] = cur[2] + 1;
-                weights[idx] < weights[idx2] ? cur[2] = cur[2] + 1 : 0;
+    const count = weights.map((i) => i = 0); // 승리한 횟수
+
+    for(let i = 0; i < weights.length; i++){
+        for(let j = 0; j < weights.length; j++){
+            if(h2h[i].slice(j, j + 1) === 'W' ){
+                count[i]++;
             }
-        })
-    })
+        }
+    }
+    
+    const rate = all.map((cur, idx) => count[idx] / cur * 100) // 승률
 
-    arr.sort((a, b) => {
-        return a[a.length - 1] > b[b.length - 1] ? -1 : 1;
-    });
-
-    // arr[0] 0:선수 번호 1:몸무게 2:승률
-
-    arr.map((cur, idx) => {
-        return weights.map((cur2, idx2) =>{
+    // 승률 기준으로 정렬
+    const arrObj = Object.entries(Object.assign({}, [...rate])).sort((a, b) => a[a.length - 1] > b[b.length - 1] ? -1 : 1); 
+    
+    // 승률 같을 때 자신보다 몸무게가 무거운 복서를 이긴 횟수
+    for(let i = 0; i < weights.length; i++){
+        for(let j = 0; j < weights.length; j++){
             if(
-                (arr[idx][1] > arr[idx2][1]) // 몸무게
-                && (idx !== idx2) // 본인 제외
-                && (arr[idx][2] === arr[idx2][2])
+                (arrObj[i][1] === arrObj[j][1]) // 승률이 같음
+                && (weights[i] < weights[j]) // 상대 몸무개가 자신보다 큼
+                && (h2h[i].slice(j, j + 1) === 'W') // 상대방을 이김
             ){
-                const tmp = arr[idx];
-                arr[idx] = arr[idx2];
-                arr[idx2] = tmp
+                const tmp = arrObj[i];
+                arrObj[i] = arrObj[j];
+                arrObj[j] = tmp
             }
-        })
-    })
+        }
+    }
 
-    return arr.map((cur, idx) => cur[0]);
+    return arrObj;
+    return arrObj.map((cur, idx) => cur = Number(arrObj[idx][0]) + 1);
 }
 console.log(solution([50,82,75,120], ["NLWL","WNLL","LWNW","WWLN"]));
-// console.log(solution([145,92,86], ["NLW","WNL","LWN"]));
+console.log(solution([145,92,86], ["NLW","WNL","LWN"]));
 // console.log(solution([60,70,60], ["NNN","NNN","NNN"]));
