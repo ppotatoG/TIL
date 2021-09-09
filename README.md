@@ -19,16 +19,28 @@
 ---
 
 ## How to github❓
-[github](https://github.com/ppotatoG/TIL/github)
+[github](https://github.com/ppotatoG/TIL/tree/master/github)
 
 ---
 
+## Daily
+[github](https://github.com/ppotatoG/TIL/tree/master/daily)
+
+--- 
 ## Funny ✧*｡٩(ˊᗜˋ*)و✧*｡
+
+<details>
+<summary>Jquery</summary>
+     
+[github](https://github.com/ppotatoG/TIL/tree/master/jquery)
+
+- Jquery로 하는 재미있는.. ???
+</details>
 
 <details>
 <summary>checkbox</summary>
      
-[demo](https://ppotatog.github.io/TIL/checkbox)
+[github](https://github.com/ppotatoG/checkbox)
 
 - input 단일체크 기능
 - 클릭된 this에 color 추가
@@ -38,7 +50,7 @@
 <details>
 <summary>bxslider Sample</summary>
      
-[demo](https://ppotatog.github.io/TIL/bxsliderSample/)
+[github](https://github.com/ppotatoG/bxsliderSample/)
 
 - bxslider 라이브러리를 사용한 샘플 페이지
 - 결국 원하는건 만들지 못했다
@@ -48,7 +60,7 @@
 <details>
 <summary>bigCursor</summary>
      
-[demo](https://ppotatog.github.io/TIL/bigCursor/)
+[github](https://github.com/ppotatoG/bigCursor/)
 
 - box안에서 작동되는 짱 큰 커서 
 - 사용하는 사람이 있을까?
@@ -58,7 +70,7 @@
 <details>
 <summary>Arduino in web</summary>
      
-[example01 demo](https://ppotatog.github.io/TIL/Arduino/example01)
+[example01 github](https://github.com/ppotatoG/Arduino/tree/master/example01)
 
 - 아두이노 공부하는 공대친구 재미있어 보여서 만든 페이지
 - 앞으로 친구 과제 할 때마다 추가 될 예정
