@@ -133,3 +133,9 @@ function solution(weights, h2h){
     return arr.map((cur, idx) => cur[0]);
 }
 ```
+
+이건 갖고있어봤자 스트레스만 받을것 같다..!
+
+배열 또는 객체를 만든 후 기준에 따라 `sort()`를 사용하면 될 것 같다고 생각을 하기는 했었다.. 생각 '만'..
+
+[내가 생각한것과 가장 비슷한 풀이](https://velog.io/@gwanuuoo/Algorithm-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%B3%B5%EC%84%9C-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0-JS)
