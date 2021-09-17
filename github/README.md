@@ -92,6 +92,12 @@ $ git checkout -- <잘못 저장된 파일 이름>
 
 [참고 블로그](https://firstquarter.tistory.com/299#comment17037168)
 
+### Another git process seems to be running in this repository 
+```
+$ rm -f ./.git/index.lock
+```
+
+[참고 블로그](https://goddaehee.tistory.com/220)
 ---
 
 ## How to git fork❓
