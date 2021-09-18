@@ -13,5 +13,7 @@
 - 어떤 수의 부호를 반환합니다. 이것은 그 수가 양수, 음수 또는 0인지를 나나냅니다.
 
 [Math.sqrt(x)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/sqrt)
--  숫자의 제곱근을 반환합니다.
+- 숫자의 제곱근을 반환합니다.
 
+[Math.round(x)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
+- 입력값을 반올림한 수와 가장 가까운 정수 값을 반환합니다.
