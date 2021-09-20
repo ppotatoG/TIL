@@ -135,3 +135,26 @@ $ git branch <branch name>
 ```
 $ git checkout <branch name>
 ```
+---
+
+## Github blog - jekyll
+
+```
+$ cd ppotatoG.github.io
+$ gem install jekyll bundler
+$ jekyll new ./
+$ bundle install
+$ bundle exec jekyll serve
+```
+`$ bundle exec jekyll serve`에서 error
+ruby 3.0.0부터 webrick이 기본으로 포함된 gem에서 빠졌기 때문에 `bundle add webrick` 으로 webrick을 추가해 주고 다시 실행
+
+```
+$ bundle add webrick
+```
+
+[참고 블로그 1](https://shryu8902.github.io/_posts/2018-06-22-jekyll-on-windows/)
+
+[참고 블로그 2](https://jetalog.net/86)
+
+[참고 블로그 3](https://junho85.pe.kr/1850)
