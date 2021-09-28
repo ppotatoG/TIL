@@ -3,7 +3,37 @@
 [programmers](https://programmers.co.kr/learn/courses/30/lessons/42746)
 
 ### 제출한 정답
+
 ```js
+function solution(num) {    
+    num.sort((a, b) => {
+        let num1 = String(a);
+        let num2 = String(b);
+
+        if(num1.length > num2.length){
+            if(num1 + '' + num2 > num2 + '' + num1) return 1;
+            if(num1 + '' + num2 < num2 + '' + num1) return -1;
+        }
+
+        if(num1.length < num2.length){
+            if(num1 + '' + num2 > num2 + '' + num1) return 1;
+            if(num1 + '' + num2 < num2 + '' + num1) return -1;
+        }
+
+        if(num1.slice(0, 1) > num2.slice(0, 1)) return 1;
+        if(num1.slice(0, 1) < num2.slice(0, 1)) return -1;
+
+        if(num1.slice(1, 2) > num2.slice(1, 2)) return 1;
+        if(num1.slice(1, 2) < num2.slice(1, 2)) return -1;
+
+        if(num1.slice(2,3) > num2.slice(2,3)) return 1;
+        if(num1.slice(2,3) < num2.slice(2,3)) return -1;
+
+        return 0;
+    }).reverse();
+
+    return num[0] === 0 ? String(0) : num.join(' ');
+}
 ```
 
 a와 b의 각 자릿수별로 비교하면 될 줄 알았다
@@ -103,3 +133,7 @@ function solution(num) {
 ```
 
 `num[num.length - 1]` 부분이 문제였어..
+
+다들 짧게 잘 쓰셨는데 이건 내가 알고리즘 오랜만이라 그런걸까
+
+내가 똥멍청이 인건가 진짜 속상해ㅠ
