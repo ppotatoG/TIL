@@ -35,3 +35,12 @@ arr.sort((a, b) => a - b).reverse();
 ```
 
 숫자를 문자로 변경하는 부분을 바꿀 수 있는데... 이거는 리팩토링 말고 추후 공부하도록 하자
+
+---
+
+
+```js
+function solution(num) {
+    return Number(String(num).split('').sort((a, b) => a - b).reverse().join(''));
+}
+```
