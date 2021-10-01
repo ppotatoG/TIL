@@ -1,6 +1,6 @@
 # 시저 암호
 
-[programmers](https://programmers.co.kr/learn/courses/30/lessons/시저 암호)
+[programmers](https://programmers.co.kr/learn/courses/30/lessons/12926)
 
 ### 제출한 정답
 ```js
@@ -110,4 +110,39 @@ function solution(s, n){
 
     return s.indexOf(" ") > -1 ? answer.join(" ") :  answer.join("");
 }
+```
+
+s에 공백이 있을 때 `join(' ')`를 하는게 문제였던 것 같다
+
+사람들이 map으로 하는데는 다 이유가 있었던거야
+
+하루 이상을 갖고있었는데 5점짜리라니 정말 속상하다
+```js
+function solution(s, n){
+    const arr = s.split("");
+
+    let index;
+
+    return s.split('').map((value) => {
+        if(value === String.fromCharCode(32)) return String.fromCharCode(32)
+        else if(value === value.toUpperCase()){
+            index = value.charCodeAt() + n;
+            return index > 90 ? value = String.fromCharCode(index - 26) :  value = String.fromCharCode(index);
+        } else if(value === value.toLowerCase()) { // 소문자 
+            index = value.charCodeAt() + n;
+            return index > 122 ? value = String.fromCharCode(index - 26) :  value = String.fromCharCode(index);
+        }
+    }).join('');
+}
+```
+
+1. 소문자는 소문자끼리, 대문자는 대문자끼리 커짐
+2. s에 공백이 있다고 해서 전체에 공백이 들어가는건 아님
+
+아래 세개만 되도 정답일듯 내가 너무 어렵게 생각했다
+
+```js
+console.log(solution('yz', 1)); // za
+console.log(solution('z', 2)); // b
+console.log(solution('Aa Z z', 2)); // Cc B b
 ```

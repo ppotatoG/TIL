@@ -1,26 +1,20 @@
 function solution(s, n){
-    const arr = s.split("").filter((value) => value !== ' ');
-    let answer = []
-
-    while(n > 26) n -=26;
+    const arr = s.split("");
 
     let index;
 
-    arr.forEach((item) => {
-        if(item === item.toUpperCase()) { // 대문자
-            index = item.charCodeAt() + n;
-            index > 90 ? answer.push(String.fromCharCode(index - 26)) :  answer.push(String.fromCharCode(index));
-        } else if(item === item.toLowerCase()) { // 소문자 
-            index = item.charCodeAt() + n;
-            index > 122 ? answer.push(String.fromCharCode(index - 26)) :  answer.push(String.fromCharCode(index));
+    return s.split('').map((value) => {
+        if(value === String.fromCharCode(32)) return String.fromCharCode(32)
+        else if(value === value.toUpperCase()){
+            index = value.charCodeAt() + n;
+            return index > 90 ? value = String.fromCharCode(index - 26) :  value = String.fromCharCode(index);
+        } else if(value === value.toLowerCase()) { // 소문자 
+            index = value.charCodeAt() + n;
+            return index > 122 ? value = String.fromCharCode(index - 26) :  value = String.fromCharCode(index);
         }
-
-    })
-
-    return s.indexOf(" ") > -1 ? answer.join(" ") :  answer.join("");
+    }).join('');
 }
 
-console.log(solution('yz', 1));
-console.log(solution('z', 1));
-console.log(solution('a B z', 316));
-console.log(solution('A a Z z', 25));
+console.log(solution('yz', 1)); // za
+console.log(solution('z', 2)); // b
+console.log(solution('Aa Z z', 2)); // Cc B b
