@@ -4,6 +4,17 @@
 
 ### 제출한 정답
 ```js
+function solution(num){
+    const nArr = new Array(num).fill(false)
+    nArr[0] = true;
+    for(let i = 2; i * i <= num; i++){
+        for(let k = i * i; k <= num; k += i){
+            nArr[k - 1] = true;
+        }
+    }
+    
+    return nArr.filter((cur) => cur === false).length;
+}
 ```
 
 
@@ -42,3 +53,24 @@ console.log(solution(5))
 [같은 문제 풀이 포스팅](https://velog.io/@ryong9rrr/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-Lv1.-%EC%86%8C%EC%88%98-%EC%B0%BE%EA%B8%B0)
 
 이거 풀면서 스트레스 받는건 좋지 못한것 같다
+
+
+```js
+function solution(num){
+    const nArr = new Array(num).fill(false) // num만큼 배열 생성, 배열값은 false
+    nArr[0] = true; // 1 제외
+    for(let i = 2; i * i <= num; i++){ 
+    // 1제외, 2부터 시작
+    // 제곱근으로 순회
+        for(let k = i * i; k <= num; k += i){
+        // 제곱근의 배수 
+            nArr[k - 1] = true; // 제곱근의 배수에 true
+        }
+    }
+    
+    return nArr.filter((cur) => cur === false).length; 
+    // 체에서 걸러져 남은 애들만 필터링, 필터링 된 배열의 길이
+}
+```
+
+[참고 포스팅](https://chaeyoung2.tistory.com/41)
