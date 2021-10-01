@@ -1,17 +1,11 @@
 function solution(s, n){
-    const arr = s.split("");
-
     let index;
 
     return s.split('').map((value) => {
-        if(value === String.fromCharCode(32)) return String.fromCharCode(32)
-        else if(value === value.toUpperCase()){
-            index = value.charCodeAt() + n;
-            return index > 90 ? value = String.fromCharCode(index - 26) :  value = String.fromCharCode(index);
-        } else if(value === value.toLowerCase()) { // 소문자 
-            index = value.charCodeAt() + n;
-            return index > 122 ? value = String.fromCharCode(index - 26) :  value = String.fromCharCode(index);
-        }
+        index = value.charCodeAt() + n;
+        if(value === String.fromCharCode(32)) return value;
+        else if(value === value.toUpperCase()) return index > 90 ? String.fromCharCode(index - 26) :  String.fromCharCode(index);
+        else if(value === value.toLowerCase()) return index > 122 ? String.fromCharCode(index - 26) :  String.fromCharCode(index);
     }).join('');
 }
 

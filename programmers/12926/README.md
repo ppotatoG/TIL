@@ -40,16 +40,14 @@ function solution(s, n){
 중복문 내에서 else if를 주고, return 에서 조건문
 ```js
 function solution(s, n){
-    let arr = s.split("");
-    let answer = []
+    let index;
 
-    arr.forEach((item) => {
-        if(item.charCodeAt() == 122) answer.push(String.fromCharCode(97 + n - 1))
-        else if(item.charCodeAt() == 32) return false;
-        else answer.push(String.fromCharCode(item.charCodeAt() + n))
-    })
-
-    return s.indexOf(" ") > -1 ? answer.join(" ") :  answer.join("")
+    return s.split('').map((value) => {
+        index = value.charCodeAt() + n;
+        if(value === String.fromCharCode(32)) return value;
+        else if(value === value.toUpperCase()) return index > 90 ? String.fromCharCode(index - 26) :  String.fromCharCode(index);
+        else if(value === value.toLowerCase()) return index > 122 ? String.fromCharCode(index - 26) :  String.fromCharCode(index);
+    }).join('');
 }
 ```
 
