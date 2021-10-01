@@ -60,3 +60,54 @@ function solution(s, n){
 3. 정규식 추가
 
 [정규식](http://toyo.dothome.co.kr/?p=153)
+
+
+README 쓰는걸 까먹었으니 지금이라도 쓰자!
+index값이 26보다 클 때 -=26을 해줘야하는데 그게 잘 안된다
+```js
+function solution(s, n){
+    let answer = [];
+
+    const upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    const lower = [...upper].map((cur) => cur.toLowerCase());
+
+    const arr = s.split('').filter((cur) => cur !== ' ');
+
+    arr.forEach((item, i) => {
+        if(upper.indexOf(item) >= 0){
+            answer.push(upper.indexOf(item) + n)
+        }
+    })
+
+    return s.indexOf(' ') >= 0 ? answer.join(' ') : answer.join('');
+}
+```
+
+슬슬 짜증나니까 처음부터 다시 해보자 이제 좀 알거같아
+
+<br>
+
+알기는 무슨,,, 9번부터 13번까지는 실패다
+```js
+function solution(s, n){
+    const arr = s.split("").filter((value) => value !== ' ');
+    let answer = []
+
+    while(n > 26) n -=26;
+
+    let index;
+
+    arr.forEach((item) => {
+        if(item === item.toUpperCase()) { // 대문자
+            index = item.charCodeAt() + n;
+            index > 90 ? answer.push(String.fromCharCode(index - 26)) :  answer.push(String.fromCharCode(index));
+        } else if(item === item.toLowerCase()) { // 소문자 
+            index = item.charCodeAt() + n;
+            index > 122 ? answer.push(String.fromCharCode(index - 26)) :  answer.push(String.fromCharCode(index));
+        }
+
+    })
+
+    return s.indexOf(" ") > -1 ? answer.join(" ") :  answer.join("");
+}
+```
