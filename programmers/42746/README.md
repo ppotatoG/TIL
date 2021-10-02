@@ -137,3 +137,20 @@ function solution(num) {
 다들 짧게 잘 쓰셨는데 이건 내가 알고리즘 오랜만이라 그런걸까
 
 내가 똥멍청이 인건가 진짜 속상해ㅠ
+
+
+---
+
+map으로 한줄만에 샥- 도 있지만 그건 내 머리가 못따라가니 패스
+
+내가 사용한 `sort()` numbers의 자리만 큼 자릿수끼리 비교함
+
+아래처럼 사용하면 깔끔하게 가능
+
+```js
+function solution(num) {    
+    let answer = num.sort((a, b) => `${b}${a}` - `${a}${b}`).join('');
+    // ba - ab 이유는 잘 모르겠지만 외우자!;ㅅ;
+    return answer[0] === '0' ? '0' : answer; // 배열값이 모두 0일 때
+}
+````
