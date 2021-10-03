@@ -5,6 +5,31 @@
 
 제출한 정답
 ```js
+function solution(weights, h2h){
+    const arr = weights.map((cur, idx) => {
+        return [0, 0, cur, idx + 1];
+    })
+
+    for(let i = 0; i < weights.length; i++){
+        for(let j = 0; j < weights.length; j++){
+            if(h2h[i][j] === 'W'){
+                arr[i][0]++; 
+                if(weights[i] < weights[j]) {
+                    arr[i][1]++; 
+                }
+            }
+        }
+    }
+
+    arr.map((cur, idx) => cur[0] = h2h[idx].split('').filter((a) => a !== 'N').length ? cur[0] / h2h[idx].split('').filter((a) => a !== 'N').length : 0); 
+
+    return arr.sort((a, b) => {
+        if(a[0] !== b[0]) return b[0] - a[0];
+        if(a[1] !== b[1]) return b[1] - a[1];
+        if(a[2] !== b[2]) return b[2] - a[2];
+        else return a[3] - b[3];
+    }).map((cur) => cur[3]);
+}
 ```
 
 이런식으로 count에 따른 값으로 answer 을 만들어 주면 될 것 같은데 막혔다
@@ -202,4 +227,28 @@ function solution(weights, h2h){
 헤헷 찾아버렸지 뭐야 
 ```js
 arr.map((cur, idx) => cur[0] = h2h[idx].split('').filter((a) => a !== 'N').length ? cur[0] / h2h[idx].split('').filter((a) => a !== 'N').length : 0); 
+```
+
+---
+1이 더 빠르다
+```js
+// 1
+for(let i = 0; i < weights.length; i++){
+    for(let j = 0; j < weights.length; j++){
+        if(h2h[i][j] === 'W'){
+            arr[i][0]++; 
+            if(weights[i] < weights[j]) {
+                arr[i][1]++; 
+            }
+        }
+    }
+}
+
+// 2
+weights.map((cur, idx) => h2h.map((cur2, idx2) =>{
+    if(h2h[idx][idx2] === 'W') {
+        arr[idx][0] ++;
+        if(weights[idx] < weights[idx2]) arr[idx][1] ++; 
+    }
+}))
 ```
