@@ -4,7 +4,23 @@
 
 제출한 정답
 ```js
+function solution(d, budget){
+    d.sort((a, b) => a - b);
 
+    let count = 0;
+    let sum = 0;
+
+    for(let i = 0; i < d.length; i ++){
+        sum += d[i];
+        count ++;
+        if(sum > budget) {
+            count --;
+            break;
+        }
+    }
+
+    return count;
+}
 ```
 
 `break`부분이 이상하다..
@@ -62,3 +78,27 @@ console.log(solution([11], 10)); // 1
 `return d.length === 1 && d > budget? 0 : i;`
 
 많이 틀린것도 아니고 23개중에 한개 틀린거면 분명 별거 아닌데 그러는걸거다... 머가 문제일가...
+
+
+어느 부분이 문제인지 몰라서 처음 for문으로 어케어케 정답에는 성공
+
+이 방법이 가장 빠르다!
+```js
+function solution(d, budget){
+    d.sort((a, b) => a - b);
+
+    let count = 0;
+    let sum = 0;
+
+    for(let i = 0; i < d.length; i ++){
+        sum += d[i];
+        count ++;
+        if(sum > budget) {
+            count --;
+            break;
+        }
+    }
+
+    return count;
+}
+```

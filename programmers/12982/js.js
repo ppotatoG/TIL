@@ -1,18 +1,20 @@
 function solution(d, budget){
-    d.sort();
+    d.sort((a, b) => a - b);
 
-    let i = 0;
+    let count = 0;
     let sum = 0;
 
-    while(sum < budget) {
-        i++;
+    for(let i = 0; i < d.length; i ++){
         sum += d[i];
+        count ++;
+        if(sum > budget) {
+            count --;
+            break;
+        }
     }
 
-    return d.length === 1 && d > budget? 0 : i;
+    return count;
 }
-
 console.log(solution([1,3,2,5,4], 9)); // 3
 console.log(solution([2,2,3,3], 10)); // 4
 console.log(solution([11], 10)); // 0
-console.log(solution([11, 12, 1, 2], 10)); // 2
