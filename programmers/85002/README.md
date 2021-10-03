@@ -139,3 +139,67 @@ function solution(weights, h2h){
 배열 또는 객체를 만든 후 기준에 따라 `sort()`를 사용하면 될 것 같다고 생각을 하기는 했었다.. 생각 '만'..
 
 [내가 생각한것과 가장 비슷한 풀이](https://velog.io/@gwanuuoo/Algorithm-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%B3%B5%EC%84%9C-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0-JS)
+
+---
+
+테스트는 맞는데 제출하면 실패가 더 많다'ㅅ'
+```js
+function solution(weights, h2h){
+    // [이긴 횟수, 나보다 무거운 사람을 이긴 횟수, 몸무게, 선수 번호]
+    const arr = weights.map((cur, idx) => {
+        return [0, 0, cur, idx + 1];
+    })
+
+    for(let i = 0; i < weights.length; i++){
+        for(let j = 0; j < weights.length; j++){
+            if(h2h[i][j] === 'W'){
+                arr[i][0]++; 
+                if(weights[i] < weights[j]) {
+                    arr[i][1]++; 
+                }
+            }
+        }
+    }
+
+    return arr.sort((a, b) => {
+        // 승률
+        if(a[0] > b[0]) return -1;
+        if(a[0] < b[0]) return 1;
+
+        // 자신보다 몸무게가 무거운
+        if(a[1] > b[1]) return -1;
+        if(a[1] < b[1]) return 1;
+
+        // 자기 몸무게가 더 무거운
+        if(a[2] > b[2]) return -1;
+        if(a[2] < b[2]) return 1;
+        
+        // 복서 번호가 작은
+        if(a[3] < b[3]) return -1;
+        if(a[3] > b[3]) return 1;
+
+        return 0;
+    }).map((cur) => cur[3]);
+}
+```
+
+그래 그... 질문하기 들어가면 승률에 대한 내용이 나온다
+
+'w'.length로 비교하면 되는거 아닌가 굳이 승리/횟수 를 할 필요가 있는건가..
+
+근데 승률얘기가 계속 나오니 나도 써야지ㅠ
+
+`arr.map((cur) => cur[0] = cur[0] / h2h.filter((a) => a !== 'L').length * 10000000);` 이거 추가해도 똑같은거 같은뎁...
+
+`처음에 (a.rate > b.rate) return -1 과 같은 방식으로 했다가 오답판정을 받았다. 이렇게 설정할 경우 승률이 낮으면 아래 조건을 확인하게 되버린다. 즉 승률이 같지만 않으면 해당 조건에서 끝나야한다.`
+
+[참고 포스팅](https://haesoo9410.tistory.com/317?category=934224)
+
+아무리 찾아봐도 승률로 변환하는 곳 말고는 잘못된게 없는 것 같다... 근데 왜 않돼지.... 돼지야....
+
+---
+
+헤헷 찾아버렸지 뭐야 
+```js
+arr.map((cur, idx) => cur[0] = h2h[idx].split('').filter((a) => a !== 'N').length ? cur[0] / h2h[idx].split('').filter((a) => a !== 'N').length : 0); 
+```
