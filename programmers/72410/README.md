@@ -64,3 +64,5 @@ function solution(str) {
 ```
 
 26개중에 3개 빼고 통과면 ㅆㅅㅌㅊ지!
+
+- `filterStrings`에 'w'가 없었다ㅎㅅㅎ!
