@@ -37,7 +37,20 @@ function solution(arr) {
         }
     }
 
-    return count;
+    count = count.map((el, idx) => el = [idx + 1, el]).sort((a, b) => {
+        if (a[1] > b[1]) return 1;
+        else if (a[1] < b[1]) return 0;
+    });
+
+    if(count[0][1] === count[1][1]){
+        if(count[1][1] === count[2][1]) {
+            return [count[0][0], count[1][0], count[2][0]];
+        }
+
+        else {
+            return [count[0], count[1]];
+        }
+    }else return [count[0][0]];
 
 }
 console.log(solution([1,2,3,4,5]));
