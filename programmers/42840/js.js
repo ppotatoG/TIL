@@ -5,20 +5,25 @@ function solution(arr) {
         std3 : [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     }
 
-    const num1 = (arr.length - obj.std1.length) / obj.std1.length
-    const num2 = (arr.length - obj.std1.length) % obj.std1.length
+    let values = Object.values([...obj]);
 
-    if(obj.std1.length < arr.length) {
-        for(let i = 0; i < Math.floor(num1); i++){
-            obj.std1.push(1, 2, 3, 4, 5)
-        }
-        for(let i = 0; i < num2; i++){
-            obj.std1.push(obj.std1[i])
+    console.log(values)
+
+    for(let i = 0; i < values.length; i++){
+        console.log(values[i])
+
+        const num1 = Math.ceil((arr.length - values[i].length) / values[i].length)
+
+        if(values[i].length < arr.length) {
+            for(let j = 0; j < num1; j++){
+                // values[i].push(values[i]);
+                console.log(values)
+            }
         }
     }
 
-    console.log(`arr.length ${arr.length}`)
-    return obj.std1
+    return values;
+
 }
-console.log(solution([1,2,3,4,5,1,2,3]));
+// console.log(solution([1,2,3,4,5]));
 console.log(solution([1,2,3,4,5,1,2,3,4,5,2,3,1,2,3,4,5,1,2,3,4,5,2,3]));
