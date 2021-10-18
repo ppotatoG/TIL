@@ -95,3 +95,5 @@ function solution(arr) {
     }else return [count[0][0]];
 }
 ```
+
+6
