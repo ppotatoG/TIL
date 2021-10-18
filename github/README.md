@@ -134,9 +134,20 @@ $ git branch <branch name>
 ```
 
 ### 생성한 branch로 이동
+`branch로 name`의 대소문자를 구분함
 ```
 $ git checkout <branch name>
 ```
+
+### 각 branch의 정보 가져오기
+```
+$ git branch -vvv
+```
+ex) `* main 05ac456 [origin/main] trim`
+
+- `branch name`, `hash`, `바라보는 branch`, `last commit message`
+- checkout 된 브랜치 앞에 `*`
+
 ---
 
 ## Github blog - jekyll
