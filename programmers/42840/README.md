@@ -96,4 +96,15 @@ function solution(arr) {
 }
 ```
 
-6
+구글링 첫번째로 뜨는 블로그에서 이걸 가져왔는데 이게 뭔지 잘 모르겠다;;
+```js
+for(var i=0; i<answers.length; i++){
+    if(answers[i] === list[0][i%5])
+        point[0]++;
+    if(answers[i] === list[1][i%8])
+        point[1]++;
+    if(answers[i] === list[2][i%10])
+        point[2]++;
+}
+```
+`%` 는 몫........ i를 나눠서 몫을 보니까 중복이나 조건 없이 저게 가능하다...! 개쩐다
