@@ -38,20 +38,19 @@ function solution(arr) {
     }
 
     count = count.map((el, idx) => el = [idx + 1, el]).sort((a, b) => {
-        if (a[1] > b[1]) return 1;
-        else if (a[1] < b[1]) return 0;
+        if (a[1] < b[1]) return 1;
+        else if (a[1] > b[1]) return -1;
+        else return 0;
     });
 
     if(count[0][1] === count[1][1]){
-        if(count[1][1] === count[2][1]) {
-            return [count[0][0], count[1][0], count[2][0]];
-        }
-
-        else {
-            return [count[0], count[1]];
-        }
+        if(count[1][1] === count[2][1]) return [count[0][0], count[1][0], count[2][0]];
+        else return [count[0][0], count[1][0]];
     }else return [count[0][0]];
 
 }
+console.log(solution([3,3,1]));
+console.log(solution([]));
+console.log(solution([2,2]));
 console.log(solution([1,2,3,4,5]));
 console.log(solution([1,3,2,4,2]));

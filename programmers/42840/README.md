@@ -68,3 +68,30 @@ function solution(arr) {
 
 }
 ```
+
+각 학생들의 답을 늘린건.. 배열끝에 갔을 때 처음으로 돌아가는 방법을 잘 모르겠어서;
+
+근데 이 방법으로는 안되는건가 싶지만 일단 마저 해보자!
+
+<br>
+
+중간에 `sort`랑.. 값 잘못 리턴시킨거 수정했더니 통과는 되는데 런타임뜬다!
+
+어제의 내가 많이 내가 졸렸나보다ㅎㅅㅎ;;
+
+다행히 다른 문제들처럼 테케에 따라 많이 달라지는건 아닌갑다
+```js
+    count = count.map((el, idx) => el = [idx + 1, el]).sort((a, b) => {
+        if (a[1] < b[1]) return 1;
+        else if (a[1] > b[1]) return -1;
+
+        return 0;
+    });
+
+
+    if(count[0][1] === count[1][1]){
+        if(count[1][1] === count[2][1]) return [count[0][0], count[1][0], count[2][0]];
+        else return [count[0][0], count[1][0]];
+    }else return [count[0][0]];
+}
+```
