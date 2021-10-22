@@ -53,3 +53,20 @@ function solution(arr){
 console.log(solution([3, 4, 2, 5, 3, 3, 4, 6, 1, 2, 3, 6])); // [2, 4, 2]
 ```
 밥먹어야징 배고파
+
+---
+
+`sort`랑 for문을 합친
+
+```js 
+function solution(arr){
+    const newArr = new Array(Math.max.apply(Math, arr)).fill(0);
+
+    arr.sort((a, b) => a - b).map((val, idx) => {
+        newArr[arr[idx] - 1] += 1;
+    })
+
+    return newArr.filter((a) => a !== 1);
+}
+```
+let이랑 const의 차이를 말하라면 재할당인데.. 이게 왜 되지... 단순히 `newArr = 1`만 안되고 가공은 되는걸까
