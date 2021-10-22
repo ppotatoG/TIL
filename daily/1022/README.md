@@ -70,3 +70,19 @@ function solution(arr){
 }
 ```
 let이랑 const의 차이를 말하라면 재할당인데.. 이게 왜 되지... 단순히 `newArr = 1`만 안되고 가공은 되는걸까
+
+
+중복된 값이 없으면 [-1]를 리턴해야 한당...!
+```js
+function solution(arr){
+    let newArr = new Array(Math.max.apply(Math, arr)).fill(0);
+
+    arr.sort((a, b) => a - b).map((val, idx) => {
+        newArr[arr[idx] - 1] += 1;
+    })
+
+    newArr = newArr.filter((a) => a !== 1);
+
+    return newArr.length == 0 ? [-1] : newArr;
+}
+```
