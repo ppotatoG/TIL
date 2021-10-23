@@ -4,6 +4,10 @@
 
 ### 제출한 정답
 ```js
+function solution(arr) {
+    arr.map((val) => val.sort((a, b) => a - b));
+    return Math.max.apply(Math, arr.map((val) => val[0])) * Math.max.apply(Math, arr.map((val) => val[1]));
+}
 ```
 
 요새 너무 멍해서 문제 이해를 제대로 못한 상태에서 풀기 시작
@@ -41,5 +45,16 @@ function solution(arr) {
     }
     
     return val1 * val2;
+}
+```
+
+이런 [filter](https://7942yongdae.tistory.com/49)로 뭔가 할 수 있을 거 같은데 아쉽다
+
+filter도 필요 없었네 `Math`는 만능인건가;
+
+```js
+function solution(arr) {
+    arr.map((val) => val.sort((a, b) => a - b));
+    return Math.max.apply(Math, arr.map((val) => val[0])) * Math.max.apply(Math, arr.map((val) => val[1]));
 }
 ```
