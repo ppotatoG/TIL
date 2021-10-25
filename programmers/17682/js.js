@@ -1,9 +1,10 @@
 function solution(str) {
+    const num = new Array(10).fill(0).map((val, idx) => val = idx + 1);
+    
     let arr = 
-    str.split('') 
-    .map((val) => {
-        return Number(val) == val ? val = ' ' + val : val 
-    })
+    str.replace(/10/, 'ten')
+    .split('')
+    .map((val) => Number(val) == val || val === 't' ? val = ' ' + val : val)
     .join('')
     .split(' ')
     .slice(1);
@@ -16,6 +17,12 @@ function solution(str) {
             if (val[1] === 'D') return val = num ** 2;
             if (val[1] === 'T') return val = num ** 3;
         }
+
+        else if(val.slice(0, 3) === 'ten') {
+            if (val[3] === 'S') return val = 10 ** 1;
+            if (val[3] === 'D') return val = 10 ** 2;
+            if (val[3] === 'T') return val = 10 ** 3;
+        } 
 
         else return val;
     })
