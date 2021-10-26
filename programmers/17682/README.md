@@ -163,3 +163,139 @@ function solution(str) {
     return arr.reduce((a, b) => a + b);
 }
 ```
+
+4 ~ 7, 24 빼고 통과했다
+```js
+function solution(str) {
+    const num = new Array(10).fill(0).map((val, idx) => val = idx + 1);
+    
+    let arr = 
+    str.replace(/10/, 'ten')
+    .split('')
+    .map((val) => Number(val) == val || val === 't' ? val = ' ' + val : val)
+    .join('')
+    .split(' ')
+    .slice(1);
+
+    arr = arr.map((val, idx, arr) => {
+        let num = Number(val[0]);
+        
+        if(val.length === 2) {
+            if (val[1] === 'S') return val = num ** 1;
+            if (val[1] === 'D') return val = num ** 2;
+            if (val[1] === 'T') return val = num ** 3;
+        }
+        
+        if((val.slice(-1) !== '*' && val.slice(-1) !== '#') && val.slice(0, 3) === 'ten') {
+            if (val[3] === 'S') return val = 10 ** 1;
+            if (val[3] === 'D') return val = 10 ** 2;
+            if (val[3] === 'T') return val = 10 ** 3;
+        } 
+        
+        else if(typeof(val) === 'string') {
+            if(val.slice(-1) === '*'){
+                if (val[1] === 'S') return val = 2 * (num ** 1) + '*';
+                if (val[1] === 'D') return val = 2 * (num ** 2) + '*';
+                if (val[1] === 'T') return val = 2 * (num ** 3) + '*';
+            }
+            if(val.slice(-1) === '#'){
+                if (val[1] === 'S') return val = -1 * (num ** 1);
+                if (val[1] === 'D') return val = -1 * (num ** 2);
+                if (val[1] === 'T') return val = -1 * (num ** 3);
+            }
+        }
+        
+        else return val;
+    })
+
+    console.log(arr);
+
+    for(let i = 0; i < arr.length; i++){
+        if(String(arr[i]).slice(-1) === '*') {
+            if(arr[i - 1] === undefined ){
+                arr[i] = Number(arr[i].slice(0, 1));
+            } else {
+                arr[i - 1] *= 2;
+                arr[i] = Number(arr[i].slice(0, -1));
+            }
+        }
+    }
+    
+    return arr.reduce((a, b) => a + b);
+}
+```
+`console.log(solution('10S2D*10T#')); // 10S + 2D* + 10T#, 10 * 2 + 8 + -(1000)` 이걸로 오류 찾음
+
+그래도 24번은 안된다ㅎㅋㅋ
+
+`map`부분 어떻게 하면 될거같은데 코드가 하도 길어서 짜증나 ㅜㅅㅜ
+```js
+function solution(str) {
+    const num = new Array(10).fill(0).map((val, idx) => val = idx + 1);
+    
+    let arr = 
+    str.replace(/10/g, 'ten')
+    .split('')
+    .map((val) => Number(val) == val || val === 't' ? val = ' ' + val : val)
+    .join('')
+    .split(' ')
+    .slice(1);
+
+    arr = arr.map((val, idx, arr) => {
+        let num = Number(val[0]);
+        
+        if(val.length === 2) {
+            if (val[1] === 'S') return val = num ** 1;
+            if (val[1] === 'D') return val = num ** 2;
+            if (val[1] === 'T') return val = num ** 3;
+        }
+        
+        if((val.slice(4, 5) !== '*' && val.slice(4, 5) !== '#') && val.slice(0, 3) === 'ten') {
+            if (val[3] === 'S') return val = 10 ** 1;
+            if (val[3] === 'D') return val = 10 ** 2;
+            if (val[3] === 'T') return val = 10 ** 3;
+        } 
+        
+        else if(typeof(val) === 'string') {
+            if(val.slice(-1) === '*'){
+                if (val[1] === 'S') return val = 2 * (num ** 1) + '*';
+                if (val[1] === 'D') return val = 2 * (num ** 2) + '*';
+                if (val[1] === 'T') return val = 2 * (num ** 3) + '*';
+            }
+            if(val.slice(-1) === '#'){
+                if (val[1] === 'S') return val = -1 * (num ** 1);
+                if (val[1] === 'D') return val = -1 * (num ** 2);
+                if (val[1] === 'T') return val = -1 * (num ** 3);
+            }
+            if(val.slice(0, 3) === 'ten'){
+                num = 10;
+                if(val.slice(-1) === '*'){
+                    if (val.slice(-2, -1) === 'S') return val = 2 * (num ** 1) + '*';
+                    if (val.slice(-2, -1) === 'D') return val = 2 * (num ** 2) + '*';
+                    if (val.slice(-2, -1) === 'T') return val = 2 * (num ** 3) + '*';
+                }
+                if(val.slice(-1) === '#'){
+                    if (val.slice(-2, -1) === 'S') return val = -1 * (num ** 1);
+                    if (val.slice(-2, -1) === 'D') return val = -1 * (num ** 2);
+                    if (val.slice(-2, -1) === 'T') return val = -1 * (num ** 3);
+                }
+            }
+        }
+        
+        else return val;
+    })
+
+    for(let i = 0; i < arr.length; i++){
+        if(String(arr[i]).slice(-1) === '*') {
+            if(arr[i - 1] === undefined ){
+                arr[i] = Number(arr[i].slice(0, 1));
+            } else {
+                arr[i - 1] *= 2;
+                arr[i] = Number(arr[i].slice(0, -1));
+            }
+        }
+    }
+
+    return arr.reduce((a, b) => a + b);
+}
+```
