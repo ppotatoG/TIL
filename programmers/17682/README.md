@@ -299,3 +299,60 @@ function solution(str) {
     return arr.reduce((a, b) => a + b);
 }
 ```
+
+다른 사람들은 for로 돌면서 값을... 계산하더라...?
+ 
+[참고포스트](https://velog.io/@dongoc21hj/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%8B%A4%ED%8A%B8-%EA%B2%8C%EC%9E%84-Javascript)
+
+[참고포스트](https://haerang94.tistory.com/309)
+
+`answer[answer.length-1]`부분을 전부 `last`로 바꾸면 안된다 이게 도대체 뭔지 잘 몰겠다;;
+```js
+const last = answer[answer.length-1];
+        
+if(dart[i]==='D'){
+    answer[answer.length-1] = last ** 2;
+}else if(dart[i]==='T'){
+    answer[answer.length-1] = last ** 3;
+}
+if(dart[i]==='*'){
+    answer[answer.length-1] *= 2;
+    if(answer.length>=2){
+        answer[answer.length-2] *= 2;
+    }
+}
+if(dart[i]==='#'){
+    answer[answer.length-1] *= -1;
+}
+
+```
+
+이걸로 통과..  `answer[answer.length - 1]`를 변수로 두고싶은데 잘 안된다
+```js
+function solution(str) {
+    let answer = [];
+    str = str.replace(/10/g, 'A')
+    
+    for(let i = 0; i < str.length; i++){
+        if(str[i].match(/[0-9]/) !== null) answer.push(Number(str[i]));
+        if(str[i].match(/A/) !== null) answer.push(10);
+
+        if(str[i] === 'D') answer[answer.length - 1] = answer[answer.length - 1] ** 2
+        if(str[i] === 'T') answer[answer.length - 1] = answer[answer.length - 1] ** 3
+
+        if(str[i] === '*') {
+            answer[answer.length - 1] = (answer[answer.length - 1]) * 2
+            if(answer[answer.length - 2] !== undefined){
+                answer[answer.length - 2] = (answer[answer.length - 2]) * 2
+            }
+        }
+
+        if(str[i] === '#') {
+            answer[answer.length - 1] = (answer[answer.length - 1]) * -1
+        }
+
+    }
+
+    return answer.reduce((a, b) => a + b);
+}
+```
