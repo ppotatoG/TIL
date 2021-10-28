@@ -73,3 +73,54 @@ function solution(n, lost, reserve) {
 [5, 12번 테스트 케이스 문제 발생 시](https://programmers.co.kr/questions/21442)
 
 이거 했잖아.. 내가 한거 아냐..?
+
+중복문에서 `i--`를 까먹었다 5, 12는 통과인데 이번엔 7이 실패다ㅡㅡ
+
+```js
+function solution(n, lost, reserve) {
+    let has = n - lost.length;
+    let arr = [];
+    
+    lost.sort((a, b) => a - b);
+    reserve.sort((a, b) => a - b);
+
+    console.log(lost, reserve);
+
+    for(let i = 0; i < lost.length; i++){
+        for(let k = 0; k < reserve.length; k++){
+            if(lost[i] === reserve[k]) {
+                reserve.splice(k, 1);
+                lost.splice(i, 1);
+                has ++;
+                i--;
+                k--;
+                break;
+            }
+        }
+    }
+
+    console.log(lost, reserve);
+
+    for(let i = 0; i < lost.length; i++){
+        arr.push(lost[i] - 1);
+        arr.push(lost[i] + 1);
+    }
+
+    if(lost.length > 0) {
+        for(let i = 0; i < reserve.length; i++){
+            for(let k = 0; k < arr.length; k++){
+                if(reserve[i] === arr[k]) {
+                    has++;
+                    break;
+                }
+            }
+        }
+    }
+
+    return has;
+}
+```
+
+답을 0부터 ++하는게 아닌, 빈 배열을 만들어 0, 1로 구분지어 반환하는 방법.. 으로 다시 해보자
+
+해보긴 개뿔 머리 1도 안돌아감
