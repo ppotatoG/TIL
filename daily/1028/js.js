@@ -44,3 +44,42 @@ function solution12912(a, b) {
 console.log(solution12912(3, 5)) // 12 
 console.log(solution12912(3, 3)) // 3 
 console.log(solution12912(5, 3)) // 12
+
+// ----------------------
+
+function solution12915(arr, num) {
+    return arr.sort((a, b) => {
+        if(a[num] > b[num]) return 1;
+        if(a[num] < b[num]) return -1;
+
+        if(a > b) return 1;
+        if(a < b) return -1;
+
+        else return 0;
+    })
+}
+console.log(solution12915(["sun", "bed", "car"], 1)) // ["car", "bed", "sun"]
+console.log(solution12915(["abce", "abcd", "cdx"], 2)) // ["abcd", "abce", "cdx"]
+
+// ----------------------
+
+function solution12916(str) {
+    str = str.toUpperCase();
+    const p = str.split('').filter((a) => a === 'P');
+    const y = str.split('').filter((a) => a === 'Y');
+    
+    return p.length === y.length;
+}
+console.log(solution12916('pPoooyY')) // true
+console.log(solution12916('Pyy')) // true
+
+// ----------------------
+
+function solution12917(str) {
+    let arr = str.split('');
+    arr = arr.map((val) => Number(val) == val).filter((val) => val === true);
+    
+    return (str.length === 4 || str.length === 6) && arr.length === str.length;
+}
+console.log(solution12917('a234')) // false
+console.log(solution12917('1234')) // true
