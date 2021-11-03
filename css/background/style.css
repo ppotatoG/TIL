@@ -1,0 +1,8 @@
+.contents {
+  width: 50vh;
+  height: 200vh;
+  margin: 0 auto;
+  background: url(./KakaoTalk_20211016_193143472_14.jpg) no-repeat left top/contain, -webkit-gradient(linear, left top, left bottom, from(#000), to(#fff));
+  background: url(./KakaoTalk_20211016_193143472_14.jpg) no-repeat left top/contain, linear-gradient(to bottom, #000, #fff);
+}
+/*# sourceMappingURL=style.css.map */
