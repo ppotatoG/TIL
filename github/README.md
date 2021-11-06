@@ -68,12 +68,23 @@ $ git reset HEAD <file>...
 
 ### git bash push 반응 없음
 
+#### window
+
 사용자 연결 하기!
 1.  제어판 / 모든 제어판 항목 / 자격 증명 관리자
 2. 최하단 일반 자격 증명 추가
 3. 인터넷 또는 네트워크 주소 : git:https://github.com
 4. ppotatoG, pw
 5. 후에 bash 내에서 push
+
+#### mac
+
+1. 키체인 접근 > `github.com` 검색
+2. 계정 : `user.name`
+3. `암호 보기` 클릭 후 맥 비밀번호 입력
+4. 잠금이 풀린 암호 폼에 `git token`입력
+5. 터미널에서 `git push`하면 차례대로 userName, Password입력
+- github 비밀번호 말고 `git token`입력해야 함
 
 ### git 되돌리기
 
@@ -100,6 +111,7 @@ $ rm -f ./.git/index.lock
 ```
 
 [참고 블로그](https://goddaehee.tistory.com/220)
+
 ---
 
 ## How to git fork❓
