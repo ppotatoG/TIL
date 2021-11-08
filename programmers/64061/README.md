@@ -4,6 +4,29 @@
 
 ### 제출한 정답
 ```js
+function solution(board, move) {
+    let answer = 0;
+    let basket = [];
+
+    for(let i = 0; i < move.length; i++){
+        let line = move[i] - 1;
+        for(let k = 0; k < board.length; k++){
+            if(board[k][move[i] - 1] !== 0){
+                if(basket[basket.length - 1] === board[k][line]){
+                    answer += 2;
+                    basket.pop();
+                }
+                else basket.push(board[k][line]);
+                
+                board[k][line] = 0;
+
+                break;
+            }
+        }
+    }
+    
+    return answer;
+}
 ```
 
 
@@ -95,3 +118,46 @@ for(let i = 0; i < move.length; i++){
 중복을 돌아야 하고, 조건이 필요하니 `while`을 사용하려 했지만 못했다
 
 [참고할 블로그](https://ghost4551.tistory.com/58)
+
+---
+
+
+```js
+function solution(board, move) {
+    let answer = 0;
+    let basket = [];
+
+    for(let i = 0; i < move.length; i++){
+
+        // 확인할 인덱스값
+        let line = move[i] - 1;
+
+
+        for(let k = 0; k < board.length; k++){
+
+            // 인형이 있을 때
+            if(board[k][move[i] - 1] !== 0){
+
+                // 바구니의 마지막 값과 추가되려하는 값이 같을 때
+                if(basket[basket.length - 1] === board[k][line]){
+                    answer += 2;
+                    basket.pop();
+                    // 추가하지 않고, 마지막값 삭제
+                }
+
+                else basket.push(board[k][line]);
+                // 바스켓에 인형 추가
+                
+                board[k][line] = 0;
+                // 해당 인형 0으로 만들어 비었음을 나타냄
+
+                break;
+                // ?? 
+                // 여기까지 왔는데 남아있는 값은 사라지란건가?
+            }
+        }
+    }
+    
+    return answer;
+}
+```

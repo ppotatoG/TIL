@@ -1,35 +1,24 @@
 function solution(board, move) {
-    let arr = [];
-    let tmp = new Array(move.length).fill(0);
     let answer = 0;
-
-    for(let i = 0; i < board.length; i++){
-        arr[i] = board.map((val) => val = val[i]).filter((val) => val !== 0);
-    }
+    let basket = [];
 
     for(let i = 0; i < move.length; i++){
-        const line = move[i] - 1;
+        let line = move[i] - 1;
+        for(let k = 0; k < board.length; k++){
+            if(board[k][move[i] - 1] !== 0){
+                if(basket[basket.length - 1] === board[k][line]){
+                    answer += 2;
+                    basket.pop();
+                }
+                else basket.push(board[k][line]);
+                
+                board[k][line] = 0;
 
-        tmp[i] = arr[line][0];
-        arr[line].splice(0, 1);
-    }
-    
-    tmp = tmp.filter((val) => val !== undefined)
-    
-    for(let i = 0; i < tmp.length; i++){
-        if(tmp[i] === tmp[i + 1]) {
-            answer += 2;
-            tmp.splice(i, 2);
+                break;
+            }
         }
     }
-
-    for(let i = 0; i < tmp.length; i++){
-        if(tmp[i] === tmp[i + 1]) {
-            answer += 2;
-            tmp.splice(i, 2);
-        }
-    }
-
+    
     return answer;
 }
 console.log(solution(
@@ -38,3 +27,4 @@ console.log(solution(
 )); // 4
 
 // 4 3 1 1 3 2 0 4
+
