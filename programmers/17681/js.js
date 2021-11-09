@@ -1,25 +1,8 @@
 function solution(n, arr1, arr2) {
-
-    let array = [...arr1];
-
-    for(let i = 0; i < arr1.length; i++){
-        let binary1 = arr1[i].toString(2);
-        let binary2 = arr2[i].toString(2);
-
-        array[i] = (Number(binary1) + Number(binary2) + '');
-
-        if(array[i].length !== n){
-            array[i] = ('0').repeat(n - array[i].length) + array[i];
-        }
-    }
-
-    return array
-    .map((val) => (val + '')
-    .split('')
-    .map((val2) => {
-            return val2 === '0' ? val2 = ' ' : val2 = '#';
-        }
-    ).join(''));
+    return arr1.map((val, idx) => {
+        let value = Number(val.toString(2)) + Number(arr2[idx].toString(2));
+        return value.toString().padStart(n, 0).replace(/1|2/g, '#').replace(/0/g, ' ');
+    })
 }
 // console.log(solution(
 //     5,
@@ -36,3 +19,6 @@ console.log(solution(
 )); 
 
 // ["######", "###  #", "##  ##", " #### ", " #####", "### # "]
+
+["######","###  #","##  ##","#### ","#####","### # "]
+["######","###  #","##  ##"," #### "," #####","### # "]
