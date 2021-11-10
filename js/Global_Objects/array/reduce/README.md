@@ -70,3 +70,13 @@ let sorting = arr2.reduce(reducer, {});
 
 console.log(sorting); //{1: 2, 2: 2, 3: 3, 4: 2, 5: 2}
 ```
+
+배열로 객체 만들기
+```js
+let obj = new Array(n).fill(0).reduce(function(target, key, idx) {
+    target[idx + 1] = key;
+    return target;
+}, {});
+
+//{1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+```
