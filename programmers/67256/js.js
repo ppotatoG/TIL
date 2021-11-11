@@ -1,40 +1,44 @@
 function solution(num, hand) {
-    let now = [0, 0]
+    let finger = [0, 0]
+    let answer = [...num]
 
     for(let i = 0; i < num.length; i++) {
         let line = num[i] % 3;
 
         if(line == 1) {
-            now[0] = num[i];
-            num[i] = 'L'
+            finger[0] = num[i];
+            answer[i] = 'L'
         }
         else if(line == 0) {
-            now[1] = num[i];
-            num[i] = 'R'
+            finger[1] = num[i];
+            answer[i] = 'R'
         }
         else {
-            console.log(Math.abs(num[i] - now[0]), Math.abs(num[i] - now[1]));
-            console.log(num[i], now);
+            console.log(`num ${num[i]}, finger ${finger}`);
+            console.log('정수값 ' + Math.abs(num[i] - finger[0]), Math.abs(num[i] - finger[1]));
 
-            if(Math.abs(now[0] - num[i]) < Math.abs(now[1] - num[i])) {
-                now[0] = num[i];
+            if(Math.abs(finger[0] - num[i]) < Math.abs(finger[1] - num[i])) {
+                finger[0] = num[i];
                 num[i] = 'L'
+                console.log('L')
             }
-            else if(Math.abs(now[0] - num[i]) > Math.abs(now[1] - num[i])) {
-                now[1] = num[i];
+            else if(Math.abs(finger[0] - num[i]) > Math.abs(finger[1] - num[i])) {
+                finger[1] = num[i];
                 num[i] = 'R'
+                console.log('R')
             }
             else {
                 if(hand.slice(0, 1).toUpperCase() === 'L') {
-                    now[0] = num[i];
+                    finger[0] = num[i];
                 } else {
-                    now[1] = num[i];
+                    finger[1] = num[i];
                 }
                 num[i] = hand.slice(0, 1).toUpperCase();
             }
         }
     }
-    return num.join('');
+    
+    return answer.join('');
 }
 console.log(solution(
     [1, 3, 4, 5, 
@@ -44,4 +48,5 @@ console.log(solution(
     "right"
 )); 
 
-// "LRLLLRLLRRL"
+// "LRL LLR LL R R L"
+// "LRL 582 LL 5 R 5"
