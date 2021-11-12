@@ -53,3 +53,5 @@ function solution(num, hand) {
 이 부분이 문제다........
 
 2차원 배열을 선언해서 거리를 구해야 한다고 했다.. 음..?
+
+[나랑 같은 방법](https://shrimp-burger.tistory.com/185)

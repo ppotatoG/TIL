@@ -3,16 +3,18 @@ function solution(num, hand) {
     let answer = [...num]
 
     for(let i = 0; i < num.length; i++) {
-        let line = num[i] % 3;
+        let row = num[i] % 3;
+        let column = num[i] / 3;
 
-        if(line == 1) {
+        if(row == 1) {
             finger[0] = num[i];
             answer[i] = 'L'
         }
-        else if(line == 0) {
+        else if(row == 0) {
             finger[1] = num[i];
             answer[i] = 'R'
         }
+        
         else {
             console.log(`num ${num[i]}, finger ${finger}`);
             console.log('정수값 ' + Math.abs(num[i] - finger[0]), Math.abs(num[i] - finger[1]));
