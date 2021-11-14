@@ -1,11 +1,11 @@
 function solution(num, hand) {
-    let finger = [0, 0]
+    let finger = [10, 12]
     let answer = [...num]
-
-    for(let i = 0; i < num.length; i++) {
-        let row = num[i] % 3;
-        let column = num[i] / 3;
-
+    
+    
+    for(let i = 0; i < num.length; i++) { 
+        let row = num[i] === 0 ? 2 : num[i] % 3;
+        
         if(row == 1) {
             finger[0] = num[i];
             answer[i] = 'L'
@@ -16,18 +16,18 @@ function solution(num, hand) {
         }
         
         else {
-            console.log(`num ${num[i]}, finger ${finger}`);
-            console.log('정수값 ' + Math.abs(num[i] - finger[0]), Math.abs(num[i] - finger[1]));
+            const idx = (num) => num === 0 ? [4, 2] : [Math.ceil(num / 3), num % 3 === 0 ? 3 : num % 3];
 
-            if(Math.abs(finger[0] - num[i]) < Math.abs(finger[1] - num[i])) {
+            const left = Math.abs(idx(finger[0])[0] - idx(num[i])[0]) + Math.abs(idx(finger[0])[1] - idx(num[i])[1]);
+            const right = Math.abs(idx(finger[1])[0] - idx(num[i])[0]) + Math.abs(idx(finger[1])[1] - idx(num[i])[1]);
+            
+            if(left < right) {
                 finger[0] = num[i];
-                num[i] = 'L'
-                console.log('L')
+                answer[i] = 'L'
             }
-            else if(Math.abs(finger[0] - num[i]) > Math.abs(finger[1] - num[i])) {
+            else if(left > right) {
                 finger[1] = num[i];
-                num[i] = 'R'
-                console.log('R')
+                answer[i] = 'R'
             }
             else {
                 if(hand.slice(0, 1).toUpperCase() === 'L') {
@@ -35,20 +35,40 @@ function solution(num, hand) {
                 } else {
                     finger[1] = num[i];
                 }
-                num[i] = hand.slice(0, 1).toUpperCase();
+                answer[i] = hand.slice(0, 1).toUpperCase();
             }
         }
     }
     
     return answer.join('');
 }
+
+// console.log(solution(
+//     [1, 3, 4, 5, 
+//     8, 2, 1, 4, 
+//     5, 9, 5],
+//     "right"
+// )); 
+
+// "LRLLLRLLRRL"
+// "LRLLLRLLRRL"
+
+// console.log(solution(
+//     [7, 0, 8, 2, 
+//         8, 3, 1, 
+//         5, 7, 6, 2],
+//     "left"
+// )); 
+
+// "LRLLRRLLLRR"
+// "LRLLRRLLLRR"
+
 console.log(solution(
-    [1, 3, 4, 5, 
-    8, 2, 1, 4, 
-    5, 9, 5],
-//  [1, 0, 1, 2, 2, 2, 1, 1, 2, 0, 2]
+    [1, 2, 3, 
+    4, 5, 6, 
+    7, 8, 9, 
+       0],
     "right"
 )); 
-
-// "LRL LLR LL R R L"
-// "LRL 582 LL 5 R 5"
+// "LLR LLR LLR L"
+// "LLR LLR LLR L"
