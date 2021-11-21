@@ -155,3 +155,62 @@ for (const prop in iu) {
 }
 // age 26
 ```
+
+### 공유심볼 
+
+[symbol.for()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Symbol/for)
+
+- 문자열로 접근 가능
+- 상수처럼 쓴다?..
+
+```js
+const obj = (() => {
+  const COMMON1 = Symbol.for('공유심볼')
+  return {
+    [COMMON1]: '공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.'
+  }
+})()
+const COMMON2 = Symbol.for('공유심볼')
+console.log(obj[COMMON2]) // 공유할 프로퍼티 키값이에요. 어디서든 접근 가능하답니다.
+console.log(COMMON1 === COMMON2) // true
+```
+
+[symbol.keyfor()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/keyFor)
+
+`symbol`의 `key`값을 문자열로 추출
+
+```js
+const UNCOMMON = Symbol('비공유심볼')
+const commonSymbolKey1 = Symbol.keyFor(COMMON1) // 공유심볼
+const commonSymbolKey2 = Symbol.keyFor(COMMON2) // 공유심볼
+const commonSymbolKey2 = Symbol.keyFor(UNCOMMON) // undefined
+```
+
+### 표준 심볼
+
+기존 사용되던 표준 내장 객체를 커스텀?..?
+
+```js
+const str = '이 _ 문자열을 _ 이렇게 _ 나누어주었으면 _ 좋겠어.'
+String.prototype[Symbol.split] = function (string) {
+  let result = ''
+  let residue = string
+  let index = 0
+  do {
+    index = residue.indexOf(this)
+    if(index <= -1) {
+      break
+    }
+    result += residue.substr(0, index) + '/'
+    residue = residue.substr(index + this.length)
+  } while (true)
+  result += residue
+  return result
+}
+console.log(str.split(' _ ')) // 이/문자열을/이렇게/나누어주었으면/좋겠어.
+```
+
+```js
+str.split(' _ ') // ['이', '문자열을', '이렇게', '나누어주었으면', '좋겠어.']
+str.split(' _ ').join('/') // '이/문자열을/이렇게/나누어주었으면/좋겠어.'
+```
