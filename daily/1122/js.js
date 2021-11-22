@@ -1,47 +1,30 @@
-const obj = {
-    name : '홍길동',
-    age : 21
+for(let i = 1; i < 10; i ++){
+    console.log(`2 x ${i} = ${2*i}`);
+}
+// 2 x 1 = 2
+// 2 x 2 = 4
+// 2 x 3 = 6
+// 2 x 4 = 8
+// 2 x 5 = 10
+// 2 x 6 = 12
+// 2 x 7 = 14
+// 2 x 8 = 16
+// 2 x 9 = 18
+
+function f(n){
+    console.log(`2 x ${n} = ${2*n}`);
+    if(n === 1) return 1
+    return f(n - 1);
 };
 
+f(9)
 
-// 객체의 값을 배열로 반환
-console.log(Object.entries(obj))
-/*
-0 ['name', '홍길동']
-1 ['age', 21]
-*/
-
-// 객체의 key 가져오기
-console.log(Object.keys(obj)); 
-// ['name', 'age']
-
-// 객체의 value 가져오기
-console.log(Object.values(obj)); 
-// ['홍길동', 21]
-
-// 객체 탐색
-for(let val in obj) { 
-    console.log(`key : ${val}, value : ${obj[val]}`); 
-}
-/*
-key : name, value : 홍길동
-key : age, value : 21
-*/
-
-// 객체 내 key 탐색
-for(i of Object.keys(obj)) {
-    console.log(i);
-}
-/*
-name
-age
-*/
-
-// 객체 내 value 탐색
-for(i of Object.values(obj)) {
-    console.log(i);
-}
-/*
-홍길동
-21
-*/
+// 2 x 9 = 18
+// 2 x 8 = 16
+// 2 x 7 = 14
+// 2 x 6 = 12
+// 2 x 5 = 10
+// 2 x 4 = 8
+// 2 x 3 = 6
+// 2 x 2 = 4
+// 2 x 1 = 2
