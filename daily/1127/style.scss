@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    width: 1000px;
+    margin:50px auto;
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    grid-template-rows: repeat(5, 100px);
+    gap: 5px;
+    li {
+        list-style: none;
+        border: 1px solid #ddd;
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+            color: #000;
+            line-height: 6;
+            text-align: center;      
+        }
+        @for $i from 0 through 4{
+            &:nth-child(5n + #{$i + 1}) a{
+                opacity: #{$i / ($i + 1)};
+            }
+            &:nth-child(n+#{$i*5 + 1}):nth-child(-n+ #{($i+1) * 5}) a{
+                background: RGB(0, ($i + 1) * 50, 0);
+            }
+        } 
+    }
+}
+
+$img_url: '../';
+$bg_cont: (
+    'main_visual' : '#e9e8ff',
+    'cont01' : '#fff',
+    'cont02' : '#310986',
+    'cont03' : '#fff',
+    'cont04' : '#ededfc',
+    'cont05' : '#401891',
+);
+@each $section, $color in $bg_cont {
+    .#{$section}{background:#{$color} url('#{$img_url}bg_#{$section}.jpg') no-repeat center top;}
+}

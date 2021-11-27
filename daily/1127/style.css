@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  width: 1000px;
+  margin: 50px auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (200px)[5];
+      grid-template-columns: repeat(5, 200px);
+  -ms-grid-rows: (100px)[5];
+      grid-template-rows: repeat(5, 100px);
+  gap: 5px;
+}
+
+ul li {
+  list-style: none;
+  border: 1px solid #ddd;
+}
+
+ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #000;
+  line-height: 6;
+  text-align: center;
+}
+
+ul li:nth-child(5n + 1) a {
+  opacity: 0;
+}
+
+ul li:nth-child(n+1):nth-child(-n+ 5) a {
+  background: RGB(0, 50, 0);
+}
+
+ul li:nth-child(5n + 2) a {
+  opacity: 0.5;
+}
+
+ul li:nth-child(n+6):nth-child(-n+ 10) a {
+  background: RGB(0, 100, 0);
+}
+
+ul li:nth-child(5n + 3) a {
+  opacity: 0.66667;
+}
+
+ul li:nth-child(n+11):nth-child(-n+ 15) a {
+  background: RGB(0, 150, 0);
+}
+
+ul li:nth-child(5n + 4) a {
+  opacity: 0.75;
+}
+
+ul li:nth-child(n+16):nth-child(-n+ 20) a {
+  background: RGB(0, 200, 0);
+}
+
+ul li:nth-child(5n + 5) a {
+  opacity: 0.8;
+}
+
+ul li:nth-child(n+21):nth-child(-n+ 25) a {
+  background: RGB(0, 250, 0);
+}
+
+.main_visual {
+  background: #e9e8ff url("../bg_main_visual.jpg") no-repeat center top;
+}
+
+.cont01 {
+  background: #fff url("../bg_cont01.jpg") no-repeat center top;
+}
+
+.cont02 {
+  background: #310986 url("../bg_cont02.jpg") no-repeat center top;
+}
+
+.cont03 {
+  background: #fff url("../bg_cont03.jpg") no-repeat center top;
+}
+
+.cont04 {
+  background: #ededfc url("../bg_cont04.jpg") no-repeat center top;
+}
+
+.cont05 {
+  background: #401891 url("../bg_cont05.jpg") no-repeat center top;
+}
+/*# sourceMappingURL=style.css.map */
