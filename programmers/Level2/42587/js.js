@@ -1,56 +1,33 @@
 function solution(priorities, location) {
-    const arr = priorities.map((val, idx) => val = [val, idx]);
-
+    const arr = priorities.slice().map((val, idx) => val = [val, idx]);
     const print = [];
-    
+
     let i = 0;
-
-    // while(print.length < priorities.length && i < priorities.length){
-    //     console.log(`${i} 번째 중복`)
-    //     console.log(arr[i], arr)
-    //     if(arr.find((val, idx) => val[0] >= arr[i][0] && idx > i)) {
-    //         arr.push(arr[i])
-    //         arr.shift();
-    //         console.log(arr[i], arr)
-    //     }
-    //     else {
-    //         console.log(arr[i], arr)
-    //         print.push(arr[i])
-    //     }
-    //     i++;
-    // }
-
-    for(let i = 0; i < priorities.length; i++){
-        // console.log(`${i} 번째 중복`)
-        // console.log(arr[i], arr)
-        console.log(`${arr[i]} ${arr}`)
-        console.log(arr.find((val, idx) => val[0] >= arr[i][0] && idx > i) !== undefined)
-        if(arr.find((val, idx) => val[0] >= arr[i][0] && idx > i) !== undefined) {
-            console.log(arr[i], arr)
-            arr.push(arr[i])
-            console.log(arr[i], arr)
-            // arr.shift();
+    while(print.length < priorities.length){
+        const greater = arr.find((val, idx) => val[0] <= arr[i][0] && idx < i);
+        console.log(greater)
+        
+        if(greater) {
+            print.push(arr[i]);
         }
-        // else {
-        //     console.log(arr[i], arr)
-        //     print.push(arr[i])
-        //     arr.shift();
-        //     i--;
-        // }
+        else {
+            arr.push(arr[i]);
+        }
+        i++;
     }
-
-    console.log(print)
-    return arr
+    
+    return print;
+    return print.find((val) => val[1] === location - 1)[0]
 }
-console.log(solution([2, 1, 3, 2], 2));
+
+// console.log(solution([2, 1, 3, 2], 2));
+console.log(solution([1, 1, 9, 1, 1, 1], 0));
 
 /*
 0 [1, 3, 2, 2]
-1 [3, 2, 2], [1]
-2 [2, 2, 3], [1]
-3 [2, 3, 2], [1]
-4 [3, 2], [1, 2]
-5 [2, 3], [1, 2]
-6 [3], [1, 2, 2]
-7 [], [1, 2, 2, 3]
+1 [3, 2, 2, 1]
+2 [2, 2, 1], [3]
+3 [2, 1], [3, 2]
+4 [1], [3, 2, 2]
+5 [], [3, 2, 2, 1]
 */
