@@ -43,3 +43,17 @@ for(let i = 0; i < arr.length; i++){
 
 - 배열 맨 앞 요소를 삭제하기 [`shift() `](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/shift)
 - 배열 맨 뒤 요소를 삭제하기 [`pop()`](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+
+```js
+const arr = [1, 2, 3, 4, 5];
+```
+
+- 배열 맨 앞 요소를 맨 뒤에 추가하기
+```js
+arr.push(arr.shift()) // [2, 3, 4, 5, 1]
+```
+
+- 배열 맨 뒤 요소를 맨 앞에 추가하기
+```js
+arr.unshift(arr.pop()) // [5, 1, 2, 3, 4]
+```
