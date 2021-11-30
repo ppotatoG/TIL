@@ -130,3 +130,17 @@ function solution(priorities, location) {
     return print.indexOf(test) + 1;
 }
 ```
+
+---
+
+프로그래머스 2단계에 들어오며 나는 배열`만`쓸 줄 아는 것 같다
+
+배열 말고는 아무것도 모른 바보.. 랄까.... 배열 사랑해
+
+확실히 예전에 비해 혼자 못푸는 문제가 많다
+
+그만큼 속상하고 우울하고 재미도 없어지는데 알테기 극복을 위해 화이팅이다
+
+[랩보다 코딩 더 잘해지기](https://laycoder.tistory.com/207)
+
+[@파트로](https://ghost4551.tistory.com/114)
