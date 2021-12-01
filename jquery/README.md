@@ -1,6 +1,10 @@
 # jquery
 
-jquery 잘 안쓰지만 크게 할 일 없어서 쓰게된다
-실제로 샤용하진 않기 떄문에 버려지는 코드.. 아까워서....
+회사에서 사용하는 Jauery
 
-[번호매기기](https://github.com/ppotatoG/TIL/jquery/numbering)
+퍼블이라 쓸 일 없는데 일단 만들어놓고 지우기 아까워서 가져오는..
+
+[test](https://github.com/ppotatoG/TIL/tree/master/jquery/test)
+[numbering](https://github.com/ppotatoG/TIL/tree/master/jquery/numbering)
+[slideToggle](https://github.com/ppotatoG/TIL/tree/master/jquery/slideToggle)
+[inputFileName](https://github.com/ppotatoG/TIL/tree/master/jquery/inputFileName)
