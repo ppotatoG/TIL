@@ -1,45 +1,36 @@
 function solution(priorities, location) {
-    const arr = priorities.slice().map((val, idx) => val = [val, idx]);
-    const print = [];
+    const arr = Array.from({length : priorities.length}, (val, idx) => val = [priorities[idx], idx]);
+    let answer = 0;
 
     while(priorities.length){
-        const greater = arr.find((val, idx) => val[0] <= arr[0][0] && idx < 0);
-        if(greater) {
-            arr.push(arr.shift());
-        } else {
-            print.push(arr[0]);
+        const max = Math.max.apply(null, priorities);
+        
+        if(priorities[0] >= max) {
+            answer++;
+            if(arr[0][1] === location) return answer;
             priorities.shift();
+            arr.shift();
+        } 
+        else {
+            priorities.push(priorities.shift());
+            arr.push(arr.shift());
         }
     }
-
-    console.log(arr)
-    
-    return print;
 }
-
-// function solution(priorities, location) {
-//     var answer = 0; 
-
-//     let print = Array.from({length: priorities.length}, (v,i) => i);
-//     let find = [priorities[location] ,location];
-
-//     console.log(print)
-//     console.log(find)
-//     // return print;
-// }
 
 console.log(solution([2, 1, 3, 2], 2)); // 1
 /*
-0 [1, 3, 2, 2]
-1 [3, 2, 2, 1]
-2 [2, 2, 1], [3]
-3 [2, 1], [3, 2]
-4 [1], [3, 2, 2]
-5 [], [3, 2, 2, 1]
+0 [2, 1, 3, 2]
+1 [1, 3, 2, 2]
+2 [3, 2, 2, 1]
+3 [2, 2, 1], [3]
+4 [2, 1], [3, 2]
+5 [1], [3, 2, 2]
+6 [], [3, 2, 2, 1]
 */
 
-console.log(solution([1, 1, 9, 1, 1, 1], 0)); // 5
 /*
+console.log(solution([1, 1, 9, 1, 1, 1], 0)); // 5
 [1, 9, 1, 1, 1, 1]
 [9, 1, 1, 1, 1, 1]
 [1, 1, 1, 1, 1], [9]

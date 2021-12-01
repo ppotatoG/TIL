@@ -5,6 +5,25 @@
 ### 제출한 정답
 
 ```js
+function solution(priorities, location) {
+    const arr = Array.from({length : priorities.length}, (val, idx) => val = [priorities[idx], idx]);
+    let answer = 0;
+
+    while(priorities.length){
+        const max = Math.max.apply(null, priorities);
+        
+        if(priorities[0] >= max) {
+            answer++;
+            if(arr[0][1] === location) return answer;
+            priorities.shift();
+            arr.shift();
+        } 
+        else {
+            priorities.push(priorities.shift());
+            arr.push(arr.shift());
+        }
+    }
+}
 ```
 
 다른거 다 모르겠고, 이전 문제부터 자꾸 중복문 내 값이 이상하게 찍힌다
@@ -144,3 +163,26 @@ function solution(priorities, location) {
 [랩보다 코딩 더 잘해지기](https://laycoder.tistory.com/207)
 
 [@파트로](https://ghost4551.tistory.com/114)
+
+
+```js
+function solution(priorities, location) {
+    const arr = Array.from({length : priorities.length}, (val, idx) => val = [priorities[idx], idx]);
+    let answer = 0;
+
+    while(priorities.length){
+        const max = Math.max.apply(null, priorities);
+        
+        if(priorities[0] >= max) {
+            answer++;
+            if(arr[0][1] === location) return answer;
+            priorities.shift();
+            arr.shift();
+        } 
+        else {
+            priorities.push(priorities.shift());
+            arr.push(arr.shift());
+        }
+    }
+}
+```
