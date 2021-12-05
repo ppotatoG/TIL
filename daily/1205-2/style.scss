@@ -1,14 +1,14 @@
 *{
     margin: 0;
     padding: 0;
-    & >div[class^=slide_]{
+    #wrap >div{
         position: relative;
         width: 100px;
         height: 100px;
         margin: 20px;
         overflow: hidden;
         border:1px solid #000;
-        ul[class$=__container]{
+        ul{
             position: absolute;
             top: 0;
             left: 0;
@@ -26,7 +26,7 @@
                     weight: 600;
                 }
 
-                $colors : gray, salmon, thistle, cadetblue, blueviolet;
+                $colors : gray, salmon, thistle, cadetblue, blueviolet, coral;
                 @each $color in $colors {
                     $i: index($colors, $color);
 
@@ -36,13 +36,5 @@
                 }
             }
         }
-    }
-    button {
-        display: block;
-        border: 0;
-        background-color: #eee;
-        color: #000;
-        padding: 10px;
-        margin-left: 20px;
     }
 }

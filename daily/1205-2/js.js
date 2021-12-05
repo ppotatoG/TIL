@@ -1,71 +1,48 @@
 const wrap = document.querySelector('#wrap');
-const frag = document.createDocumentFragment();
 
-class CreatSlide{
-    constructor(data, className, btn) {
-        this.data = data;
-        this.className = className;
+const CreatSlide = (() => {
+    const slideWrap  = Symbol('slideWrap');
+    const slide  = Symbol('slide');
+    const slideData  = Symbol('slideData');
+    const curIdx  = Symbol('curIdx');
 
-        const slideWidth = 100;
-        const slideWrap = document.createElement('div');
-        slideWrap.className = `slide_${className}`;
+    return class{
+        constructor(data, className) {
+            const frag = document.createDocumentFragment();
+    
+            this[slideWrap] = document.createElement('div');
+            this[slide] = document.createElement('ul');
+            this[curIdx] = 0;
+            this[slideData] = data;
+    
+            this[slideWrap].className = `slide_${className}`;
+            this[slide].className = `slide_${className}__container`;
+            this[slide].style.width = `${this[slideData].length * 100}px`;
         
-        const slide = document.createElement('ul');
-        slide.className = `slide_${className}__container`;
-        
-        let curIdx = 0;
-        
-        slide.style.width = `${data.length * slideWidth}px`;
-        
-        data.forEach((val) => {
-            const li = document.createElement('li');
-            li.className = `slide_${className}__item`;
-            li.innerText = val;
+            data.forEach((val) => {
+                const li = document.createElement('li');
+                li.className = `slide_${className}__item`;
+                li.innerText = val;
             
-            slide.appendChild(li);
-        });
-    
-        slideWrap.appendChild(slide);
-    
-        const moveSlide = (idx) => {
-            slide.style.left = `-${(idx % data.length) * slideWidth}px`;
-        }
-    
-        slide.addEventListener('click', e => {
-            e.preventDefault();
-            curIdx ++;
-            moveSlide(curIdx);
-        });
-    
-        if(btn) {
-            const prev = document.createElement('button');
-            prev.className = `slide_${className}__prev`;
-            prev.innerText = prev.className;
-            wrap.appendChild(prev);
-    
-            prev.addEventListener('click', e => {
-                e.preventDefault();
-                curIdx --;
-                moveSlide(curIdx);
+                this[slide].appendChild(li);
             });
+    
+            this[slideWrap].appendChild(this[slide]);
+            
+            this[slide].addEventListener('click', this.triggerClick.bind(this));
         
-            const next = document.createElement('button');
-            next.className = `slide_${className}__next`;
-            next.innerText = next.className;
-            wrap.appendChild(next);
-    
-            next.addEventListener('click', e => {
-                e.preventDefault();
-                curIdx ++;
-                moveSlide(curIdx);
-            });
+            frag.appendChild(this[slideWrap]);
+            wrap.appendChild(frag);
+        
         }
-    
-        frag.appendChild(slideWrap);
-        wrap.appendChild(frag);
+        triggerClick(e) {
+            e && e.preventDefault();
+
+            this[curIdx] = (this[curIdx] + 1) % this[slideData].length;
+            this[slide].style.left = `${-100 * this[curIdx]}px`;
+        }
     }
-};
+})()
 
-
-const slide_num = new CreatSlide([1, 2, 3, 4, 5], 'num');
-const slide_text = new CreatSlide(['A', 'B', 'C'], 'text', true);
+const slide1 = new CreatSlide([1, 2, 3, 4, 5], 'num');
+const slide2 = new CreatSlide(['A', 'B', 'C'], 'text');

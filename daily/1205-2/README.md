@@ -7,9 +7,8 @@ Javascript ES6+ 제대로 알아보기 - 중급
 아래와 같은 코드로 작동하는 슬라이드가 있을 때,
 
 1. 슬라이드를 선언하나로 쉽게 추가
-2. 외부에서 작동 가능한(prev, next 버튼)
-3. class 사용
-4. 프라이빗 멤버?
+2. class 사용
+3. 프라이빗 멤버
 
 위와 같은 내용으로 변경
 
@@ -123,76 +122,122 @@ creatSlide([1, 2, 3, 4, 5], 'num');
 creatSlide(['A', 'B', 'C'], 'text');
 ```
 
-### 외부에서 작동 가능한(prev, next 버튼)
+### class 사용
+
+```js
+// 최상위 wrap
+const wrap = document.querySelector('#wrap');
+
+class CreatSlide {
+    // slideData, slide끼리 구분지어줄 className
+    constructor(data, className) {
+        const frag = document.createDocumentFragment();
+
+        // 생성될 앨리먼트 div, ul
+        this.slideWrap = document.createElement('div');
+        this.slide = document.createElement('ul');
+
+        // 슬라이드 전환을 위한 curIdx
+        this.curIdx = 0;
+
+        // 슬라이드 내용으로 들어갈 slideData
+        this.slideData = data;
+
+        // BEM
+        this.slideWrap.className = `slide_${className}`;
+        this.slide.className = `slide_${className}__container`;
+        
+        this.slide.style.width = `${this.slideData.length * 100}px`;
+    
+        data.forEach((val) => {
+            const li = document.createElement('li');
+            li.className = `slide_${className}__item`;
+            li.innerText = val;
+        
+            this.slide.appendChild(li);
+        });
+
+        this.slideWrap.appendChild(this.slide);
+
+        // click event, bind(this)
+        this.slide.addEventListener('click', this.triggerClick.bind(this));
+    
+        frag.appendChild(this.slideWrap);
+        wrap.appendChild(frag);
+    
+        // return triggerClick
+        return {
+            triggerClick() {
+                handleClick();
+            }
+        }
+    }
+};
+
+
+// CreatSlide에서 반환받은 triggerClick
+CreatSlide.prototype.triggerClick = function(e) {
+    e && e.preventDefault();
+    this.curIdx = (this.curIdx + 1) % this.slideData.length;
+    this.slide.style.left = `${-100 * this.curIdx}px`;
+}
+
+const slide1 = new CreatSlide([1, 2, 3, 4, 5], 'num');
+const slide2 = new CreatSlide(['A', 'B', 'C'], 'text');
+```
+
+### 프라이빗 멤버 - Symbol
 
 ```js
 const wrap = document.querySelector('#wrap');
-const frag = document.createDocumentFragment();
 
-const creatSlide = (data, className, btn) => {
-    const slideWidth = 100;
-    const slideWrap = document.createElement('div');
-    slideWrap.className = `slide_${className}`;
+const CreatSlide = (() => {
+
+    // CreatSlide 내에 필요한 값 심볼로 선언
+    const slideWrap  = Symbol('slideWrap');
+    const slide  = Symbol('slide');
+    const slideData  = Symbol('slideData');
+    const curIdx  = Symbol('curIdx');
+
+    // CreatSlide에서 class 반환
+    return class{
+        constructor(data, className) {
+            const frag = document.createDocumentFragment();
     
-    const slide = document.createElement('ul');
-    slide.className = `slide_${className}__container`;
+            this[slideWrap] = document.createElement('div');
+            this[slide] = document.createElement('ul');
+            this[curIdx] = 0;
+            this[slideData] = data;
     
-    let curIdx = 0;
-    
-    slide.style.width = `${data.length * slideWidth}px`;
-    
-    data.forEach((val) => {
-        const li = document.createElement('li');
-        li.className = `slide_${className}__item`;
-        li.innerText = val;
+            this[slideWrap].className = `slide_${className}`;
+            this[slide].className = `slide_${className}__container`;
+            this[slide].style.width = `${this[slideData].length * 100}px`;
         
-        slide.appendChild(li);
-    });
-
-    slideWrap.appendChild(slide);
-
-    // 함수 moveSlide 생성
-    const moveSlide = (idx) => {
-        slide.style.left = `-${(idx % data.length) * slideWidth}px`;
-    }
-
-    // 기존 내용 대신 moveSlide로 변경
-    slide.addEventListener('click', e => {
-        e.preventDefault();
-        curIdx ++;
-        moveSlide(curIdx);
-    });
-
-    // function creatSlide의 인자 중 btn값이 있을 때
-    if(btn) {
-        const prev = document.createElement('button');
-        prev.className = `slide_${className}__prev`;
-        prev.innerText = prev.className;
-        wrap.appendChild(prev);
-
-        prev.addEventListener('click', e => {
-            e.preventDefault();
-
-            // 이전, --
-            curIdx --;
-            moveSlide(curIdx);
-        });
+            data.forEach((val) => {
+                const li = document.createElement('li');
+                li.className = `slide_${className}__item`;
+                li.innerText = val;
+            
+                this[slide].appendChild(li);
+            });
     
-        const next = document.createElement('button');
-        next.className = `slide_${className}__next`;
-        next.innerText = next.className;
-        wrap.appendChild(next);
+            this[slideWrap].appendChild(this[slide]);
+            
+            this[slide].addEventListener('click', this.triggerClick.bind(this));
+        
+            frag.appendChild(this[slideWrap]);
+            wrap.appendChild(frag);
+        
+        }
+        triggerClick(e) {
+            e && e.preventDefault();
 
-        next.addEventListener('click', e => {
-            e.preventDefault();
-
-            // 다음 ++
-            curIdx ++;
-            moveSlide(curIdx);
-        });
+            this[curIdx] = (this[curIdx] + 1) % this[slideData].length;
+            this[slide].style.left = `${-100 * this[curIdx]}px`;
+        }
     }
+})()
 
-    frag.appendChild(slideWrap);
-    wrap.appendChild(frag);
-};
+const slide1 = new CreatSlide([1, 2, 3, 4, 5], 'num');
+const slide2 = new CreatSlide(['A', 'B', 'C'], 'text');
 ```
