@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+* > div[class^=slide_] {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+
+* > div[class^=slide_] ul[class$=__container] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: left .2s;
+  transition: left .2s;
+}
+
+* > div[class^=slide_] ul[class$=__container] li {
+  list-style: none;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  color: #000;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+* > div[class^=slide_] ul[class$=__container] li:nth-child(5n+1) {
+  background: gray;
+}
+
+* > div[class^=slide_] ul[class$=__container] li:nth-child(5n+2) {
+  background: salmon;
+}
+
+* > div[class^=slide_] ul[class$=__container] li:nth-child(5n+3) {
+  background: thistle;
+}
+
+* > div[class^=slide_] ul[class$=__container] li:nth-child(5n+4) {
+  background: cadetblue;
+}
+
+* > div[class^=slide_] ul[class$=__container] li:nth-child(5n+5) {
+  background: blueviolet;
+}
+
+* button {
+  display: block;
+  border: 0;
+  background-color: #eee;
+  color: #000;
+  padding: 10px;
+  margin-left: 20px;
+}
+/*# sourceMappingURL=style.css.map */
