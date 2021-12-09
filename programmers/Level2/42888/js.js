@@ -1,24 +1,33 @@
 function solution(record) {    
+    const userList = {};
+    const status = [];
 
-    // 들어온 유저
-    let user = record
-    .map((val) => {
-        val = val.split(' ');
-        return val[0] === 'Enter' ? [val[1].slice(3), val[2]] : 0;
-    })
-    .filter((val) => val !== 0 && val);
+    record = record.map(val => val.split(' '));
 
-    // 닉네임을 변경한 유저
-    let changeList = record
-    .filter((val) => val.indexOf('Change') >= 0)
-    .map((val) => val.split('Change uid')[1].split(' '));
-    
-    for(let i = 0; i < changeList.length; i++) {
-        const idx = user.findIndex(val => val[0] === changeList[i][0]);        
-        user[idx][1] = changeList[i][1]
+    for (let i = 0; i < record.length; i++) {
+        if(record[i][0] !== 'Leave') {
+            userList[`${record[i][1].slice(3)}`] = record[i][2]
+        }
     }
 
-    return record;
+    for (let i = 0; i < record.length; i++) {
+        const uid = record[i][1].slice(3);
+        if(record[i][0] === 'Enter') {
+            status.push(`${userList[uid]}님이 들어왔습니다.`)
+        }
+        else if(record[i][0] === 'Leave') {
+            status.push(`${userList[uid]}님이 나갔습니다.`)
+        }
+    }
+
+    return status;
 }
-console.log(solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]));
-// ["Prodo님이 들어왔습니다.", "Ryan님이 들어왔습니다.", "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."]
+console.log(solution(["Enter uid1234 Muzi","Enter uid4567 Prodo","Enter uid234 Admin","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan","Change uid4567 User","Leave uid4567"]));
+/*
+"Enter uid1234 Muzi"
+"Enter uid4567 Prodo"
+"Leave uid1234"
+"Enter uid1234 Prodo"
+"Change uid4567 Ryan"
+*/
+// ["Prodo님이 들어왔습니다.", "Ryan님이 들어왔습니다.", "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."] 

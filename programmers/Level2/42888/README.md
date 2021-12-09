@@ -39,3 +39,40 @@ function solution(record) {
 console.log(solution(["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]));
 // ["Prodo님이 들어왔습니다.", "Ryan님이 들어왔습니다.", "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."]
 ```
+
+### 두번째
+
+이 맛에 알고리즘 하지 하면서 신나게 풀고 32개중에 2개 통과
+
+중복문을 줄이고... for대신 forEach를 써보자
+
+근데 이건 런타임에 대한거지 값은 문제가 안될텐데 흐음;
+
+```js
+function solution(record) {    
+    const userList = {};
+    const status = [];
+
+    record = record.map(val => val.split(' '));
+
+    for (let i = 0; i < record.length; i++) {
+        if(record[i][0] !== 'Leave') {
+            userList[`${record[i][1].slice(3)}`] = record[i][2]
+        }
+    }
+
+    for (let i = 0; i < record.length; i++) {
+        const uid = record[i][1].slice(3);
+        if(record[i][0] === 'Enter') {
+            status.push(`${userList[uid]}님이 들어왔습니다.`)
+        }
+        else if(record[i][0] === 'Leave') {
+            status.push(`${userList[uid]}님이 나갔습니다.`)
+        }
+    }
+
+    return status;
+}
+```
+
+[reduce쓰는거 겁나 간지난다](https://programmers.co.kr/questions/20014)
