@@ -2,7 +2,8 @@
 
 js를 사용하며 모르는 내용 등을 `MDN기준`으로 정리 ヾ(^▽^*)))
 
-## Tree
+### Tree
+```
 ├─Global_Objects
 │  ├─array
 │  │  ├─fill
@@ -43,3 +44,4 @@ js를 사용하며 모르는 내용 등을 `MDN기준`으로 정리 ヾ(^▽^*))
 │  ├─Destructuring_assignment
 │  └─typeOf
 └─Regular_Expressions
+```
