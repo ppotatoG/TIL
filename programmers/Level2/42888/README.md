@@ -3,6 +3,43 @@
 [programmers](https://programmers.co.kr/learn/courses/30/lessons/42888)
 
 
+## 제출한 답
+```js
+function solution(record) {    
+    const userList = {};
+    const action = [];
+
+    for (let i = 0; i < record.length; i++) {
+        const thisUid = record[i].split(' ')[1];
+        const thisName =  record[i].split(' ')[2];
+        const thisAction = record[i].split(' ')[0];
+
+        if(thisAction === 'Enter') {
+            userList[thisUid] = thisName
+            action.push([thisUid, thisAction])
+        }
+        else if(thisAction === 'Leave') {
+            action.push([thisUid, thisAction])
+        }
+        else if(thisAction === 'Change') {
+            userList[thisUid] = thisName;
+        }
+    }
+
+    return action
+    .map(val => {
+        const status = val[1];
+        const uid = val[0]
+        if(status === 'Enter') {
+            return `${userList[uid]}님이 들어왔습니다.`
+        }
+        else {
+            return `${userList[uid]}님이 나갔습니다.`
+        }
+    });
+}
+```
+
 ## 첫번째 
 
 막상 글로 쓸라니까 또 힘드네;;
@@ -76,3 +113,48 @@ function solution(record) {
 ```
 
 [reduce쓰는거 겁나 간지난다](https://programmers.co.kr/questions/20014)
+
+### 세번째
+
+아무리봐도 문제될게 없어보이는데 통과가 안된다..
+
+```js
+function solution(record) {    
+    const userList = {};
+    const status = [];
+
+    record = record.map(val => val.split(' '));
+
+    for (let i = 0; i < record.length; i++) {
+        const uid = record[i][1].slice(3);
+        const name =  record[i][2]
+
+        // 유저 정보
+        if(record[i][0] !== 'Leave') {
+            userList[uid] = name
+        }
+
+        // 유저 상태
+        if(record[i][0] === 'Enter') {
+            status.push([uid, 'Enter'])
+        }
+        else if(record[i][0] === 'Leave') {
+            status.push([uid, 'Leave'])
+        }
+    }
+
+    return status
+    .map(val => {
+        const status = val[1];
+        const uid = val[0]
+        if(status === 'Enter') {
+            return `${userList[uid]}님이 들어왔습니다.`
+        }
+        else if(status === 'Leave') {
+            return `${userList[uid]}님이 나갔습니다.`
+        }
+    });
+}
+```
+
+`.slice(3)`이 문제였다,, `uid`가 공통으로 들어가는 줄 알았지 나는ㅠ
