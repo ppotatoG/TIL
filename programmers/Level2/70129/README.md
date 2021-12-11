@@ -50,3 +50,31 @@ function solution(s) {
     return [loof, delZero]
 }
 ```
+
+## 보충
+
+[while](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/while)은 조건이 참일 때 실행된다
+
+s가 1이 될 때까지 중복이 돌아가야 하니 while(s != 1) 
+
+처음 replace를 사용할 때 `g`를 안붙인 이유는 삭제될 때마다 카운트를 해줘야 해서.. 였는데
+
+그냥 변수에 그 값을 더해주면 되는거였다ㅠㅠ
+
+변수도 두개를 따로 둘 필요 없이 [0, 0]으로 두면 된당..!
+
+```js
+function solution(s) {    
+    const answer = [0, 0]
+
+    while(s != 1){
+        answer[1] += s.match(/0/g).length;
+        s = (s.replace(/0/g, '').length).toString(2);
+        answer[0]++;
+    }
+
+    return answer;
+}
+```
+
+[다른 사람의 풀이](https://programmers.co.kr/learn/courses/30/lessons/70129/solution_groups?language=javascript)

@@ -1,20 +1,12 @@
 function solution(s) {    
-    let delZero = 0;
-    let loof = 0;
+    const answer = [0, 0]
 
-    while(s >= 1){
-        if(s.includes('0')) {
-            while(s.includes('0')){
-                s = s.replace(/0/, '');
-                delZero++;
-            }
-        }
-        s = s.length.toString(2);
-        loof++;
-
-        if(s == 1) break;
+    while(s != 1){
+        answer[1] += s.match(/0/g).length;
+        s = (s.replace(/0/g, '').length).toString(2);
+        answer[0]++;
     }
 
-    return [loof, delZero]
+    return answer;
 }
 console.log(solution('110010101001'));
