@@ -10,3 +10,6 @@
 [submodule "checkbox"]
 	path = checkbox
 	url = https://github.com/ppotatoG/checkbox.git
+[submodule "rollingText"]
+	path = rollingText
+	url = https://github.com/ppotatoG/rollingText.git
