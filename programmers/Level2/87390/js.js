@@ -4,9 +4,10 @@ function solution(n, left, right) {
             length : right - left + 1
         }
         , (val, idx) => {
-            val = left + idx + 1;
-            return val % (left + 2);
-            return val <= idx + 1 ? idx + 1 : idx + 1;
+            val = (left + idx + 1) % n;
+            val = val === 0 ? n : val;
+
+            return val <= n ? val : val % n;
         });
 
     let arr = new Array(n).
@@ -24,7 +25,8 @@ function solution(n, left, right) {
     .flat(Infinity);
 }
 console.log(solution(3, 2, 5)); // [3,2,2,3]
-// [1, 2, 3, 1, 2, 3, 1, 2, 3]
-// [1, 2, 3, 2, 2, 3, 3, 3, 3]
+// [1, 2, !3, 1, 2, 3!, 1, 2, 3]
+// [1, 2, !3, 2, 2, 3!, 3, 3, 3]
 console.log(solution(4, 7, 14)); // [4,3,3,3,4,4,4,4]
-// [1, 2, 3, 4, 2, 2, 3, 4, 3, 3, 3, 4, 4, 4, 4, 4]
+// [1, 2, 3, 4, 1, 2, 3, ! 4, 1, 2, 3, 4, 1, 2, 3 !, 4]
+// [1, 2, 3, 4, 2, 2, 3, ! 4, 3, 3, 3, 4, 4, 4, 4 !, 4]
