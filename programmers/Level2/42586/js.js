@@ -1,34 +1,13 @@
 function solution(progresses, speeds) {
-    const time = [...progresses].map((val, idx) => {
-        let num = 0;
-        
-        for(let i = val; i < 100; i += speeds[idx]) {
-            num++;
-        }
-
-        return num;
-    });
-
-    const answer = [];
+    const time = [...progresses].map((val, idx) => Math.ceil((100 - val) / speeds[idx]));
+    let answer = [0];
+    let maxDay = time[0];
 
     for(let i = 0; i < time.length; i++){
-        if(time[i] !== 0) {
-            if((time[i] < time[i + 1] || i === time.length - 1)) {
-                answer.push(1);
-            }
-            else {
-                if(time[i] >= time[i + 1]) {
-                    let k = i + 1;
-                    answer.push(1);
-                    while(time[i] >= time[k]) {
-                        if(time[i] < time[k]) break;
-                        answer[answer.length - 1] ++;
-                        time[k] = 0;
-                        k++;
-                    }
-                    time[i] = 0;
-                }
-            }
+        if(time[i] <= maxDay) answer[answer.length - 1] ++;
+        else {
+            maxDay = time[i];
+            answer.push(1);
         }
     }
     
