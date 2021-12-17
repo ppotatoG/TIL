@@ -29,3 +29,27 @@ function solution(n, left, right) {
     .slice(left, right + 1);
 }
 ```
+
+무려 14점따리를 풀었다ㅠ
+
+[키패드 누르기](https://programmers.co.kr/learn/courses/30/lessons/67256)랑 비슷하게 풀었다
+
+2차원 배열은 너무 어려워서... 나한테는 이게 훨씬 쉽다
+```js
+function solution(n, left, right) {
+    return Array.from(
+    {
+        length : right - left + 1
+    }
+    , (val, idx) => {
+        val = left + idx + 1;
+
+        let col = Math.ceil(val / n);
+        let row = val % n === 0 ? n : val % n;
+        
+        val = val % n === 0 ? n : val % n;
+
+        return val <= col ? col : row;
+    });
+}
+```
