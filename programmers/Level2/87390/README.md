@@ -4,6 +4,22 @@
 
 ### 제출한 정답
 ```js
+function solution(n, left, right) {
+    return Array.from(
+    {
+        length : right - left + 1
+    }
+    , (val, idx) => {
+        val = left + idx + 1;
+
+        let col = Math.ceil(val / n);
+        let row = val % n === 0 ? n : val % n;
+        
+        val = val % n === 0 ? n : val % n;
+
+        return val <= col ? col : row;
+    });
+}
 ```
 
 나름 패턴 찾아서 잘했다 하고 뿌듯했는데,
@@ -51,5 +67,24 @@ function solution(n, left, right) {
 
         return val <= col ? col : row;
     });
+}
+```
+
+다른사람 풀이에서 숏코딩된걸 푼건데
+
+[parseInt](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/parseInt)가 포인트인 것 같다
+
+해석은 못하겠어ㅎㅎ;
+```js
+const solution = (n, left, right) => {
+    return Array.from(
+    {
+        length : right - left + 1
+    },
+    (_,index) => {
+        return (index + left) % n < parseInt((index + left) / n) + 1  
+        ? parseInt((index + left) / n) + 1
+        : (index + left) % n + 1
+    })
 }
 ```
