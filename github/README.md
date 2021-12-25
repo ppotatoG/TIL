@@ -112,6 +112,16 @@ $ rm -f ./.git/index.lock
 
 [참고 블로그](https://goddaehee.tistory.com/220)
 
+### git ignore
+```
+vim .gitignore
+```
+1. 제외시킬 내용 입력
+2. [esc]
+3. :wq
+4. [enter]
+5. `.gitignore` add, commit, push
+
 ---
 
 ## How to git fork❓
