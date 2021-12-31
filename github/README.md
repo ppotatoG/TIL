@@ -122,6 +122,13 @@ vim .gitignore
 4. [enter]
 5. `.gitignore` add, commit, push
 
+### There isn't a GitHub Pages site here.
+
+```
+$ git commit --allow-empty -m "rebuild"
+$ git push origin master
+```
+
 ---
 
 ## How to git fork❓
