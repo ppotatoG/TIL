@@ -125,6 +125,13 @@ vim .gitignore
 
 **[이미 push된 파일은 제외되지 않음](https://helloinyong.tistory.com/125)**
 
+### There isn't a GitHub Pages site here.
+
+```
+$ git commit --allow-empty -m "rebuild"
+$ git push origin master
+```
+
 ---
 
 ## How to git fork❓
