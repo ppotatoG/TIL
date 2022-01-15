@@ -116,11 +116,14 @@ $ rm -f ./.git/index.lock
 ```
 vim .gitignore
 ```
+
 1. 제외시킬 내용 입력
 2. [esc]
 3. :wq
 4. [enter]
 5. `.gitignore` add, commit, push
+
+**[이미 push된 파일은 제외되지 않음](https://helloinyong.tistory.com/125)**
 
 ---
 
