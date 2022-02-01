@@ -1,27 +1,27 @@
 const solution = (id_list, report, k) => {
+    const obj = {};
+    
+    id_list.map(val => obj[val] = []);
+    
     report = report
     .filter((a, b) => report.indexOf(a) === b)
-    .map(val => val.split(' '));
+    .map(val => {
+        val = val.split(' ');
+        obj[[val[1]]].push(val[0]);
+    })
 
-    let answer = id_list.map(val => [val, 0, 0]);
+    const arr = [...id_list].map(val => [val, 0])
 
-    for(let i = 0; i < report.length; i++) {
-        let findIdx = id_list.findIndex(val => val === report[i][1]);
-        answer[findIdx][1] ++;
-    }
-
-    let tmp = answer.filter(val => val[1] >= k).map(val => val[0]);
-    
-    for(let i = 0; i < report.length; i++) {
-        for(let k = 0; k < tmp.length; k++) {
-            if(report[i][1] === tmp[k]) {
-                let findIdx = id_list.findIndex(val => val === report[i][0]);
-                answer[findIdx][2] ++;
-            }
+    Object.values(obj).map(val => {
+        if(val.length >= k) {
+            val.map(val2 => {
+                const idx = id_list.findIndex(userId => userId === val2)
+                arr[idx][1] += 1;
+            })
         }
-    }   
+    });
 
-    return answer.map(val => val[2]);
+    return arr.map(val => val[1]);
 }
 console.log(solution(["muzi", "frodo", "apeach", "neo"], ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"], 2)); // [2,1,1,0]
-console.log(solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)); // [0, 0]
+// console.log(solution(["con", "ryan"], ["ryan con", "ryan con", "ryan con", "ryan con"], 3)); // [0, 0]
