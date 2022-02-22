@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{margin: 0;padding: 0;}
+.wrap{display:flex;width:1000px;flex-wrap:wrap;}
+.chartDom{border:1px solid #ddd;padding:10px;margin:10px;width:280px;box-sizing: border-box;}
+pre{background:#eee;padding:10px;display:inline-block;margin:10px 0;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="chartDom">
+        <h3>chartDom01</h3>
+        <pre>height:300px;</pre>
+        <div style="height:300px;"></div>
+    </div>
+
+    <div class="chartDom">
+        <h3>chartDom02</h3>
+        <pre>height:0;</pre>
+        <div style="height:0;"></div>
+    </div>
+
+    <div class="chartDom">
+        <h3>chartDom03</h3>
+        <pre>height:300px;display:none;</pre>
+        <div style="height:300px;display:none;"></div>
+    </div>
+
+    <div class="chartDom">
+        <h3>chartDom04</h3>
+        <pre>height:300px;opacity:0;</pre>
+        <div style="height:300px;opacity:0;"></div>
+    </div>
+    
+    <div class="chartDom">
+        <h3>chartDom05</h3>
+        <pre>height:300px;visibility:hidden;</pre>
+        <div style="height:300px;visibility:hidden;"></div>
+    </div>
+
+    <div class="chartDom">
+        <h3>chartDom06</h3>
+        <pre>height:300px;position:relative;z-index:-1;</pre>
+        <div style="height:300px;position:relative;z-index:-1;"></div>
+    </div>
+    
+    <div class="chartDom2">
+    </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.0/echarts.min.js" integrity="sha512-dvHO84j/D1YX7AWkAPC/qwRTfEgWRHhI3n7J5EAqMwm4r426sTkcOs6OmqCtmkg0QXNKtiFa67Tp77JWCRRINg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="js.js"></script>
+</body>
+</html>
