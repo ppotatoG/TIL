@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{margin: 0;padding: 0;list-style:none;}
+        div{border:5px solid #ddd;margin:20px;padding:20px;}
+        .wrap{width:300px;}
+        ul{display:flex;margin-top:20px;}
+        li{background:gray;width:25%;text-align:center;color:#fff;}
+
+    </style>
+</head>
+<body>
+    
+<div class="wrap">
+    <h1>div.wrap</h1>
+    <div class="box">
+        <div onclick="console.log($(this).children('button'))">
+            <div><button>button</button></div>
+        </div>
+
+        <div onclick="console.log($(this).find('button'))">
+            <div><button>button</button></div>
+        </div>
+    </div>
+
+    <h1>div.wrap</h1>
+    <div class="box">
+        <h2>div.box</h2>
+        <ul>
+            <li onclick="console.log($(this).closest('div'))">list1</li>
+            <li onclick="console.log($(this).closest('div.wrap'))">list2</li>
+            <li onclick="console.log($(this).parent())">list3</li>
+            <li onclick="console.log($(this).parent('ul'))">list4</li>
+        </ul>
+    </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="js.js"></script>
+</body>
+</html>
