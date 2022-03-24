@@ -36,25 +36,24 @@ const List = () => {
     const data = Object.entries(users.results).map(list => list[1]);
 
     const userList = data.map((user) => {
-        return [
-                user.author.nickname,
-                user.title,
-                user.img_url,
-                user.like_count,
-                user.member_count,
-                user.total_member_count
-            ];
+        return {
+                'user.author.nickname' : user.author.nickname,
+                'user.title' : user.title,
+                'user.img_url' : user.img_url,
+                'user.like_count' : user.like_count,
+                'user.member_count' : user.member_count,
+                'user.total_member_count' : user.total_member_count
+            };
     })
-    
-    console.log(userList);
 
-    const box = userList.map((val, idx) => {
+    const box = Object.entries(userList).map((val, idx) => {
         return (
             <p key={idx}>
                 {
-                    val.map((val2, idx2) => {
+                    Object.entries(val[1]).map((val2, idx2) => {
+                        console.log(val2)
                         return (
-                            <span key={idx2}>{val2}</span>
+                            <p key={idx2}>{val2}</p>
                         )
                     })
                 }
