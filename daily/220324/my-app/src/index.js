@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import List from './list'
+import Card from './card'
+
+import "./reset.css";
 
 ReactDOM.render(
-  <React.StrictMode>
-    		<List />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<Card />
+	</React.StrictMode>,
+	document.getElementById('root')
 );
