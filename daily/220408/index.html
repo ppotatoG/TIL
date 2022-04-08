@@ -18,18 +18,30 @@
             width: 100px;
         }
         .wrap #preview {
-            display: grid;
-            grid-template-columns: repeat(25, 50px);
+            width: 500px;
             margin-left: 20px;
             height: auto;
-            grid-gap: 15px 5px;
+            background-size: 50px 50px;
+            background-image:
+                linear-gradient(to right, red 1px, transparent 1px),
+                linear-gradient(to bottom, red 1px, transparent 1px);
+        }
+        .wrap #preview::after {
+            display: block;
+            clear: both;
+            content: "";
         }
         .wrap #preview p {
+            float: left;
+            width: 50px;
             text-align: center;
             height: 50px;
             line-height: 50px;
             border: 1px #eee solid;
+            box-sizing: border-box;
         }
+
+        .clear + p{clear: both;}
     </style>
 </head>
 <body>

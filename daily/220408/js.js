@@ -14,6 +14,10 @@
         
         textArr.forEach((text, idx) => {
             preview.childNodes[idx].innerHTML = text;
+
+            if(text.charCodeAt() === 10) {
+                preview.childNodes[idx].className = 'clear';
+            }
         })   
     };
 })()
