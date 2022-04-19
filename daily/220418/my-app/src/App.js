@@ -29,7 +29,10 @@ const App = () => {
                     {
                         menu[title].map((depth, idx2) => {
                             return (
-                                <li key={idx2}>{depth}</li>
+                                <li key={idx2}>
+                                    <label htmlFor={`${idx}_${idx2}`}>{depth}</label>
+                                    <input type="checkbox" name={idx} id={`${idx}_${idx2}`}/>
+                                </li>
                             )
                         })
                     }

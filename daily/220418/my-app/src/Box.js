@@ -52,7 +52,7 @@ const Boxs = () => {
 
     return (
         <div className="box">
-                {boxElement}
+            {boxElement}
         </div>
     );
 }
