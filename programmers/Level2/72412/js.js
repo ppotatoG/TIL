@@ -1,18 +1,27 @@
 const solution = (info, query) => {
-    let answer = Array.from(
-        {length: query.length},
-        val => val = 0
-    )
+    let answer = new Array(query.length).fill(0);
 
-    info = info.map((val) => {
-        return val.split(' ');
-    });
+    // info = info.map((val) => {
+    //     return val.split(' ');
+    // });
 
-    query = query.map((val) => {
-        return val.replace(/and /gi, '').split(' ');
-    });
+    return Array.from(
+        {
+            length: query.length
+        }, (values, index) => {
+            return query.map(data => {
+                return data
+                    .replace(/and/gi, '')
+                    .split('  ')
+                    .map((val2, idx2) => {
+                        return `${val2}, ${data}`
+                    })
+            });
+        }
+    );
 
     query.forEach((data, idx) => {
+        data = data.replace(/and /gi, '').split(' ');
         let tmp = [false, false, false, false, false];
         
         info.forEach((user) => {
@@ -25,15 +34,15 @@ const solution = (info, query) => {
                     if(idx3 !== 4 && data[idx3] === item) {
                         tmp[idx3] = true;
                     }
-                    else if(idx3 === 4 && Number(data[idx3]) <= Number(item)) {
+                    else if(Number(data[idx3]) <= Number(item)) {
                         tmp[idx3] = true;
                     }
                 }
             })
-            tmp = tmp.filter((val) => val === false)
-            if(tmp.length === 0) {
-                answer[idx] ++;
-            }
+            // tmp = tmp.filter((val) => val === false);
+            // if(tmp.length === 0) {
+            //     answer[idx] ++;
+            // }
         })
     })
 
