@@ -167,6 +167,16 @@ ex) `* main 05ac456 [origin/main] trim`
 - `branch name`, `hash`, `바라보는 branch`, `last commit message`
 - checkout 된 브랜치 앞에 `*`
 
+### branch 이름 변경하기
+```
+$ git branch -m <OLD_branch name> <NEW_branch name>
+```
+
+### branch 삭제하기
+```
+$ git branch -d <branch name>
+```
+
 ---
 
 ## Github blog - jekyll
