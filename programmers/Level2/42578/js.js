@@ -1,15 +1,11 @@
 const  solution = (clothes) => {
-    let obj = {};
-
-    clothes.forEach((value) => {
-        obj[value[1]] += `${value[0]}-`;
-    })
-
-    for(let item in obj){
-        obj[item] = obj[item].replace(/undefined/gi, '').split('-');
-    }
-
-    return Object.values(obj).reduce((acc, cur, idx) => acc *= cur.length, 1) - 1;
+    return Object.values(
+        clothes.reduce((obj, t) => {
+            obj[t[1]] = obj[t[1]] ? obj[t[1]] + 1 : 1;
+            return obj;
+        }, {})
+    )
+    .reduce((a,b)=> a*(b+1), 1)-1;
 }
 
 console.log(solution([["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]])); // 5
