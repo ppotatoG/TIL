@@ -1,0 +1,48 @@
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-content: $align;
+}
+
+.header {
+
+}
+
+.contents {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 200px auto;
+}
+
+.nav {
+  border: 1px solid #333;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  &-item {
+    margin-top: 10px;
+    &:first-child {
+      margin-top: 0;
+    }
+    p {
+      font-size: 14px;
+    }
+    summary {
+      display: block;
+      &::-webkit-details-marker,
+      &::marker {
+        display: none;
+      }
+      & ~ p {
+        padding-left: 10px;
+      }
+    }
+
+  }
+}
+
+section {
+  border: 1px solid #333;
+}

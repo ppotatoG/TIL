@@ -1,0 +1,25 @@
+#wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 200px auto; }
+
+.nav {
+  border: 1px solid #333;
+  position: sticky;
+  top: 0;
+  max-height: 100vh; }
+  .nav-item p {
+    font-size: 14px; }
+  .nav-item summary {
+    display: block; }
+    .nav-item summary::-webkit-details-marker, .nav-item summary::marker {
+      display: none; }
+    .nav-item summary ~ p {
+      padding-left: 10px; }
+
+section {
+  border: 1px solid #333; }
+
+/*# sourceMappingURL=style.css.map */
