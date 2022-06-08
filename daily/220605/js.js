@@ -1,7 +1,7 @@
 (() => {
     const audio = new Audio();
 
-    const audioPlayer = {
+    const player = {
         curTrack: 0,
         audio : {
             trackUrl : [
@@ -26,34 +26,51 @@
                 "Martin Garrix - Proxy"
             ]
         },
-        setTrack: function(curIdx) {
-            audio.src = audioPlayer.audio.trackUrl[curIdx]
+        setTrack: function setTrack(curIdx) {
+            audio.src = this.audio.trackUrl[curIdx]
         },
-        setTime : function (startTime, endTime) {
+        setTime : function setTime(curTime, endTime) {
+            console.log(curTime, endTime);
+
             const start = document.querySelector('.track__start');
             const end = document.querySelector('.track__end');
+            const timeline = document.querySelector('.track__line-bar');
 
-            start.innerHTML = startTime;
-            end.innerHTML = endTime;
+            timeline.style.width = `${(curTime / endTime) * 100}%`;
+        },
+        play: function play(e) {
+            if(audio.paused) {
+                audio.play().then(() => {
+                    e.target.classList = 'fa fa-pause';
+                    document.querySelector('marquee ').start();
+                })
+                audio.play().catch((error) => {
+                    console.log(error);
+                })
+            }
+            else {
+                audio.pause();
+                e.target.classList = 'fa fa-play';
+                document.querySelector('marquee ').stop();
+            }
         },
         init : function init() {
+            player.setTrack(0);
             console.log(this);
-            audioPlayer.setTrack(0);
+            console.dir(audio);
+            document.querySelector('marquee ').stop();
         }
     }
 
-    // audio.src = audioPlayer.audio.trackUrl[0];
-
     const playBtn = document.querySelector('.trigger_btn');
-    playBtn.addEventListener('click', (e) => {
-        console.dir(audio.duration / 60)
-        console.log(e.target.classList);
-        audio.play();
-    });
+    playBtn.addEventListener('click', e => player.play(e));
 
     audio.addEventListener('timeupdate', (e) => {
-        // console.log(e);
+        const durationCur = Math.ceil((audio.currentTime / 60) * 100);
+        const durationEnd = Math.ceil((audio.duration / 60) * 100);
+
+        player.setTime(durationCur ,durationEnd);
     });
 
-    audioPlayer.init();
+    player.init();
 })();

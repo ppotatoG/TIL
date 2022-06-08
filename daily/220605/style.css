@@ -1,5 +1,5 @@
 #wrap {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   font-size: 12px; }
 
@@ -32,48 +32,55 @@
       font-weight: 600;
       width: 100%;
       height: 100%;
-      backdrop-filter: brightness(0.8);
+      backdrop-filter: brightness(0.9);
       min-height: 300px;
       padding: 20px;
       color: #fff;
       box-sizing: border-box;
-      text-shadow: #000 0 0 10px; }
+      text-shadow: #7a8361 0 0 10px; }
   .header-audio {
     display: flex;
-    gap: 10px;
-    background: #7a8361;
-    padding: 10px;
+    gap: 20px;
     box-sizing: border-box; }
     .header-audio button {
       display: block; }
       .header-audio button i {
-        color: #fff;
+        color: #7a8361;
         display: block; }
     .header-audio .track {
       display: flex;
       align-items: center;
-      gap: 10px; }
-      .header-audio .track p {
-        color: #fff; }
-      .header-audio .track__line {
-        min-width: 100%;
+      gap: 8px; }
+      .header-audio .track p,
+      .header-audio .track marquee {
+        color: #7a8361;
+        font-size: 12px; }
+      .header-audio .track__info {
+        width: 100px;
         min-height: 100%;
-        background: rgba(255, 255, 255, 0.4);
-        border-radius: 10px;
-        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         overflow: hidden; }
+      .header-audio .track__line {
+        height: 4px;
+        background: #c0c4b4;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px; }
         .header-audio .track__line-bar {
           position: absolute;
           top: 0;
           left: 0;
-          width: 10%;
+          width: 0;
           height: 100%;
-          background: #fff; }
+          background: #7a8361;
+          transition: .2s width; }
 
 .contents {
   display: grid;
-  gap: 10px;
-  grid-template-columns: 160px auto; }
+  gap: 40px;
+  grid-template-columns: 130px auto; }
 
 .nav {
   position: sticky;
@@ -83,13 +90,17 @@
     padding: 10px 0; }
     .nav-item:first-child {
       padding-top: 0; }
+    .nav-item * {
+      cursor: pointer; }
     .nav-item summary {
       display: flex;
       gap: 20px;
       align-items: baseline;
       font-size: 20px;
       text-transform: capitalize;
-      font-weight: 600; }
+      font-weight: 600;
+      justify-content: space-between;
+      max-width: 130px; }
       .nav-item summary::-webkit-details-marker, .nav-item summary::marker {
         display: none; }
       .nav-item summary ~ a {
@@ -143,8 +154,8 @@
     display: block; }
   .section figure iframe {
     display: block;
-    width: 1030px;
-    height: 580px; }
+    width: 100%;
+    height: 470px; }
   .section figure p {
     font-size: 18px; }
   .section figure.flex {
