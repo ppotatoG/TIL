@@ -8,8 +8,10 @@
   .header-gnb {
     display: grid;
     gap: 10px;
-    grid-template-columns: 200px auto;
-    padding: 10px; }
+    grid-template-columns: 300px auto;
+    padding: 10px;
+    height: 50px;
+    box-sizing: border-box; }
   .header-menu {
     display: flex;
     gap: 40px;
@@ -36,8 +38,37 @@
       color: #fff;
       box-sizing: border-box;
       text-shadow: #000 0 0 10px; }
-  .header-audio > * {
-    display: none; }
+  .header-audio {
+    display: flex;
+    gap: 10px;
+    background: #7a8361;
+    padding: 10px;
+    box-sizing: border-box; }
+    .header-audio button {
+      display: block; }
+      .header-audio button i {
+        color: #fff;
+        display: block; }
+    .header-audio .track {
+      display: flex;
+      align-items: center;
+      gap: 10px; }
+      .header-audio .track p {
+        color: #fff; }
+      .header-audio .track__line {
+        min-width: 100%;
+        min-height: 100%;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden; }
+        .header-audio .track__line-bar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 10%;
+          height: 100%;
+          background: #fff; }
 
 .contents {
   display: grid;

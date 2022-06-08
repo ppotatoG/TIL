@@ -15,8 +15,10 @@
   &-gnb {
     display: grid;
     gap: 10px;
-    grid-template-columns: 200px auto;
+    grid-template-columns: 300px auto;
     padding: 10px;
+    height: 50px;
+    box-sizing: border-box;
   }
 
   &-menu {
@@ -54,8 +56,41 @@
     }
   }
   &-audio {
-    > *{
-      display: none;
+    display:flex;
+    gap: 20px;
+    background: #7a8361;
+    padding: 10px;
+    box-sizing: border-box;
+    button {
+      display: block;
+      i {
+        color: #fff;
+        display: block;
+      }
+    }
+    .track {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      p {
+        color: #fff;
+      }
+      &__line {
+        min-width: 100%;
+        min-height: 100%;
+        background: rgba(255, 255, 255, .4);
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        &-bar {
+          position: absolute;
+          top:0;
+          left:0;
+          width: 10%;
+          height: 100%;
+          background: #fff;
+        }
+      }
     }
   }
 }
