@@ -2,20 +2,13 @@
     const audio = new Audio();
     const player = {
         curTrack: 0,
-        audioPlayer : {
-            trackUrl : [
+        music : {
+            url : [
                 "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
                 "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/1.mp3",
                 "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/3.mp3",
                 "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/4.mp3",
                 "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/5.mp3"
-            ],
-            albums : [
-                "Dawn",
-                "Me & You",
-                "Electro Boy",
-                "Home",
-                "Proxy (Original Mix)"
             ],
             trackNames : [
                 "Skylike - Dawn",
@@ -26,22 +19,28 @@
             ]
         },
         setTrack: function setTrack(curIdx) {
-            audio.src = this.audio.trackUrl[curIdx];
+            if (curIdx > this.music.url.length) curIdx %= this.music.url.length;
+            if (curIdx === this.music.url.length) curIdx = 0;
+
+            document.querySelector('.track__title').innerHTML = this.music.trackNames[curIdx];
+
+            audio.src = this.music.url[curIdx];
+            this.play()
+            console.log(curIdx)
         },
         setTime : function setTime(curTime, endTime) {
             console.log(curTime, endTime);
 
-            const start = document.querySelector('.track__start');
-            const end = document.querySelector('.track__end');
-            const timeline = document.querySelector('.track__line-bar');
+            const startEl = document.querySelector('.track__start');
+            const endEl = document.querySelector('.track__end');
 
+            const timeline = document.querySelector('.track__line-bar');
             timeline.style.width = `${(curTime / endTime) * 100}%`;
         },
-        play: function play(e) {
+        play: function play() {
             if(audio.paused) {
                 audio.play().then(() => {
-                    e.target.classList = 'fa fa-pause';
-                    document.querySelector('marquee ').start();
+                    document.querySelector('.audioPlay i').classList = 'fa fa-pause';
                 })
                 .catch((error) => {
                     console.log(error);
@@ -49,20 +48,30 @@
             }
             else {
                 audio.pause();
-                e.target.classList = 'fa fa-play';
-                document.querySelector('marquee ').stop();
+                document.querySelector('.audioPlay i').classList = 'fa fa-play';
             }
         },
         init : function init() {
+            audio.pause();
             player.setTrack(0);
-            console.log(this);
-            console.dir(audio);
-            document.querySelector('marquee ').stop();
         }
     };
 
-    const playBtn = document.querySelector('.trigger_btn');
-    playBtn.addEventListener('click', e => player.play(e));
+    const audioPlay = document.querySelector('.audioPlay');
+    audioPlay.addEventListener('click', e => player.play(e));
+
+    const prevAudio = document.querySelector('.prevAudio');
+    prevAudio.addEventListener('click', () => {
+        player.curTrack --;
+        player.setTrack(player.curTrack);
+    });
+
+    const nextAudio = document.querySelector('.nextAudio');
+    nextAudio.addEventListener('click', () => {
+        player.curTrack ++;
+        player.setTrack(player.curTrack);
+    });
+
 
     audio.addEventListener('timeupdate', (e) => {
         const durationCur = Math.ceil((audio.currentTime / 60) * 100);

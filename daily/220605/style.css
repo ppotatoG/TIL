@@ -38,44 +38,6 @@
       color: #fff;
       box-sizing: border-box;
       text-shadow: #7a8361 0 0 10px; }
-  .header-audio {
-    display: flex;
-    gap: 20px;
-    box-sizing: border-box; }
-    .header-audio button {
-      display: block; }
-      .header-audio button i {
-        color: #7a8361;
-        display: block; }
-    .header-audio .track {
-      display: flex;
-      align-items: center;
-      gap: 8px; }
-      .header-audio .track p,
-      .header-audio .track marquee {
-        color: #7a8361;
-        font-size: 12px; }
-      .header-audio .track__info {
-        width: 100px;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        overflow: hidden; }
-      .header-audio .track__line {
-        height: 4px;
-        background: #c0c4b4;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px; }
-        .header-audio .track__line-bar {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 0;
-          height: 100%;
-          background: #7a8361;
-          transition: .2s width; }
 
 .contents {
   display: grid;
@@ -166,6 +128,41 @@
       max-width: 60%; }
     .section figure.flex.align-reverse {
       flex-direction: row-reverse; }
+.section-audio {
+  display: flex;
+  gap: 10px;
+  box-sizing: border-box; }
+  .section-audio button {
+    display: block; }
+    .section-audio button i {
+      color: #7a8361;
+      display: block; }
+  .section-audio .track {
+    width: 200px;
+    min-height: 100%; }
+    .section-audio .track p,
+    .section-audio .track marquee {
+      color: #7a8361;
+      font-size: 12px; }
+    .section-audio .track__info {
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+      gap: 10px; }
+    .section-audio .track__line {
+      height: 4px;
+      background: #c0c4b4;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px; }
+      .section-audio .track__line-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #7a8361;
+        transition: .2s width; }
 
 .footer {
   width: 100%;
