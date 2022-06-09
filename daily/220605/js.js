@@ -1,9 +1,8 @@
 (() => {
     const audio = new Audio();
-
     const player = {
         curTrack: 0,
-        audio : {
+        audioPlayer : {
             trackUrl : [
                 "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
                 "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/1.mp3",
@@ -27,7 +26,7 @@
             ]
         },
         setTrack: function setTrack(curIdx) {
-            audio.src = this.audio.trackUrl[curIdx]
+            audio.src = this.audio.trackUrl[curIdx];
         },
         setTime : function setTime(curTime, endTime) {
             console.log(curTime, endTime);
@@ -44,9 +43,9 @@
                     e.target.classList = 'fa fa-pause';
                     document.querySelector('marquee ').start();
                 })
-                audio.play().catch((error) => {
+                .catch((error) => {
                     console.log(error);
-                })
+                });
             }
             else {
                 audio.pause();
@@ -60,7 +59,7 @@
             console.dir(audio);
             document.querySelector('marquee ').stop();
         }
-    }
+    };
 
     const playBtn = document.querySelector('.trigger_btn');
     playBtn.addEventListener('click', e => player.play(e));
