@@ -34,6 +34,18 @@
             const startEl = document.querySelector('.track__start');
             const endEl = document.querySelector('.track__end');
 
+            // const countTime = (duration) => {
+            //     let minute = 0;
+            //     let second = 0;
+
+            //     if(duration > 60) {
+            //         minute++;
+            //         second = 0;
+            //     }
+
+            //     return num.toString.length <= 1 ? 
+            // }
+
             const timeline = document.querySelector('.track__line-bar');
             timeline.style.width = `${(curTime / endTime) * 100}%`;
         },
@@ -53,7 +65,7 @@
         },
         init : function init() {
             audio.pause();
-            player.setTrack(0);
+            this.setTrack(0);
         }
     };
 
@@ -72,10 +84,17 @@
         player.setTrack(player.curTrack);
     });
 
+    function addDays(date, days) {
+        const clone = new Date(date);
+        clone.setDate(date.getDate() + days)
+        return clone;
+    }
 
     audio.addEventListener('timeupdate', (e) => {
         const durationCur = Math.ceil((audio.currentTime / 60) * 100);
         const durationEnd = Math.ceil((audio.duration / 60) * 100);
+
+        console.log(addDays(new Date(2022), durationCur))
 
         player.setTime(durationCur ,durationEnd);
     });
