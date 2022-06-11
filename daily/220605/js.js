@@ -1,64 +1,100 @@
-(() => {
-    const player = {
-        audio: new Audio(),
-        curTrack: 0,
-        music : {
-            url : [
-                "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
-                "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/1.mp3",
-                "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/3.mp3",
-                "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/4.mp3",
-                "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/5.mp3"
-            ],
-            trackNames : [
-                "Skylike - Dawn",
-                "Alex Skrindo - Me & You",
-                "Kaaze - Electro Boy",
-                "Jordan Schor - Home",
-                "Martin Garrix - Proxy"
-            ]
-        },
-        setTrack: function setTrack(curIdx) {
-            if (curIdx > this.music.url.length) curIdx %= this.music.url.length;
-            if (curIdx === this.music.url.length) curIdx = 0;
+const player = {
+    audio: new Audio(),
+    music : {
+        url : [
+            "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
+            "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/1.mp3",
+            "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/3.mp3",
+            "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/4.mp3",
+            "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/5.mp3"
+        ],
+        trackNames : [
+            "Skylike - Dawn",
+            "Alex Skrindo - Me & You",
+            "Kaaze - Electro Boy",
+            "Jordan Schor - Home",
+            "Martin Garrix - Proxy"
+        ]
+    },
+    curTrack: 0,
+    setTrack: function setTrack(curIdx) {
+        const musicLength = this.music.url.length;
 
-            document.querySelector('.track__title').innerHTML = this.music.trackNames[curIdx];
-
-            this.audio.src = this.music.url[curIdx];
-            this.play()
-            console.log(curIdx)
-        },
-        setTime : function setTime(curTime, endTime) {
-            console.log(curTime, endTime);
-
-            const startEl = document.querySelector('.track__start');
-            const endEl = document.querySelector('.track__end');
-
-            const timeline = document.querySelector('.track__line-bar');
-            timeline.style.width = `${(curTime / endTime) * 100}%`;
-        },
-        play: function play() {
-            if(this.audio.paused) {
-                this.audio.play().then(() => {
-                    document.querySelector('.audioPlay i').classList = 'fa fa-pause';
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-            }
-            else {
-                this.audio.pause();
-                document.querySelector('.audioPlay i').classList = 'fa fa-play';
-            }
-        },
-        init : function init() {
-            this.audio.pause();
-            this.setTrack(0);
+        if (curIdx > musicLength) {
+            console.log('curIdx > musicLength');
+            curIdx %= musicLength;
         }
-    };
+        else if (curIdx < 0) {
+            console.log('Math.sign(curIdx)')
+            curIdx += musicLength;
+        }
+        else if (curIdx === musicLength) {
+            console.log('curIdx === musicLength')
+            curIdx = 0;
+        }
 
-    const audioPlay = document.querySelector('.audioPlay');
-    audioPlay.addEventListener('click', e => player.play(e));
+        this.curTrack = curIdx;
+
+        document.querySelector('.track__title').innerHTML =
+            this.music.trackNames[curIdx];
+
+        this.audio.src = this.music.url[curIdx];
+    },
+    prevAudio: function prevAudio() {
+        console.log('prevAudio')
+
+        this.curTrack --;
+        this.setTrack(this.curTrack);
+    },
+    setTime : function setTime(curTime, endTime) {
+        const startEl = document.querySelector('.track__start');
+        const endEl = document.querySelector('.track__end');
+
+        startEl.innerHTML = this.countTime(curTime);
+        endEl.innerHTML = this.countTime(endTime);
+
+        const timeline = document.querySelector('.track__line-bar');
+        timeline.style.width = `${(curTime / endTime) * 100}%`;
+    },
+    countTime : function countTime(duration){
+        let minutes = Math.floor((duration / 60) % 60);
+        let seconds = Math.floor(duration % 60);
+
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+        seconds = seconds < 10 ? `0${seconds}` : seconds;
+
+        return !duration ? '00:00' : `${minutes}:${seconds}`;
+    },
+    play: function play() {
+        if(this.audio.paused) {
+            this.audio.play().then(() => {
+                document.querySelector('.audioPlay i').classList = 'fa fa-pause';
+            }).catch(error => console.log(error));
+        }
+        else {
+            this.audio.pause();
+            document.querySelector('.audioPlay i').classList = 'fa fa-play';
+        }
+    },
+    init : function init() {
+        this.audio.pause();
+        this.setTrack(0);
+
+        setTimeout(() => {
+            const endEl = document.querySelector('.track__end');
+            endEl.innerHTML = this.countTime(this.audio.duration);
+        }, 500);
+
+        console.dir(this.audio);
+    }
+};
+
+(() => {
+    player.init();
+
+    document
+        .querySelector('.audioPlay')
+        .addEventListener('click', e => player.play(e));
 
     const prevAudio = document.querySelector('.prevAudio');
     prevAudio.addEventListener('click', () => {
@@ -72,20 +108,8 @@
         player.setTrack(player.curTrack);
     });
 
-    function addDays(date, days) {
-        const clone = new Date(date);
-        clone.setDate(date.getDate() + days)
-        return clone;
-    }
-
     player.audio.addEventListener('timeupdate', (e) => {
-        const durationCur = Math.ceil((player.audio.currentTime / 60) * 100);
-        const durationEnd = Math.ceil((player.audio.duration / 60) * 100);
-
-        console.log(addDays(new Date(2022), durationCur))
-
-        player.setTime(durationCur ,durationEnd);
+        player.setTime(player.audio.currentTime ,player.audio.duration);
     });
 
-    player.init();
 })();
