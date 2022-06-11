@@ -98,7 +98,7 @@ const player = {
 
     document
         .querySelector('.audioPlay')
-        .addEventListener('click', e => player.play(e));
+        .addEventListener('click', e => player.play());
 
     const prevAudio = document.querySelector('.prevAudio');
     prevAudio.addEventListener('click', () => player.prevAudio());
