@@ -155,10 +155,15 @@
           overflow: hidden; }
           .section-audio .track__info p.track__title span {
             font-size: inherit;
-            color: inherit; }
+            color: inherit;
+            display: block; }
             .section-audio .track__info p.track__title span.play {
-              animation: left 10s infinite linear; }
-@keyframes left {
+              animation: marquee 10s infinite linear;
+              animation-play-state: running; }
+            .section-audio .track__info p.track__title span.paused, .section-audio .track__info p.track__title span:hover {
+              animation: marquee 10s infinite linear;
+              animation-play-state: paused; }
+@keyframes marquee {
   0% {
     transform: translateX(100%); }
   100% {

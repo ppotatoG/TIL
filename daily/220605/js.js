@@ -40,6 +40,8 @@ const player = {
         setTimeout(() => {
             this.setTime(this.audio.currentTime, this.audio.duration);
         }, 500);
+
+        document.querySelector('.track__title >span').classList.remove('play');
     },
     setTime : function setTime(curTime, endTime) {
         const startEl = document.querySelector('.track__start');
@@ -52,7 +54,7 @@ const player = {
         timeline.style.width = `${(curTime / endTime) * 100}%`;
     },
     countTime : function countTime(duration){
-        let minutes = Math.floor((duration / 60) % 60);
+        let minutes = Math.floor(duration / 60);
         let seconds = Math.floor(duration % 60);
 
         minutes = minutes < 10 ? `0${minutes}` : minutes;
@@ -75,11 +77,13 @@ const player = {
             this.audio.play().then(() => {
                 document.querySelector('.audioPlay i').classList = 'fa fa-pause';
                 document.querySelector('.track__title >span').classList.add('play');
+                document.querySelector('.track__title >span').classList.remove('paused');
             }).catch(error => console.log(error));
         }
         else {
             this.audio.pause();
             document.querySelector('.audioPlay i').classList = 'fa fa-play';
+            document.querySelector('.track__title >span').classList.add('paused');
             document.querySelector('.track__title >span').classList.remove('play');
         }
     },
@@ -104,5 +108,7 @@ const player = {
 
     player.audio.addEventListener('timeupdate', (e) => {
         player.setTime(player.audio.currentTime, player.audio.duration);
+
+        if(player.audio.currentTime === player.audio.duration) player.nextAudio();
     });
 })();

@@ -208,9 +208,15 @@
             span{
               font-size: inherit;
               color: inherit;
+              display: block;
               &.play {
                 animation:marquee 10s infinite linear;
-
+                animation-play-state: running;
+              }
+              &.paused,
+              &:hover {
+                animation:marquee 10s infinite linear;
+                animation-play-state: paused;
               }
             }
           }
