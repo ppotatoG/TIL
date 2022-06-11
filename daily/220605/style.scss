@@ -191,16 +191,39 @@
     .track {
       width: 200px;
       min-height: 100%;
-      p,
-      marquee{
+      p{
+        background: #fff;
         color: #7a8361;
         font-size: 12px;
       }
       &__info {
         display: flex;
-        justify-content: space-between;
         overflow: hidden;
         gap: 10px;
+        p {
+          flex-basis: 20px;
+          &.track__title {
+            flex-basis: 100%;
+            overflow: hidden;
+            span{
+              font-size: inherit;
+              color: inherit;
+              &.play {
+                animation:marquee 10s infinite linear;
+
+              }
+            }
+          }
+
+          @keyframes marquee {
+            0% {
+              transform: translateX(100%);
+            }
+            100% {
+              transform: translateX(-100%);
+            }
+          }
+        }
       }
       &__line {
         height: 4px;

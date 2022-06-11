@@ -140,15 +140,29 @@
   .section-audio .track {
     width: 200px;
     min-height: 100%; }
-    .section-audio .track p,
-    .section-audio .track marquee {
+    .section-audio .track p {
+      background: #fff;
       color: #7a8361;
       font-size: 12px; }
     .section-audio .track__info {
       display: flex;
-      justify-content: space-between;
       overflow: hidden;
       gap: 10px; }
+      .section-audio .track__info p {
+        flex-basis: 20px; }
+        .section-audio .track__info p.track__title {
+          flex-basis: 100%;
+          overflow: hidden; }
+          .section-audio .track__info p.track__title span {
+            font-size: inherit;
+            color: inherit; }
+            .section-audio .track__info p.track__title span.play {
+              animation: left 10s infinite linear; }
+@keyframes left {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(-100%); } }
     .section-audio .track__line {
       height: 4px;
       background: #c0c4b4;

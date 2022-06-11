@@ -32,20 +32,21 @@ const player = {
 
         this.curTrack = curIdx;
 
-        document.querySelector('.track__title').innerHTML =
+        document.querySelector('.track__title >span').innerHTML =
             this.music.trackNames[curIdx];
 
         this.audio.src = this.music.url[curIdx];
-        this.setTime(this.audio.currentTime ,this.audio.duration);
+
+        setTimeout(() => {
+            this.setTime(this.audio.currentTime, this.audio.duration);
+        }, 500);
     },
     setTime : function setTime(curTime, endTime) {
         const startEl = document.querySelector('.track__start');
         startEl.innerHTML = this.countTime(curTime);
 
-        setTimeout(() => {
-            const endEl = document.querySelector('.track__end');
-            endEl.innerHTML = this.countTime(this.audio.duration);
-        }, 500);
+        const endEl = document.querySelector('.track__end');
+        endEl.innerHTML = this.countTime(this.audio.duration);
 
         const timeline = document.querySelector('.track__line-bar');
         timeline.style.width = `${(curTime / endTime) * 100}%`;
@@ -62,20 +63,24 @@ const player = {
     prevAudio : function prevAudio() {
         this.curTrack --;
         this.setTrack(this.curTrack);
+        this.play();
     },
     nextAudio : function prevAudio() {
         this.curTrack ++;
         this.setTrack(this.curTrack);
+        this.play();
     },
     play : function play() {
         if(this.audio.paused) {
             this.audio.play().then(() => {
                 document.querySelector('.audioPlay i').classList = 'fa fa-pause';
+                document.querySelector('.track__title >span').classList.add('play');
             }).catch(error => console.log(error));
         }
         else {
             this.audio.pause();
             document.querySelector('.audioPlay i').classList = 'fa fa-play';
+            document.querySelector('.track__title >span').classList.remove('play');
         }
     },
     init : function init() {
@@ -98,6 +103,6 @@ const player = {
     nextAudio.addEventListener('click', () => player.nextAudio());
 
     player.audio.addEventListener('timeupdate', (e) => {
-        player.setTime(player.audio.currentTime ,player.audio.duration);
+        player.setTime(player.audio.currentTime, player.audio.duration);
     });
 })();
