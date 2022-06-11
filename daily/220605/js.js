@@ -1,5 +1,5 @@
 const player = {
-    audio: new Audio(),
+    audio : new Audio(),
     music : {
         url : [
             "https://raw.githubusercontent.com/himalayasingh/music-player-1/master/music/2.mp3",
@@ -16,20 +16,17 @@ const player = {
             "Martin Garrix - Proxy"
         ]
     },
-    curTrack: 0,
-    setTrack: function setTrack(curIdx) {
+    curTrack : 0,
+    setTrack : function setTrack(curIdx) {
         const musicLength = this.music.url.length;
 
         if (curIdx > musicLength) {
-            console.log('curIdx > musicLength');
             curIdx %= musicLength;
         }
         else if (curIdx < 0) {
-            console.log('Math.sign(curIdx)')
             curIdx += musicLength;
         }
         else if (curIdx === musicLength) {
-            console.log('curIdx === musicLength')
             curIdx = 0;
         }
 
@@ -39,19 +36,16 @@ const player = {
             this.music.trackNames[curIdx];
 
         this.audio.src = this.music.url[curIdx];
-    },
-    prevAudio: function prevAudio() {
-        console.log('prevAudio')
-
-        this.curTrack --;
-        this.setTrack(this.curTrack);
+        this.setTime(this.audio.currentTime ,this.audio.duration);
     },
     setTime : function setTime(curTime, endTime) {
         const startEl = document.querySelector('.track__start');
-        const endEl = document.querySelector('.track__end');
-
         startEl.innerHTML = this.countTime(curTime);
-        endEl.innerHTML = this.countTime(endTime);
+
+        setTimeout(() => {
+            const endEl = document.querySelector('.track__end');
+            endEl.innerHTML = this.countTime(this.audio.duration);
+        }, 500);
 
         const timeline = document.querySelector('.track__line-bar');
         timeline.style.width = `${(curTime / endTime) * 100}%`;
@@ -65,7 +59,15 @@ const player = {
 
         return !duration ? '00:00' : `${minutes}:${seconds}`;
     },
-    play: function play() {
+    prevAudio : function prevAudio() {
+        this.curTrack --;
+        this.setTrack(this.curTrack);
+    },
+    nextAudio : function prevAudio() {
+        this.curTrack ++;
+        this.setTrack(this.curTrack);
+    },
+    play : function play() {
         if(this.audio.paused) {
             this.audio.play().then(() => {
                 document.querySelector('.audioPlay i').classList = 'fa fa-pause';
@@ -79,13 +81,6 @@ const player = {
     init : function init() {
         this.audio.pause();
         this.setTrack(0);
-
-        setTimeout(() => {
-            const endEl = document.querySelector('.track__end');
-            endEl.innerHTML = this.countTime(this.audio.duration);
-        }, 500);
-
-        console.dir(this.audio);
     }
 };
 
@@ -97,19 +92,12 @@ const player = {
         .addEventListener('click', e => player.play(e));
 
     const prevAudio = document.querySelector('.prevAudio');
-    prevAudio.addEventListener('click', () => {
-        player.curTrack --;
-        player.setTrack(player.curTrack);
-    });
+    prevAudio.addEventListener('click', () => player.prevAudio());
 
     const nextAudio = document.querySelector('.nextAudio');
-    nextAudio.addEventListener('click', () => {
-        player.curTrack ++;
-        player.setTrack(player.curTrack);
-    });
+    nextAudio.addEventListener('click', () => player.nextAudio());
 
     player.audio.addEventListener('timeupdate', (e) => {
         player.setTime(player.audio.currentTime ,player.audio.duration);
     });
-
 })();
