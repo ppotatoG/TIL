@@ -1,6 +1,6 @@
 (() => {
+    const audio = new Audio();
     const player = {
-        audio: new Audio(),
         curTrack: 0,
         music : {
             url : [
@@ -24,7 +24,7 @@
 
             document.querySelector('.track__title').innerHTML = this.music.trackNames[curIdx];
 
-            this.audio.src = this.music.url[curIdx];
+            audio.src = this.music.url[curIdx];
             this.play()
             console.log(curIdx)
         },
@@ -34,12 +34,24 @@
             const startEl = document.querySelector('.track__start');
             const endEl = document.querySelector('.track__end');
 
+            // const countTime = (duration) => {
+            //     let minute = 0;
+            //     let second = 0;
+
+            //     if(duration > 60) {
+            //         minute++;
+            //         second = 0;
+            //     }
+
+            //     return num.toString.length <= 1 ? 
+            // }
+
             const timeline = document.querySelector('.track__line-bar');
             timeline.style.width = `${(curTime / endTime) * 100}%`;
         },
         play: function play() {
-            if(this.audio.paused) {
-                this.audio.play().then(() => {
+            if(audio.paused) {
+                audio.play().then(() => {
                     document.querySelector('.audioPlay i').classList = 'fa fa-pause';
                 })
                 .catch((error) => {
@@ -47,12 +59,12 @@
                 });
             }
             else {
-                this.audio.pause();
+                audio.pause();
                 document.querySelector('.audioPlay i').classList = 'fa fa-play';
             }
         },
         init : function init() {
-            this.audio.pause();
+            audio.pause();
             this.setTrack(0);
         }
     };
@@ -78,9 +90,9 @@
         return clone;
     }
 
-    player.audio.addEventListener('timeupdate', (e) => {
-        const durationCur = Math.ceil((player.audio.currentTime / 60) * 100);
-        const durationEnd = Math.ceil((player.audio.duration / 60) * 100);
+    audio.addEventListener('timeupdate', (e) => {
+        const durationCur = Math.ceil((audio.currentTime / 60) * 100);
+        const durationEnd = Math.ceil((audio.duration / 60) * 100);
 
         console.log(addDays(new Date(2022), durationCur))
 
