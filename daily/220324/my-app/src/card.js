@@ -39,7 +39,7 @@ const List = () => {
 	
 	const userList = usersInfo.map((info, idx) => {
 		const findValue = (findText) => {
-			return info[0].findIndex(val => val == findText);
+			return info[0].findIndex(val => val === findText);
 		}
 
 		const title = info[1][findValue('title')];
