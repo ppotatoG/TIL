@@ -1,0 +1,42 @@
+section {
+    min-height: 120vh;
+    text-shadow:0 0 10px #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font: {
+        size: 10vw;
+        weight: bold;
+    }
+
+    $color: '#00FA9A', '#5F9EA0', '#4682B4', '#1E90FF', '#4169E1', '#483D8B', '#7B68EE', '#BA55D3';
+    @each $item in $color {
+        $index: index($color, $item);
+        &:nth-of-type(#{$index}) {
+            background: #{$item};
+        }
+    }
+}
+
+.quick {
+    position: fixed;
+    top: 20vw;
+    right: 5vw;
+    &__item {
+        margin-top:10px;
+        a {
+            display: block;
+            padding: 10px 20px;
+            font-size: 20px;
+            text-align: center;
+            box-shadow:0 0 10px #555;
+            border-radius: 15px;
+            background: #fff;
+        }
+        &.on a {
+            background: #FF4500;
+            color: #fff;
+        }
+    }
+}
