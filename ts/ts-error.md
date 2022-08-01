@@ -18,3 +18,26 @@ const EmailPattern = (text :  string) : string => {
     return text;
 };
 ```
+
+## TS2339
+
+```js
+TS2339: Property 'email' does not exist on type 'object'.
+```
+
+```ts
+const validate = (type: string, values : object) => {
+    // ...
+}
+```
+
+```ts
+interface errors {
+    email: string | '';
+    password: string | '';
+}
+
+const validate = (type: string, values : errors) => {
+    // ...
+}
+```
