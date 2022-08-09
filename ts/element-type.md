@@ -25,3 +25,18 @@ use
 ```js
 HTMLTextAreaElement
 ```
+
+## TS2322
+
+error
+```js
+TS2322: Type '(e: React.ChangeEvent<HTMLInputElement>) => Promise<void>' is not assignable to type 'FormEventHandler<HTMLFormElement>'.
+```
+
+use
+```js
+const onSubmit = async (e: React.ChangeEvent<HTMLInputElement>) => {
+```
+```js
+const onSubmit = async ( e: React.FormEvent<HTMLFormElement> ) : Promise<void> => {
+```
