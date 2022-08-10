@@ -1,8 +1,2 @@
-const fs = require('fs'); 
-
-const inputData = fs.readFileSync('예제.txt').toString().split(' ');
-
-const A = parseInt(inputData[0]);
-const B = parseInt(inputData[1]);
-
+const [A, B] = require('fs').readFileSync('예제.txt').toString().split(' ');
 console.log(A+B);
