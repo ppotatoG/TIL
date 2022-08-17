@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .preview{display:grid;grid-template-columns:repeat( 4, minmax(250px, 1fr));gap:10px;}
+        .preview > *{display:block;width:100%;margin:auto;}
+        label[for=file]{background:#eee;width:100%;height:250px;}
+    </style>
+</head>
+<body>
+<input type="file" name="file" id="file">
+
+<div class="preview">
+    <label for="file">파일첨부</label>
+</div>
+
+<script src="js.js"></script>
+</body>
+</html>
