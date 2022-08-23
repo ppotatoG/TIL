@@ -1,21 +1,11 @@
-import Home from './views/Home.js';
-import Detail from './views/Detail.js';
-import Cart from './views/Cart.js';
+import List from './views/List.js';
 import NotFound from './views/NotFound.js';
 
 const router = async () => {
     const routes = [
         {
-            path: '/',
-            view: Home
-        },
-        {
-            path: '/detail',
-            view: Detail
-        },
-        {
-            path: '/cart',
-            view: Cart
+            path: '/web',
+            view: List
         }
     ];
 
@@ -40,6 +30,10 @@ const router = async () => {
         const page = new match.route.view;
         document.querySelector('main.app').innerHTML = await page.getHtml();
     }
+
+    console.log(potentialMatches)
+    console.log(match)
+    console.log(location.pathname)
 };
 
 document.addEventListener("DOMContentLoaded", () => {
