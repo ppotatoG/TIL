@@ -1,24 +1,21 @@
-console.log("JS is loaded!");
+import Home from './views/Home.js';
+import Detail from './views/Detail.js';
+import Cart from './views/Cart.js';
+import NotFound from './views/NotFound.js';
 
 const router = async () => {
     const routes = [
         {
             path: '/',
-            view: () => {
-                console.log('/')
-            }
+            view: Home
         },
         {
             path: '/detail',
-            view: () => {
-                console.log('/detail')
-            }
+            view: Detail
         },
         {
             path: '/cart',
-            view: () => {
-                console.log('/cart')
-            }
+            view: Cart
         }
     ];
 
@@ -29,7 +26,20 @@ const router = async () => {
         };
     });
 
-    console.log(potentialMatches.find(potentialMatch => potentialMatch.isMatch));
+    let match = potentialMatches.find((potentialMatch) => potentialMatch.isMatch);
+
+    if(!match) {
+        match = {
+            route: location.pathname,
+            isMatch: true
+        };
+        const page = new NotFound();
+        document.querySelector('main.app').innerHTML = await page.getHtml();
+    }
+    else {
+        const page = new match.route.view;
+        document.querySelector('main.app').innerHTML = await page.getHtml();
+    }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
