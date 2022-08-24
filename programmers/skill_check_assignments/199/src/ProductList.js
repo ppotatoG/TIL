@@ -1,8 +1,8 @@
-export default function ProductList({ $target, initialState } ) {
+export default function ProductList({ $target, iniitalState } ) {
+    this.state = iniitalState;
+
     const $productList = document.createElement('ul');
     $target.appendChild($productList);
-
-    this.state = initialState;
 
     this.setState = nextState => {
         this.state = nextState;
@@ -10,10 +10,13 @@ export default function ProductList({ $target, initialState } ) {
     }
 
     this.render = () => {
-        console.log(this)
+        console.log(this.state)
+
         if( !this.state ) {
             return
         }
+
+        console.log('??')
 
         $productList.innerHtml = `
             ${this.state.map(Product =>

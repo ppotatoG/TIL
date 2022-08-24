@@ -1,12 +1,13 @@
 import ProductList from './ProductList.js';
 import { request } from './api.js';
 
-export default function ProductListPage ({$target}) {
-    console.log($target);
-
+export default function ProductListPage({ $target }) {
     const $page = document.createElement('div');
+
     $page.className = 'productListPage';
     $page.innerHTML = '<h1>상품목록</h1>';
+
+    this.state = '';
 
     this.render = () => {
         $target.appendChild($page);
@@ -17,14 +18,22 @@ export default function ProductListPage ({$target}) {
     }
 
     const fetchProducts = async () => {
+        console.log('21')
         const products = await request('/products');
-        this.setState(products);
+
+        console.log('24' + products)
+        console.log('24' + this.state)
+
+        this.setState = '{dddddddddd}';
+
+        console.log('29' + products)
+        console.log('29' + this.state)
     }
+
+    fetchProducts();
 
     const productList = new ProductList({
         $target: $page,
-        intisalState: this.State
+        iniitalState: this.state
     })
-
-    fetchProducts();
 }
