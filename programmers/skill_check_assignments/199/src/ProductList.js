@@ -1,5 +1,5 @@
-export default function ProductList({ $target, iniitalState } ) {
-    this.state = iniitalState;
+export default function ProductList({ $target, initialState } ) {
+    this.state = initialState;
 
     const $productList = document.createElement('ul');
     $target.appendChild($productList);

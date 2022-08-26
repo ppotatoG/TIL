@@ -18,22 +18,14 @@ export default function ProductListPage({ $target }) {
     }
 
     const fetchProducts = async () => {
-        console.log('21')
         const products = await request('/products');
-
-        console.log('24' + products)
-        console.log('24' + this.state)
-
-        this.setState = '{dddddddddd}';
-
-        console.log('29' + products)
-        console.log('29' + this.state)
+        this.setState(products);
     }
 
     fetchProducts();
 
     const productList = new ProductList({
         $target: $page,
-        iniitalState: this.state
+        initialState: this.state
     })
 }
