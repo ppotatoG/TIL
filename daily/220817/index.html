@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .preview{display:grid;grid-template-columns:repeat( 4, minmax(250px, 1fr));gap:10px;}
-        .preview > *{display:block;width:100%;margin:auto;}
-        label[for=file]{background:#eee;width:100%;height:250px;}
+        .preview{display:grid;grid-template-columns:repeat( 4, minmax(250px, 1fr));gap:10px;margin:30vh;}
+        .preview > *{display:block;width:100%;margin:auto;aspect-ratio:1/1;background:transparent no-repeat center center / cover;}
+        label[for=file]{background:#eee;}
     </style>
 </head>
 <body>
-<input type="file" name="file" id="file">
+<input type="file" name="file" id="file" style="display:none;">
 
 <div class="preview">
     <label for="file">파일첨부</label>
