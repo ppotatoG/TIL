@@ -1,27 +1,28 @@
-const solution = (record) => {    
-    let answer = '';
-    let tmpArr = [];
+function solution(s) {
+    let minLen = s.length;
 
-    for(let i = 0; i < record.length; i++) {
-        if(record[i] === record[i + 1]) {
-            tmpArr.push(record[i]);
-        }
-
-        else {
-            if(tmpArr.length !== 0) {
-                answer += `${tmpArr.length + 1}${tmpArr[0]}`;
-                tmpArr = [];
+    top: for (let n = 1; n <= s.length / 2; n++) {
+        let curLen = 0;
+        for (let i = 0; i < s.length; i += n) {
+            let counter = 1;
+            while (s.slice(i, i + n) === s.slice(i + n, i + 2 * n)) {
+                i += n;
+                counter++;
             }
-
-            else {
-                answer += record[i];
+            if (counter !== 1) {
+                curLen += n + (counter + "").length;
+            } else {
+                curLen += s.length < i + n ? s.slice(i, i + n).length : n;
             }
+            if (minLen <= curLen) continue top;
         }
+        minLen = curLen;
     }
 
-    return answer; // 2a2ba3c
+    return minLen;
 }
-// console.log(solution('aabbaccc')); // 7
+
+console.log(solution('aabbaccc')); // 7
 console.log(solution('ababcdcdababcdcd'));// 9
 console.log(solution('abcabcdede'));// 8
 console.log(solution('abcabcabcabcdededededede'));// 14
